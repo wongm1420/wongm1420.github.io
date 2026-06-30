@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jonathan Wong</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --sidebar-bg: #1a1a2a;
+      --accent: #5a8f6e;
+      --accent-light: #e8f2ec;
+      --bg: #f2f2f0;
+      --card: #ffffff;
+      --text: #1f1f1f;
+      --muted: #6b6b6b;
+      --border: #e0e0e0;
+      --sidebar-width: 280px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* ── SIDEBAR ── */
+    .sidebar {
+      width: var(--sidebar-width);
+      background: var(--sidebar-bg);
+      position: fixed;
+      top: 0; left: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 24px;
+      overflow-y: auto;
+      z-index: 100;
+    }
+
+    .sidebar-photo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      border: 3px solid var(--accent);
+      margin-bottom: 20px;
+    }
+
+    .sidebar h1 {
+      color: #ffffff;
+      font-size: 1.2rem;
+      font-weight: 700;
+      text-align: center;
+      letter-spacing: 0.01em;
+      margin-bottom: 6px;
+    }
+
+    .sidebar .tagline {
+      color: var(--accent);
+      font-size: 0.78rem;
+      text-align: center;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+      line-height: 1.4;
+    }
+
+    .contact-list {
+      list-style: none;
+      width: 100%;
+      margin-bottom: 32px;
+    }
+
+    .contact-list li { margin-bottom: 12px; }
+
+    .contact-list a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #b0b8c4;
+      text-decoration: none;
+      font-size: 0.82rem;
+      transition: color 0.2s;
+    }
+
+    .contact-list a:hover { color: #ffffff; }
+
+    .contact-list .icon {
+      width: 32px;
+      height: 32px;
+      background: rgba(255,255,255,0.07);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 0.9rem;
+    }
+
+    .sidebar-nav {
+      list-style: none;
+      width: 100%;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 24px;
+    }
+
+    .sidebar-nav li { margin-bottom: 4px; }
+
+    .sidebar-nav a {
+      display: block;
+      color: #8a95a3;
+      text-decoration: none;
+      font-size: 0.84rem;
+      font-weight: 500;
+      padding: 8px 12px;
+      border-radius: 6px;
+      transition: background 0.2s, color 0.2s;
+      letter-spacing: 0.02em;
+    }
+
+    .sidebar-nav a:hover {
+      background: rgba(255,255,255,0.06);
+      color: #ffffff;
+    }
+
+    /* ── MAIN CONTENT ── */
+    .main {
+      margin-left: var(--sidebar-width);
+      flex: 1;
+      padding: 48px 48px 80px;
+      max-width: 860px;
+    }
+
+    section { margin-bottom: 60px; }
+
+    .section-title {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ── ABOUT ── */
+    #about p {
+      font-size: 0.97rem;
+      line-height: 1.8;
+      color: #333;
+      margin-bottom: 14px;
+    }
+
+    #about a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    /* ── FOCUS CARDS ── */
+    .focus-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .focus-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 22px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .focus-card:hover {
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      transform: translateY(-2px);
+    }
+
+    .focus-card .card-icon {
+      width: 38px;
+      height: 38px;
+      background: var(--accent-light);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      margin-bottom: 14px;
+    }
+
+    .focus-card h3 {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .focus-card .org {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .focus-card p {
+      font-size: 0.83rem;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    /* ── RESUME ── */
+    .resume-block { margin-bottom: 36px; }
+
+    .resume-block > h3 {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .resume-item {
+      display: flex;
+      gap: 16px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .resume-item:last-child { border-bottom: none; }
+
+    .resume-date {
+      font-size: 0.75rem;
+      color: var(--muted);
+      white-space: nowrap;
+      min-width: 90px;
+      padding-top: 2px;
+      flex-shrink: 0;
+    }
+
+    .resume-content h4 {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 3px;
+    }
+
+    .resume-content h4 a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .resume-content h4 a:hover { color: var(--accent); }
+
+    .resume-content .company {
+      font-size: 0.8rem;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+
+    .resume-content .one-liner {
+      font-size: 0.84rem;
+      color: #444;
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+
+    .resume-content ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .resume-content ul li {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.55;
+      padding: 2px 0 2px 14px;
+      position: relative;
+    }
+
+    .resume-content ul li::before {
+      content: "–";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    .resume-content > *:last-child { margin-bottom: 0; }
+
+    /* ── PUBLICATIONS ── */
+    .pub-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 24px 28px;
+      margin-bottom: 16px;
+    }
+
+    .pub-card:last-child { margin-bottom: 0; }
+
+    .pub-card .pub-meta {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-bottom: 8px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .pub-card .pub-meta span::before {
+      content: "·";
+      margin-right: 12px;
+    }
+
+    .pub-card .pub-meta span:first-child::before { content: none; }
+
+    .pub-card h3 {
+      font-size: 0.97rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    .pub-card p {
+      font-size: 0.83rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .pub-links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .pub-link {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .pub-link.primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .pub-link.primary:hover { background: #4a7a5d; }
+
+    .pub-link.secondary {
+      background: var(--accent-light);
+      color: var(--accent);
+    }
+
+    .pub-link.secondary:hover { background: #d4e9dc; }
+
+    /* ── AWARDS ── */
+    .awards-list { list-style: none; }
+
+    .awards-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 13px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+
+    .awards-list li:last-child { border-bottom: none; }
+
+    .award-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 6px;
+    }
+
+    .award-org {
+      font-size: 0.75rem;
+      color: var(--muted);
+      display: block;
+      margin-top: 2px;
+    }
+
+    /* ── GALLERY ── */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .gallery-item {
+      position: relative;
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      border-radius: 8px;
+      cursor: pointer;
+      background: var(--border);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover img { transform: scale(1.05); }
+
+    .gallery-item .gallery-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.65));
+      color: #fff;
+      font-size: 0.72rem;
+      padding: 20px 10px 8px;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .gallery-item:hover .gallery-caption { opacity: 1; }
+
+    /* lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.88);
+      z-index: 999;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox.active { display: flex; }
+
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 88vh;
+      border-radius: 6px;
+      object-fit: contain;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 20px; right: 28px;
+      color: #fff;
+      font-size: 2rem;
+      cursor: pointer;
+      line-height: 1;
+      background: none;
+      border: none;
+    }
+
+    .lightbox-caption {
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #ccc;
+      font-size: 0.82rem;
+      text-align: center;
+    }
+
+    @media (max-width: 820px) {
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ── PHOTOGRAPHY ── */
+    .photo-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 28px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .photo-section div h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .photo-section div p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .photo-link {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 7px;
+      font-size: 0.83rem;
+      font-weight: 600;
+      white-space: nowrap;
+      transition: background 0.2s;
+    }
+
+    .photo-link:hover { background: #4a7a5d; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 820px) {
+      body { flex-direction: column; }
+
+      .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 24px;
+        gap: 16px;
+      }
+
+      .sidebar-nav { display: none; }
+
+      .main {
+        margin-left: 0;
+        padding: 32px 20px 60px;
+      }
+
+      .focus-grid { grid-template-columns: 1fr; }
+
+      .photo-section { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── SIDEBAR ── -->
+  <aside class="sidebar">
+    <img
+      src="assets/images/headshot.jpg"
+      alt="Jonathan Wong"
+      class="sidebar-photo"
+    />
+    <h1>Jonathan Wong</h1>
+    <p class="tagline">Global Business Student &amp; Sustainability Advocate</p>
+
+    <ul class="contact-list">
+      <li>
+        <a href="mailto:wongm1420@gmail.com">
+          <span class="icon">✉</span>
+          wongm1420@gmail.com
+        </a>
+      </li>
+      <li>
+        <a href="https://linkedin.com/in/jwong1420" target="_blank" rel="noopener">
+          <span class="icon">in</span>
+          linkedin.com/in/jwong1420
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="icon">📍</span>
+          Hong Kong
+        </a>
+      </li>
+    </ul>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="#about">About</a></li>
+        <li><a href="#focus">What I'm Working On</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#volunteering">Volunteering</a></li>
+        <li><a href="#publications">Works & Publications</a></li>
+        <li><a href="#awards">Awards</a></li>
+        <li><a href="#qualifications">Qualifications</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#photography">Photography</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- ── MAIN ── -->
+  <main class="main">
+
+    <!-- ABOUT -->
+    <section id="about">
+      <p class="section-title">About Me</p>
+      <p>
+        I'm a first-year Global Business student at HKUST with a focus on sustainability
+        and social impact. My core belief is simple: business should be a force for change, not
+        just profit. Everything I work on connects back to that.
+      </p>
+      <p>
+        I co-founded <a href="https://zester.org" target="_blank" rel="noopener">Zester Limited</a>,
+        a Hong Kong social enterprise that makes SDG education genuinely engaging through a
+        gamified card game, a digital learning platform, and a youth innovation competition.
+        Zester has reached 30,000+ students across schools and corporations including HSBC, BNY,
+        and TTI, and was recognised as JA Asia Pacific Company of the Year out of 81,000+
+        students.
+      </p>
+      <p>
+        Alongside Zester, I intern at HKSTP's Ecosystem Development and Partnerships team,
+        consult on real client projects through ICC at HKUST, and volunteer as a policy researcher
+        at Liber Research Community. I'm drawn to the intersections of sustainability, strategy,
+        and innovation ecosystems — and always looking for where business can drive the most
+        meaningful change.
+      </p>
+    </section>
+
+    <!-- FOCUS -->
+    <section id="focus">
+      <p class="section-title">What I'm Working On</p>
+      <div class="focus-grid">
+
+        <div class="focus-card">
+          <div class="card-icon">🌱</div>
+          <div class="org">Zester Limited</div>
+          <h3>Sustainable Edutainment</h3>
+          <p>
+            Co-founder and CFO of a social enterprise redefining SDG education through a
+            gamified card game, ZestLabs digital platform, and the SDG Innovation League.
+          </p>
+        </div>
+
+        <div class="focus-card">
+          <div class="card-icon">🚀</div>
+          <div class="org">HKSTP</div>
+          <h3>Innovation Ecosystems</h3>
+          <p>
+            Intern at Hong Kong Science and Technology Parks Corporation's Ecosystem
+            Development and Partnerships team, supporting startup ecosystem growth.
+          </p>
+        </div>
+
+        <div class="focus-card">
+          <div class="card-icon">📊</div>
+          <div class="org">ICC at HKUST</div>
+          <h3>Strategy Consulting</h3>
+          <p>
+            Project consultant working on real client engagements — market analysis, brand
+            strategy, and expansion planning for companies across Hong Kong.
+          </p>
+        </div>
+
+        <div class="focus-card">
+          <div class="card-icon">🔍</div>
+          <div class="org">Liber Research Community</div>
+          <h3>Policy Research</h3>
+          <p>
+            Volunteer researcher at an independent Hong Kong policy think tank, contributing
+            to evidence-based research on labour markets, housing, and urban policy.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- RESUME -->
+    <section id="resume">
+      <p class="section-title">Resume</p>
+
+      <div class="resume-block">
+        <h3>Education</h3>
+
+        <div class="resume-item">
+          <span class="resume-date">2025 – 2029</span>
+          <div class="resume-content">
+            <h4>BBA Global Business</h4>
+            <div class="company">Hong Kong University of Science and Technology (HKUST)</div>
+          </div>
+        </div>
+
+        <div class="resume-item">
+          <span class="resume-date">2023 – 2025</span>
+          <div class="resume-content">
+            <h4>IB Diploma — 43/45</h4>
+            <div class="company">Island School, Hong Kong</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="resume-block">
+        <h3>Experience</h3>
+
+        <div class="resume-item">
+          <span class="resume-date">Jul – Aug 2026</span>
+          <div class="resume-content">
+            <h4>Summer Intern, Ecosystem Development &amp; Partnerships</h4>
+            <div class="company">Hong Kong Science and Technology Parks (HKSTP)</div>
+            <p class="one-liner">Supporting Hong Kong's flagship tech park in building its startup and innovation ecosystem.</p>
+            <ul>
+              <li>Partner outreach and relationship management across HKSTP's corporate and university network</li>
+              <li>Research and analysis to support ecosystem development initiatives</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="resume-item">
+          <span class="resume-date">Apr 2026 – Present</span>
+          <div class="resume-content">
+            <h4>
+              <a href="https://liber-research.com/liber-research-home-page/" target="_blank" rel="noopener">Researcher (Volunteer) ↗</a>
+            </h4>
+            <div class="company">Liber Research Community</div>
+            <p class="one-liner">Contributing evidence-based policy research to an independent Hong Kong think tank.</p>
+            <ul>
+              <li>Cross-city comparative study on job vacancy trends across major global cities — examining whether declining job openings reflect a local HK issue or a broader global pattern</li>
+              <li>Sourcing and analysing public datasets; developing analytical write-ups for policy audiences</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="resume-item">
+          <span class="resume-date">Sep 2025 – Present</span>
+          <div class="resume-content">
+            <h4>Project Consultant</h4>
+            <div class="company">International Consulting Club (ICC) at HKUST</div>
+            <p class="one-liner">Delivering real consulting engagements for external clients through HKUST's student consulting club.</p>
+            <ul>
+              <li>Brand strategy and market expansion for Swalty, a women's premium activewear brand</li>
+              <li>Market and competitor analysis, retail expansion assessment, and revenue growth opportunities across offline and overseas channels</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="resume-item">
+          <span class="resume-date">Sep 2023 – Present</span>
+          <div class="resume-content">
+            <h4>
+              <a href="https://zester.org" target="_blank" rel="noopener">Co-founder, COO &amp; CFO ↗</a>
+            </h4>
+            <div class="company">Zester Limited</div>
+            <p class="one-liner">Co-founded and scaled a sustainability social enterprise from a school project to an internationally recognised company.</p>
+            <ul>
+              <li>Oversee operations, finance, partner relationships, and SDG workshop delivery as COO and CFO</li>
+              <li>44+ schools and 7–10 corporations (HSBC, BNY, TTI) integrated; 30,000+ students reached including 2,000+ on the ZestLabs digital platform</li>
+              <li>SDG Innovation League: 250+ participants across 17 schools, co-organised with HKU and Ocean Park, HK$350K+ in sponsorship secured</li>
+              <li>Delivered workshops in Hong Kong and London (UCL, 120 students)</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- VOLUNTEERING -->
+    <section id="volunteering">
+      <p class="section-title">Volunteering</p>
+
+      <div class="resume-block">
+
+        <div class="resume-item">
+          <span class="resume-date">Sep 2023 – Mar 2024</span>
+          <div class="resume-content">
+            <h4>Mentor</h4>
+            <div class="company">Service For All — ESF Island School</div>
+            <p class="one-liner">Designing and delivering English communication sessions for secondary students across Hong Kong.</p>
+            <ul>
+              <li>Led a team of 4 to create and run four extracurricular sessions for Form 1–3 students, enhancing English communication and delivery skills in an interactive format</li>
+              <li>Delivered at CCC Ming Kei College and ELCHK Lutheran Secondary School</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="resume-item">
+          <span class="resume-date">Jan – Apr 2023</span>
+          <div class="resume-content">
+            <h4>PYP Exhibition Mentor</h4>
+            <div class="company">ESF Beacon Hill School</div>
+            <p class="one-liner">Mentoring Year 6 students through their PYP Exhibition collaborative inquiry project.</p>
+          </div>
+        </div>
+
+        <div class="resume-item">
+          <span class="resume-date">Oct 2022 – Apr 2023</span>
+          <div class="resume-content">
+            <h4>Assistant Mentor</h4>
+            <div class="company">Sprouts Foundation</div>
+            <p class="one-liner">Planning and delivering weekly after-school English sessions for primary students in Hong Kong.</p>
+            <ul>
+              <li>Interactive activities for a class of 20 P1–P3 students at PLK Mrs Chan Nam Chong Memorial Primary School</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PUBLICATIONS -->
+    <section id="publications">
+      <p class="section-title">Works &amp; Publications</p>
+
+      <div class="pub-card">
+        <div class="pub-meta">
+          <span>Liber Research Community</span>
+          <span>HK01 · 2026</span>
+          <span>Labour Economics</span>
+        </div>
+        <h3>Cross-City Comparative Study on Job Vacancy Trends</h3>
+        <p>
+          A policy research piece examining job vacancy trends across major global cities,
+          exploring whether Hong Kong's declining job openings reflect a local labour market issue
+          or a broader global pattern. Published through Liber Research Community's channels.
+          The findings were subsequently cited in HK01.
+        </p>
+        <div class="pub-links">
+          <a href="https://www.facebook.com/watch/?v=1002691825947359" target="_blank" rel="noopener" class="pub-link primary">View on Facebook ↗</a>
+          <a href="https://www.instagram.com/p/DYZcJVCkjuf/" target="_blank" rel="noopener" class="pub-link primary">View on Instagram ↗</a>
+          <a href="https://www.hk01.com/01%E8%AB%86%E5%A3%87/60353952/%E4%BE%86%E7%A8%BF-3-7-%E7%9A%84%E4%BD%8E%E5%A4%B1%E6%A5%AD%E7%8E%87%E4%B8%8B-%E5%B8%82%E6%B0%91%E7%82%BA%E4%BD%95%E4%BB%8D-%E6%90%B5%E5%B7%A5%E9%9B%A3" target="_blank" rel="noopener" class="pub-link secondary">Cited in HK01 ↗</a>
+        </div>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-meta">
+          <span>Zester Limited</span>
+          <span>Press Coverage</span>
+        </div>
+        <h3>Media Coverage</h3>
+        <p>
+          Zester's work has been covered across Hong Kong media, including features on the
+          SDG Innovation League and the HSBC x JA Hong Kong Company Programme.
+        </p>
+        <div class="pub-links">
+          <a href="https://www.youngpostclub.com/posties/kids/school-week/article/3261528/school-week-island-school" target="_blank" rel="noopener" class="pub-link primary">Young Post ↗</a>
+          <a href="https://topick.hket.com/article/3731761/%E5%85%A8%E6%B8%AF%E8%A6%8F%E6%A8%A1%E6%9C%80%E5%A4%A7%E9%9D%92%E5%B9%B4%E5%89%B5%E6%A5%AD%E8%A8%88%E5%8A%83%20%C2%A0%E6%BB%99%E8%B1%90%E9%8A%80%E8%A1%8C%E6%85%88%E5%96%84%E5%9F%BA%E9%87%91%E5%8A%A9%E5%AD%B8%E7%94%9F%E6%88%90%E5%B0%B1%E7%90%86%E6%83%B3" target="_blank" rel="noopener" class="pub-link primary">HKET ↗</a>
+          <a href="https://www.facebook.com/education.hku/posts/%F0%9D%90%92%F0%9D%90%83%F0%9D%90%86-%F0%9D%90%88%F0%9D%90%A7%F0%9D%90%A7%F0%9D%90%A8%F0%9D%90%AF%F0%9D%90%9A%F0%9D%90%AD%F0%9D%90%A2%F0%9D%90%A8%F0%9D%90%A7-%F0%9D%90%8B%F0%9D%90%9E%F0%9D%90%9A%F0%9D%90%A0%F0%9D%90%AE%F0%9D%90%9E-%F0%9D%90%82%F0%9D%90%9E%F0%9D%90%A5%F0%9D%90%9E%F0%9D%90%9B%F0%9D%90%AB%F0%9D%90%9A%F0%9D%90%AD%F0%9D%90%9E%F0%9D%90%AC-%F0%9D%90%92%F0%9D%90%AE%F0%9D%90%9C%F0%9D%90%9C%F0%9D%90%9E%F0%9D%90%AC%F0%9D%90%9F%F0%9D%90%AE%F0%9D%90%A5-%F0%9D%90%82%F0%9D%90%A8%F0%9D%90%A7%F0%9D%90%9C%F0%9D%90%A5%F0%9D%90%AE%F0%9D%90%AC%F0%9D%90%A2%F0%9D%90%A8%F0%9D%90%A7-the-sdg-innovation-league/1052279943587204/" target="_blank" rel="noopener" class="pub-link primary">HKU Education (SDG Innovation League) ↗</a>
+          <a href="https://www.hk01.com/%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%A0%A1%E5%9C%92/999060/1800%E4%B8%AD%E5%AD%B8%E7%94%9F%E5%8F%83%E5%8A%A0%E5%89%B5%E6%A5%AD%E8%A8%88%E5%8A%83-%E6%8B%94%E8%90%83%E5%A5%B3%E6%9B%B8%E9%99%A2%E9%9A%8A%E4%BC%8D%E8%A3%BD%E7%94%A2%E5%93%81%E4%BF%83%E5%8B%BF%E6%AD%A7%E8%A6%96%E7%99%BD%E5%8C%96%E7%97%85%E4%BA%BA" target="_blank" rel="noopener" class="pub-link primary">HK01 ↗</a>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- AWARDS -->
+    <section id="awards">
+      <p class="section-title">Awards</p>
+
+      <div class="resume-block">
+        <h3>Zester Limited</h3>
+        <ul class="awards-list">
+
+          <li>
+            <span class="award-dot"></span>
+            <div>
+              JA Company of the Year 2025 — 1st Place
+              <span class="award-org">JA Asia Pacific · Mar 2025 · 81,000+ students</span>
+            </div>
+          </li>
+
+          <li>
+            <span class="award-dot"></span>
+            <div>
+              BNY Resilient Futures Award
+              <span class="award-org">JA Asia Pacific / Bank of New York · Mar 2025</span>
+            </div>
+          </li>
+
+          <li>
+            <span class="award-dot"></span>
+            <div>
+              PMIEF Best Application of Project Management Award — 1st Place
+              <span class="award-org">JA Asia Pacific / Project Management Institute Educational Foundation · Mar 2025</span>
+            </div>
+          </li>
+
+          <li>
+            <span class="award-dot"></span>
+            <div>
+              JA Company of the Year — Champion
+              <span class="award-org">Junior Achievement Hong Kong · Apr 2024</span>
+            </div>
+          </li>
+
+          <li>
+            <span class="award-dot"></span>
+            <div>
+              Best Offering Award — Champion
+              <span class="award-org">Junior Achievement Hong Kong · Apr 2024</span>
+            </div>
+          </li>
+
+          <li>
+            <span class="award-dot"></span>
+            <div>
+              Most Popular Offering Award
+              <span class="award-org">Junior Achievement Hong Kong · Apr 2024</span>
+            </div>
+          </li>
+
+          <li>
+            <span class="award-dot"></span>
+            <div>
+              Innovation Award
+              <span class="award-org">Junior Achievement Hong Kong · Apr 2024</span>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+
+      <div class="resume-block">
+        <h3>Other</h3>
+        <ul class="awards-list">
+
+          <li>
+            <span class="award-dot"></span>
+            <div>
+              ESF Chairman's Award for Excellence — Outstanding Academic Achievement
+              <span class="award-org">English Schools Foundation · Aug 2025</span>
+            </div>
+          </li>
+
+          <li>
+            <span class="award-dot"></span>
+            <div>
+              Silver Level — Hong Kong Award for Young People
+              <span class="award-org">HKAYP · Jan 2024</span>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+
+    </section>
+
+    <!-- QUALIFICATIONS -->
+    <section id="qualifications">
+      <p class="section-title">Qualifications</p>
+      <ul class="awards-list">
+
+        <li>
+          <span class="award-dot"></span>
+          <div>
+            Member, Emerging Leader Ecosystem
+            <span class="award-org">Future Talent Council · Apr 2026</span>
+          </div>
+        </li>
+
+        <li>
+          <span class="award-dot"></span>
+          <div>
+            Student Affiliate
+            <span class="award-org">Royal Aeronautical Society · May 2026 · Credential ID 3075490</span>
+          </div>
+        </li>
+
+        <li>
+          <span class="award-dot"></span>
+          <div>
+            Kickoff — Project Management Course
+            <span class="award-org">Project Management Institute · May 2025</span>
+          </div>
+        </li>
+
+      </ul>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery">
+      <p class="section-title">Gallery</p>
+      <div class="gallery-grid">
+
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="assets/images/gallery/photo1.jpg" alt="JA Asia Pacific Company of the Year" />
+          <div class="gallery-caption">JA Asia Pacific Company of the Year · Mar 2025</div>
+        </div>
+
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="assets/images/gallery/photo2.jpg" alt="SDG Innovation League" />
+          <div class="gallery-caption">SDG Innovation League · Dec 2024</div>
+        </div>
+
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="assets/images/gallery/photo3.jpg" alt="UCL Workshop, London" />
+          <div class="gallery-caption">UCL Entrepreneurship & Sustainable Development · Mar 2026</div>
+        </div>
+
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="assets/images/gallery/photo4.jpg" alt="HSBC x JA HK Company of the Year" />
+          <div class="gallery-caption">HSBC x JA HK Company of the Year · Apr 2024</div>
+        </div>
+
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="assets/images/gallery/photo5.jpg" alt="Zester Workshop" />
+          <div class="gallery-caption">Zester SDG Workshop</div>
+        </div>
+
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="assets/images/gallery/photo6.jpg" alt="De La Vega Awards" />
+          <div class="gallery-caption">De La Vega Global Entrepreneurship Award</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+      <button class="lightbox-close" onclick="closeLightbox()">&#x2715;</button>
+      <img id="lightbox-img" src="" alt="" />
+      <div class="lightbox-caption" id="lightbox-caption"></div>
+    </div>
+
+    <!-- PHOTOGRAPHY -->
+    <section id="photography">
+      <p class="section-title">Photography</p>
+      <div class="photo-section">
+        <div>
+          <h3>Visual Storytelling</h3>
+          <p>
+            Photography is how I slow down and pay attention. I shoot landscapes, travel, and
+            street — always looking for the frame that says something a caption can't.
+          </p>
+        </div>
+        <a
+          href="https://jonathanwong.mypixieset.com/"
+          target="_blank"
+          rel="noopener"
+          class="photo-link"
+        >
+          View Portfolio →
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    function openLightbox(el) {
+      const img = el.querySelector('img');
+      const caption = el.querySelector('.gallery-caption');
+      document.getElementById('lightbox-img').src = img.src;
+      document.getElementById('lightbox-img').alt = img.alt;
+      document.getElementById('lightbox-caption').textContent = caption ? caption.textContent : '';
+      document.getElementById('lightbox').classList.add('active');
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('active');
+    }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+  </script>
+</body>
+</html>
