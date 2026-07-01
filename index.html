@@ -497,6 +497,74 @@
       .gallery-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
+    /* ── PROJECTS ── */
+    .project-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 20px;
+    }
+
+    .project-card:last-child { margin-bottom: 0; }
+
+    .project-meta {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 8px;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .project-date {
+      color: var(--accent);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .project-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .project-org {
+      font-size: 0.83rem;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .project-card p {
+      font-size: 0.875rem;
+      color: var(--text);
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+
+    .project-card ul {
+      padding-left: 18px;
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .project-card ul li { margin-bottom: 4px; }
+
+    .project-link {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .project-link:hover { text-decoration: underline; }
+
     /* ── BLOG ── */
     .blog-feed {
       display: flex;
@@ -675,6 +743,7 @@
         <li><a href="#about">About</a></li>
         <li><a href="#focus">What I'm Working On</a></li>
         <li><a href="#resume">Resume</a></li>
+        <li><a href="#projects">Projects</a></li>
         <li><a href="#volunteering">Volunteering</a></li>
         <li><a href="#publications">Works & Publications</a></li>
         <li><a href="#awards">Awards</a></li>
@@ -847,7 +916,70 @@
           </div>
         </div>
 
+        <div class="resume-item">
+          <span class="resume-date">Jul – Aug 2025</span>
+          <div class="resume-content">
+            <h4>Summer Intern, Accounting</h4>
+            <div class="company">LHT CPA Limited</div>
+            <p class="one-liner">Audit support at a certified public accounting firm, working across property due diligence and client advisory.</p>
+            <ul>
+              <li>Conducted company and land searches on ~80 properties to support audit evidence gathering for 8 clients</li>
+              <li>Researched Panama ship registry regulations to verify client asset ownership for audit purposes</li>
+              <li>Analysed partnership and JV structures for a client case; delivered recommendations with 2 preferred structures</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="resume-item">
+          <span class="resume-date">Dec 2022 – Jan 2025</span>
+          <div class="resume-content">
+            <h4>Enumerator</h4>
+            <div class="company">Systra MVA Hong Kong</div>
+            <p class="one-liner">Part-time data collection role conducting government-commissioned passenger surveys across Hong Kong's public transport network.</p>
+            <ul>
+              <li>Surveys covered 7 government-commissioned transport studies, including the annual $2 Transport Concession Scheme audit</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="resume-item">
+          <span class="resume-date">Jul – Aug 2020</span>
+          <div class="resume-content">
+            <h4>Summer Intern, Accounting</h4>
+            <div class="company">C.M. Wong &amp; Company</div>
+            <p class="one-liner">First accounting internship supporting bookkeeping and company secretarial work across a range of clients.</p>
+            <ul>
+              <li>Compiled financial records and assisted with data entry and bookkeeping for various clients</li>
+              <li>Assisted with company secretary duties including Company Registration and Business Registration</li>
+            </ul>
+          </div>
+        </div>
+
       </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <p class="section-title">Projects</p>
+
+      <div class="project-card">
+        <div class="project-meta">
+          <span class="project-date">Dec 2024 – Apr 2025</span>
+          <span>Zester Limited &times; HKU &times; Ocean Park</span>
+        </div>
+        <h3>SDG Innovation League</h3>
+        <div class="project-org">Head of Operations &amp; Finance, Organising Committee</div>
+        <p>A three-phase sustainability innovation competition for secondary school students across Hong Kong, co-organised with HKU Faculty of Education, Ocean Park, and UN SDSN HK. Over 250 students across 17 schools participated to ideate, implement, and pitch SDG projects to industry judges.</p>
+        <ul>
+          <li>Secured HK$350K+ in sponsorship from HKU, Ocean Park, and UN SDSN HK through tailored proposals and stakeholder negotiations</li>
+          <li>Directed end-to-end logistics and operations across all three phases, including a full-day launch event and final judging round</li>
+          <li>Coordinated 62 staff and volunteers; built registration and communication systems for 250+ participants</li>
+          <li>Managed event budgeting and expense tracking; delivered on budget and on schedule</li>
+        </ul>
+        <!-- Add your "View details" link here when ready:
+        <a class="project-link" href="#">View full project ↗</a> -->
+      </div>
+
     </section>
 
     <!-- VOLUNTEERING -->
