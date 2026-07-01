@@ -8,7 +8,8 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --sidebar-bg: #1a1a2a;
+      --nav-bg: #1a1a2a;
+      --nav-height: 64px;
       --accent: #5a8f6e;
       --accent-light: #e8f2ec;
       --bg: #f2f2f0;
@@ -16,7 +17,6 @@
       --text: #1f1f1f;
       --muted: #6b6b6b;
       --border: #e0e0e0;
-      --sidebar-width: 280px;
     }
 
     html { scroll-behavior: smooth; }
@@ -25,124 +25,81 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       background: var(--bg);
       color: var(--text);
-      display: flex;
-      min-height: 100vh;
+      padding-top: var(--nav-height);
     }
 
-    /* ── SIDEBAR ── */
-    .sidebar {
-      width: var(--sidebar-width);
-      background: var(--sidebar-bg);
+    /* ── TOP NAV ── */
+    .topnav {
       position: fixed;
-      top: 0; left: 0;
-      height: 100vh;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      background: var(--nav-bg);
       display: flex;
-      flex-direction: column;
       align-items: center;
-      padding: 40px 24px;
-      overflow-y: auto;
+      justify-content: space-between;
+      padding: 0 48px;
       z-index: 100;
+      box-shadow: 0 1px 10px rgba(0,0,0,0.2);
     }
 
-    .sidebar-photo {
-      width: 120px;
-      height: 120px;
+    .topnav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .topnav-photo {
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
       object-fit: cover;
       object-position: center top;
-      border: 3px solid var(--accent);
-      margin-bottom: 20px;
-    }
-
-    .sidebar h1 {
-      color: #ffffff;
-      font-size: 1.2rem;
-      font-weight: 700;
-      text-align: center;
-      letter-spacing: 0.01em;
-      margin-bottom: 6px;
-    }
-
-    .sidebar .tagline {
-      color: var(--accent);
-      font-size: 0.78rem;
-      text-align: center;
-      font-weight: 500;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      margin-bottom: 28px;
-      line-height: 1.4;
-    }
-
-    .contact-list {
-      list-style: none;
-      width: 100%;
-      margin-bottom: 32px;
-    }
-
-    .contact-list li { margin-bottom: 12px; }
-
-    .contact-list a {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: #b0b8c4;
-      text-decoration: none;
-      font-size: 0.82rem;
-      transition: color 0.2s;
-    }
-
-    .contact-list a:hover { color: #ffffff; }
-
-    .contact-list .icon {
-      width: 32px;
-      height: 32px;
-      background: rgba(255,255,255,0.07);
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      border: 2px solid var(--accent);
       flex-shrink: 0;
-      font-size: 0.9rem;
     }
 
-    .sidebar-nav {
+    .topnav-name {
+      color: #ffffff;
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+
+    .topnav-links {
       list-style: none;
-      width: 100%;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      padding-top: 24px;
+      display: flex;
+      gap: 4px;
+      align-items: center;
     }
 
-    .sidebar-nav li { margin-bottom: 4px; }
-
-    .sidebar-nav a {
+    .topnav-links a {
       display: block;
       color: #8a95a3;
       text-decoration: none;
-      font-size: 0.84rem;
-      font-weight: 500;
-      padding: 8px 12px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 8px 18px;
       border-radius: 6px;
       transition: background 0.2s, color 0.2s;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.01em;
     }
 
-    .sidebar-nav a:hover {
-      background: rgba(255,255,255,0.06);
+    .topnav-links a:hover {
+      background: rgba(255,255,255,0.07);
       color: #ffffff;
     }
 
-    .sidebar-nav a.active {
-      background: rgba(90,143,110,0.2);
+    .topnav-links a.active {
+      background: rgba(90,143,110,0.22);
       color: var(--accent);
     }
 
     /* ── MAIN CONTENT ── */
     .main {
-      margin-left: var(--sidebar-width);
-      flex: 1;
-      padding: 48px 48px 80px;
       max-width: 860px;
+      margin: 0 auto;
+      padding: 52px 48px 80px;
     }
 
     section { margin-bottom: 60px; }
@@ -166,228 +123,196 @@
       background: var(--border);
     }
 
-    /* ── BLOG POSTS ── */
+    /* ── BLOG ── */
+    .blog-feed {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
     .blog-post {
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 12px;
       overflow: hidden;
-      margin-bottom: 28px;
-      transition: box-shadow 0.2s, transform 0.2s;
-    }
-
-    .blog-post:last-of-type { margin-bottom: 0; }
-
-    .blog-post:hover {
-      box-shadow: 0 4px 20px rgba(0,0,0,0.09);
-      transform: translateY(-2px);
     }
 
     .blog-post-img {
       width: 100%;
-      height: 220px;
+      max-height: 420px;
       object-fit: cover;
       display: block;
     }
 
-    .blog-post-body { padding: 24px; }
+    .blog-post-body {
+      padding: 28px 32px 24px;
+    }
 
     .blog-post-date {
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      font-size: 0.75rem;
       color: var(--accent);
-      margin-bottom: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 14px;
     }
 
     .blog-post-text {
-      font-size: 0.88rem;
-      line-height: 1.75;
-      color: #333;
-      margin-bottom: 16px;
+      font-size: 0.925rem;
+      color: var(--text);
+      line-height: 1.8;
+      white-space: pre-line;
     }
 
     .blog-post-footer {
-      border-top: 1px solid var(--border);
+      margin-top: 20px;
       padding-top: 14px;
+      border-top: 1px solid var(--border);
     }
 
     .blog-post-footer a {
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--accent);
+      font-size: 0.78rem;
+      color: var(--muted);
       text-decoration: none;
     }
 
-    .blog-post-footer a:hover { text-decoration: underline; }
+    .blog-post-footer a:hover { color: var(--accent); }
 
     .blog-cta {
-      background: var(--accent-light);
-      border: 1px solid #c4dece;
-      border-radius: 10px;
-      padding: 22px 24px;
+      margin-top: 24px;
       text-align: center;
-      margin-top: 36px;
-    }
-
-    .blog-cta p {
-      font-size: 0.88rem;
-      color: #3a6b4e;
-      margin-bottom: 12px;
     }
 
     .blog-cta a {
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: var(--accent);
+      display: inline-block;
+      background: var(--accent);
+      color: white;
       text-decoration: none;
+      padding: 10px 22px;
+      border-radius: 7px;
+      font-size: 0.83rem;
+      font-weight: 600;
+      transition: background 0.2s;
     }
 
-    .blog-cta a:hover { text-decoration: underline; }
+    .blog-cta a:hover { background: #4a7a5e; }
 
     /* ── RESPONSIVE ── */
-    @media (max-width: 820px) {
-      body { flex-direction: column; }
-      .sidebar {
-        position: relative;
-        width: 100%;
-        height: auto;
-        flex-direction: row;
-        flex-wrap: wrap;
-        padding: 24px;
-        gap: 16px;
-      }
-      .sidebar-nav { display: none; }
-      .main { margin-left: 0; padding: 32px 20px 60px; }
+    @media (max-width: 760px) {
+      .topnav { padding: 0 20px; }
+      .topnav-name { display: none; }
+      .topnav-links a { padding: 8px 12px; font-size: 0.88rem; }
+      .main { padding: 36px 20px 60px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- ── SIDEBAR ── -->
-  <aside class="sidebar">
-    <img src="assets/images/headshot.jpg" alt="Jonathan Wong" class="sidebar-photo" />
-    <h1>Jonathan Wong</h1>
-    <p class="tagline">Global Business Student &amp; Sustainability Advocate</p>
-
-    <ul class="contact-list">
-      <li>
-        <a href="mailto:wongm1420@gmail.com">
-          <span class="icon">✉</span>
-          wongm1420@gmail.com
-        </a>
-      </li>
-      <li>
-        <a href="https://linkedin.com/in/jwong1420" target="_blank" rel="noopener">
-          <span class="icon">in</span>
-          linkedin.com/in/jwong1420
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <span class="icon">📍</span>
-          Hong Kong
-        </a>
-      </li>
-    </ul>
-
+  <!-- ── TOP NAV ── -->
+  <header class="topnav">
+    <a href="index.html" class="topnav-brand">
+      <img src="assets/images/headshot.jpg" alt="Jonathan Wong" class="topnav-photo" />
+      <span class="topnav-name">Jonathan Wong</span>
+    </a>
     <nav>
-      <ul class="sidebar-nav">
+      <ul class="topnav-links">
         <li><a href="index.html">About</a></li>
         <li><a href="resume.html">Resume</a></li>
         <li><a href="blog.html" class="active">Blog</a></li>
       </ul>
     </nav>
-  </aside>
+  </header>
 
   <!-- ── MAIN ── -->
   <main class="main">
 
+    <!-- BLOG / THOUGHTS -->
     <section id="blog">
-      <p class="section-title">Blog</p>
+      <p class="section-title">Thoughts</p>
+      <div class="blog-feed">
 
-      <article class="blog-post">
-        <img class="blog-post-img" src="assets/images/blog/blog1.jpg" alt="Management Consulting taster programme">
-        <div class="blog-post-body">
-          <p class="blog-post-date">June 2026</p>
-          <p class="blog-post-text">
-            Last week I had the chance to join a management consulting taster programme. Three days,
-            real client briefs, tight deadlines. I went in expecting to learn about slide decks and
-            frameworks. What I actually learned was how much of consulting is about asking the right
-            question before you answer anything. The teams that struggled weren't the ones with weaker
-            analysis — they were the ones that ran hard in the wrong direction. The discipline of
-            pausing to challenge your own assumptions before diving in is something I'm bringing back
-            to everything I do at Zester and ICC.
-          </p>
-          <div class="blog-post-footer">
-            <a href="https://www.linkedin.com/in/jwong1420/" target="_blank" rel="noopener">Originally posted on LinkedIn →</a>
+        <!--
+          HOW TO ADD A NEW POST:
+          1. Copy an <article class="blog-post"> block below.
+          2. Paste it at the TOP of the feed (newest first).
+          3. Update the date, post text, and LinkedIn URL.
+          4. If the post has a photo: save it to assets/images/blog/ (e.g. post4.jpg)
+             and uncomment the <img> line, updating src and alt.
+          5. If there is no photo, leave the <img> line commented out.
+        -->
+
+        <!-- POST 1 · June 2026 · Management Consulting taster programme -->
+        <article class="blog-post">
+          <img class="blog-post-img" src="assets/images/blog/blog1.jpg" alt="Management Consulting taster programme">
+          <div class="blog-post-body">
+            <p class="blog-post-date">June 2026</p>
+            <p class="blog-post-text">Honoured to support the final day of a four-day Management Consulting taster programme, where secondary school students worked to answer a challenging question: how can different stakeholder groups contribute towards improving the lives of Hong Kong's elderly?
+
+What inspired me most wasn't the final presentations, but the process behind them. Rather than jumping straight into solutions, students spent time speaking directly with ethnic minority elderly members of the community, conducting street interviews and asking thoughtful questions to understand the challenges they face. I witnessed students actively take notes, challenge assumptions, and refine their ideas based on what they learned on the ground.
+
+It was a reminder that meaningful solutions rarely come from sitting behind a laptop. They come from immersing yourself in a problem, listening carefully to the people who experience it firsthand, and being willing to have your assumptions challenged.
+
+Thank you to Spencer Liu for the invitation and opportunity to contribute, the team at The Zubin Foundation for facilitating such engaging discussions with the elderly, and to OWN Academy for facilitating an engaging week of learning.</p>
+            <div class="blog-post-footer">
+              <a href="https://www.linkedin.com/feed/update/urn:li:activity:7471795481015119872/" target="_blank" rel="noopener">Originally posted on LinkedIn →</a>
+            </div>
           </div>
-        </div>
-      </article>
+        </article>
 
-      <article class="blog-post">
-        <img class="blog-post-img" src="assets/images/blog/blog2.jpg" alt="HKSTP first week">
-        <div class="blog-post-body">
-          <p class="blog-post-date">June 2026</p>
-          <p class="blog-post-text">
-            First week at HKSTP done. The scale of what's happening at Pak Shek Kok is genuinely
-            striking — hundreds of startups, labs, and deep-tech teams all in one place, many of them
-            working on problems I had no idea were being tackled at this stage. What surprised me most
-            is how relationship-driven the ecosystem is. The formal structures matter, but the informal
-            connections between founders, corporates, and institutions seem to do a lot of the actual
-            work. Excited to dig into the Ecosystem Development and Partnerships side of things over
-            the coming months.
-          </p>
-          <div class="blog-post-footer">
-            <a href="https://www.linkedin.com/in/jwong1420/" target="_blank" rel="noopener">Originally posted on LinkedIn →</a>
+        <!-- POST 2 · May 2026 · Dinner with Prof. David Hagmann -->
+        <article class="blog-post">
+          <img class="blog-post-img" src="assets/images/blog/blog2.jpg" alt="Dinner with Prof. David Hagmann">
+          <div class="blog-post-body">
+            <p class="blog-post-date">May 2026</p>
+            <p class="blog-post-text">Grateful to have Prof. David Hagmann join Austin Lee and me for dinner, through HKUST's "Take Faculty to Lunch" (or dinner) program. A wonderful opportunity to know more about professors and their experiences beyond the classroom, discussing our views on everything from careers, geopolitics, and the economy to the lifestyle of academics and the importance of a good mindset.
+
+My key takeaway from Prof. Hagmann was to stay in the present; worries about the future are for our future self, and it will work out in the end (evidently, as we all had commitments early next morning!)
+
+Highly recommended opportunity for students to sign up and learn more about their faculty!</p>
+            <div class="blog-post-footer">
+              <a href="https://www.linkedin.com/feed/update/urn:li:activity:7450786988137394176/" target="_blank" rel="noopener">Originally posted on LinkedIn →</a>
+            </div>
           </div>
-        </div>
-      </article>
+        </article>
 
-      <article class="blog-post">
-        <img class="blog-post-img" src="assets/images/blog/blog3.jpg" alt="Zester year one reflections">
-        <div class="blog-post-body">
-          <p class="blog-post-date">May 2026</p>
-          <p class="blog-post-text">
-            Zester just crossed 30,000 students reached. When we started, the goal was to make SDG
-            education feel less like a checkbox and more like something that actually sticks. A card
-            game felt absurd at the time. Now it's one of the things schools keep coming back for.
-            The bigger lesson from year one: distribution beats product in early-stage social impact.
-            We spent too long refining before we put things in front of real students. Every piece of
-            feedback we got from actually running sessions was worth more than weeks of internal
-            iteration. That's the thing I'd tell anyone starting something similar.
-          </p>
-          <div class="blog-post-footer">
-            <a href="https://www.linkedin.com/in/jwong1420/" target="_blank" rel="noopener">Originally posted on LinkedIn →</a>
+        <!-- POST 3 · April 2026 · HSBC x JA Innovation Pop-up emcee -->
+        <article class="blog-post">
+          <img class="blog-post-img" src="assets/images/blog/blog3.jpg" alt="HSBC x JA HK Innovation Pop-up">
+          <div class="blog-post-body">
+            <p class="blog-post-date">April 2026</p>
+            <p class="blog-post-text">Honoured to emcee at the HSBC Hong Kong x JA Innovation Pop-up this past weekend. Truly a full circle moment for me since I first participated in the Company Program in 2023/24 through Zester Limited.
+
+Having spoken to the CEOs and students of many teams, one quality in particular shone through: Resilience.
+
+Apart from juggling the usual academics, team dynamics and supplier delays, teams this year were also faced with a different challenge: the fallout of the tragic Tai Po fire. Despite the circumstances, the ways in which they overcame adversity continuously inspired me, finding leads and making sales in innovative ways. They reminded me that with passion, determination and a bit of optimism, every setback is simply a setup for a stronger comeback when approached with the right mindset.
+
+Thank you to Vivian Cheuk Wai Choi, Coco Wan and the team at Junior Achievement Hong Kong for orchestrating such a well-run event, and to Aurora ip for partnering with me as emcee. Looking forward to the final awards in April!</p>
+            <div class="blog-post-footer">
+              <a href="https://www.linkedin.com/feed/update/urn:li:activity:7436946448874729472/" target="_blank" rel="noopener">Originally posted on LinkedIn →</a>
+            </div>
           </div>
-        </div>
-      </article>
+        </article>
 
-      <article class="blog-post">
-        <img class="blog-post-img" src="assets/images/blog/blog4.jpg" alt="SDG Innovation League recap">
-        <div class="blog-post-body">
-          <p class="blog-post-date">December 2024</p>
-          <p class="blog-post-text">
-            The SDG Innovation League wrapped up last weekend. 250+ students, 50+ teams, one very
-            long Saturday. Watching secondary school students pitch genuinely creative solutions to
-            real sustainability problems — and defend them in front of a panel — was something else.
-            A few teams had done primary research that put some university-level work to shame. The
-            hardest part of organising it wasn't the logistics; it was resisting the urge to over-engineer
-            the framework and just letting the students run with it. We're already thinking about
-            how to scale the next edition.
-          </p>
-          <div class="blog-post-footer">
-            <a href="https://www.linkedin.com/in/jwong1420/" target="_blank" rel="noopener">Originally posted on LinkedIn →</a>
+        <!-- POST 4 · September 2024 · RethinkHK -->
+        <article class="blog-post">
+          <img class="blog-post-img" src="assets/images/blog/blog4.jpg" alt="RethinkHK sustainability expo">
+          <div class="blog-post-body">
+            <p class="blog-post-date">September 2024</p>
+            <p class="blog-post-text">An eye-opening afternoon at #RethinkHK.
+
+From Lufthansa's latest SAF and Sun-to-liquid technology to ADL's eye-catching display of their newest E100EV, and CHOMP's app for saving food waste, it was inspiring to witness how sustainability has found its way into every sector imaginable, and be able to connect with the people behind this momentous undertaking.
+
+Thank you to those who took the time to speak with me, and here's to an even bigger Rethink expo next year!</p>
+            <div class="blog-post-footer">
+              <a href="https://www.linkedin.com/posts/activity-7240538663468548097-oKEf" target="_blank" rel="noopener">Originally posted on LinkedIn →</a>
+            </div>
           </div>
-        </div>
-      </article>
+        </article>
 
-      <div class="blog-cta">
-        <p>I write about sustainability, entrepreneurship, and things I'm learning as I go.</p>
-        <a href="https://www.linkedin.com/in/jwong1420/" target="_blank" rel="noopener">Follow on LinkedIn for new posts →</a>
       </div>
-
+      <div class="blog-cta">
+        <a href="https://linkedin.com/in/jwong1420" target="_blank" rel="noopener">See all posts on LinkedIn →</a>
+      </div>
     </section>
 
   </main>
