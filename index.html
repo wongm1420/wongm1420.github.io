@@ -4,11 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jonathan Wong</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --dark: #1a1a2a;
+      --sidebar-bg: #1a1a2a;
       --accent: #5a8f6e;
       --accent-light: #e8f2ec;
       --bg: #f2f2f0;
@@ -17,7 +19,6 @@
       --muted: #6b6b6b;
       --border: #e0e0e0;
       --sidebar-width: 280px;
-      --nav-height: 58px;
     }
 
     html { scroll-behavior: smooth; }
@@ -26,66 +27,23 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       background: var(--bg);
       color: var(--text);
-      padding-top: var(--nav-height);
-    }
-
-    /* ── TOP NAV ── positioned to the right of the sidebar */
-    .topnav {
-      position: fixed;
-      top: 0;
-      left: var(--sidebar-width);
-      right: 0;
-      height: var(--nav-height);
-      background: var(--dark);
-      z-index: 150;
       display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      padding: 0 40px;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
+      min-height: 100vh;
     }
 
-    .topnav-links {
-      list-style: none;
-      display: flex;
-      gap: 4px;
-    }
-
-    .topnav-links a {
-      display: block;
-      color: #8a95a3;
-      text-decoration: none;
-      font-size: 0.95rem;
-      font-weight: 600;
-      padding: 8px 18px;
-      border-radius: 6px;
-      letter-spacing: 0.01em;
-      transition: background 0.2s, color 0.2s;
-    }
-
-    .topnav-links a:hover {
-      background: rgba(255,255,255,0.07);
-      color: #ffffff;
-    }
-
-    .topnav-links a.active {
-      background: rgba(90,143,110,0.22);
-      color: var(--accent);
-    }
-
-    /* ── SIDEBAR ── full height, profile info only */
+    /* ── SIDEBAR ── */
     .sidebar {
+      width: var(--sidebar-width);
+      background: var(--sidebar-bg);
       position: fixed;
       top: 0; left: 0;
-      width: var(--sidebar-width);
       height: 100vh;
-      background: var(--dark);
-      z-index: 100;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: calc(var(--nav-height) + 32px) 24px 40px;
+      padding: 40px 24px;
       overflow-y: auto;
+      z-index: 100;
     }
 
     .sidebar-photo {
@@ -121,6 +79,7 @@
     .contact-list {
       list-style: none;
       width: 100%;
+      margin-bottom: 0;
     }
 
     .contact-list li { margin-bottom: 12px; }
@@ -149,31 +108,56 @@
       font-size: 0.9rem;
     }
 
-    /* ── MAIN CONTENT ── */
+    /* ── SIDEBAR NAV ── */
+    .sidebar-nav {
+      width: 100%;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      margin-top: 28px;
+      padding-top: 24px;
+    }
+
+    .sidebar-nav ul { list-style: none; }
+    .sidebar-nav li { margin-bottom: 4px; }
+
+    .sidebar-nav a {
+      display: block;
+      color: #8a95a3;
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 600;
+      padding: 9px 14px;
+      border-radius: 6px;
+      letter-spacing: 0.01em;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .sidebar-nav a:hover {
+      background: rgba(255,255,255,0.07);
+      color: #ffffff;
+    }
+
+    .sidebar-nav a.active {
+      background: rgba(90,143,110,0.22);
+      color: var(--accent);
+    }
+
+    /* ── MAIN ── */
     .main {
       margin-left: var(--sidebar-width);
+      flex: 1;
       padding: 48px 48px 80px;
-      max-width: calc(860px + var(--sidebar-width));
+      max-width: 860px;
     }
 
     section { margin-bottom: 60px; }
 
+    /* ── PAGE HEADER ── */
+    .page-header { margin-bottom: 40px; }
+    .page-header h1 { font-family: 'Playfair Display', Georgia, serif; font-size: 2.6rem; font-weight: 700; color: var(--text); letter-spacing: 0; line-height: 1.15; }
+
     /* ── FEATURE PHOTO ── */
-    .feature-photo {
-      width: 100%;
-      margin-bottom: 60px;
-      border-radius: 14px;
-      overflow: hidden;
-      line-height: 0;
-    }
-    .feature-photo img {
-      width: 100%;
-      max-height: 520px;
-      object-fit: cover;
-      object-position: center 30%;
-      display: block;
-      border-radius: 14px;
-    }
+    .feature-photo { width: 100%; margin-bottom: 60px; border-radius: 14px; overflow: hidden; line-height: 0; }
+    .feature-photo img { width: 100%; max-height: 520px; object-fit: cover; object-position: center 30%; display: block; border-radius: 14px; }
 
     .section-title {
       font-size: 0.7rem;
@@ -187,33 +171,14 @@
       gap: 12px;
     }
 
-    .section-title::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--border);
-    }
+    .section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 
     /* ── ABOUT ── */
-    #about p {
-      font-size: 0.97rem;
-      line-height: 1.8;
-      color: #333;
-      margin-bottom: 14px;
-    }
-
-    #about a {
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 500;
-    }
+    #about p { font-size: 0.97rem; line-height: 1.8; color: #333; margin-bottom: 14px; }
+    #about a { color: var(--accent); text-decoration: none; font-weight: 500; }
 
     /* ── FOCUS CARDS ── */
-    .focus-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-    }
+    .focus-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
 
     .focus-card {
       background: var(--card);
@@ -223,151 +188,38 @@
       transition: box-shadow 0.2s, transform 0.2s;
     }
 
-    .focus-card:hover {
-      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-      transform: translateY(-2px);
-    }
+    .focus-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); transform: translateY(-2px); }
 
-    .focus-card .card-icon {
-      width: 38px;
-      height: 38px;
-      background: var(--accent-light);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.1rem;
-      margin-bottom: 14px;
-    }
-
-    .focus-card h3 {
-      font-size: 0.92rem;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 6px;
-    }
-
-    .focus-card .org {
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--accent);
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
-
-    .focus-card p {
-      font-size: 0.83rem;
-      line-height: 1.6;
-      color: var(--muted);
-    }
+    .focus-card .card-icon { width: 38px; height: 38px; background: var(--accent-light); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; margin-bottom: 14px; }
+    .focus-card h3 { font-size: 0.92rem; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+    .focus-card .org { font-size: 0.75rem; font-weight: 600; color: var(--accent); letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 8px; }
+    .focus-card p { font-size: 0.83rem; line-height: 1.6; color: var(--muted); }
 
     /* ── GALLERY ── */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-    }
+    .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
 
-    .gallery-item {
-      position: relative;
-      aspect-ratio: 4/3;
-      overflow: hidden;
-      border-radius: 8px;
-      cursor: pointer;
-      background: var(--border);
-    }
-
-    .gallery-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.3s ease;
-    }
-
+    .gallery-item { position: relative; aspect-ratio: 4/3; overflow: hidden; border-radius: 8px; cursor: pointer; background: var(--border); }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease; }
     .gallery-item:hover img { transform: scale(1.05); }
 
     .gallery-item .gallery-caption {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
+      position: absolute; bottom: 0; left: 0; right: 0;
       background: linear-gradient(transparent, rgba(0,0,0,0.65));
-      color: #fff;
-      font-size: 0.72rem;
-      padding: 20px 10px 8px;
-      opacity: 0;
-      transition: opacity 0.2s;
+      color: #fff; font-size: 0.72rem; padding: 20px 10px 8px; opacity: 0; transition: opacity 0.2s;
     }
-
     .gallery-item:hover .gallery-caption { opacity: 1; }
 
-    /* lightbox */
-    .lightbox {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.88);
-      z-index: 999;
-      align-items: center;
-      justify-content: center;
-    }
-
+    .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.88); z-index: 999; align-items: center; justify-content: center; }
     .lightbox.active { display: flex; }
-
-    .lightbox img {
-      max-width: 90vw;
-      max-height: 88vh;
-      border-radius: 6px;
-      object-fit: contain;
-    }
-
-    .lightbox-close {
-      position: absolute;
-      top: 20px; right: 28px;
-      color: #fff;
-      font-size: 2rem;
-      cursor: pointer;
-      line-height: 1;
-      background: none;
-      border: none;
-    }
-
-    .lightbox-caption {
-      position: absolute;
-      bottom: 24px;
-      left: 50%;
-      transform: translateX(-50%);
-      color: #ccc;
-      font-size: 0.82rem;
-      text-align: center;
-    }
+    .lightbox img { max-width: 90vw; max-height: 88vh; border-radius: 6px; object-fit: contain; }
+    .lightbox-close { position: absolute; top: 20px; right: 28px; color: #fff; font-size: 2rem; cursor: pointer; line-height: 1; background: none; border: none; }
+    .lightbox-caption { position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%); color: #ccc; font-size: 0.82rem; text-align: center; }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 820px) {
-      body { padding-top: 0; }
-
-      .topnav {
-        left: 0;
-        position: relative;
-        height: auto;
-        padding: 14px 20px;
-        justify-content: center;
-      }
-
-      .sidebar {
-        position: relative;
-        width: 100%;
-        height: auto;
-        padding: 28px 24px 20px;
-        flex-direction: column;
-      }
-
-      .main {
-        margin-left: 0;
-        padding: 32px 20px 60px;
-        max-width: 100%;
-      }
-
+      body { flex-direction: column; }
+      .sidebar { position: relative; width: 100%; height: auto; flex-direction: column; padding: 28px 24px 20px; }
+      .main { margin-left: 0; padding: 32px 20px 60px; }
       .focus-grid { grid-template-columns: 1fr; }
       .gallery-grid { grid-template-columns: repeat(2, 1fr); }
     }
@@ -375,154 +227,95 @@
 </head>
 <body>
 
-  <!-- ── TOP NAV ── -->
-  <nav class="topnav">
-    <ul class="topnav-links">
-      <li><a href="index.html" class="active">About</a></li>
-      <li><a href="resume.html">Resume</a></li>
-      <li><a href="blog.html">Blog</a></li>
-    </ul>
-  </nav>
-
-  <!-- ── SIDEBAR ── -->
   <aside class="sidebar">
     <img src="assets/images/headshot.jpg" alt="Jonathan Wong" class="sidebar-photo" />
     <h1>Jonathan Wong</h1>
     <p class="tagline">Global Business Student &amp; Sustainability Advocate</p>
 
     <ul class="contact-list">
-      <li>
-        <a href="mailto:wongm1420@gmail.com">
-          <span class="icon">✉</span>
-          wongm1420@gmail.com
-        </a>
-      </li>
-      <li>
-        <a href="https://linkedin.com/in/jwong1420" target="_blank" rel="noopener">
-          <span class="icon">in</span>
-          linkedin.com/in/jwong1420
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <span class="icon">📍</span>
-          Hong Kong
-        </a>
-      </li>
+      <li><a href="mailto:wongm1420@gmail.com"><span class="icon">✉</span>wongm1420@gmail.com</a></li>
+      <li><a href="https://linkedin.com/in/jwong1420" target="_blank" rel="noopener"><span class="icon">in</span>linkedin.com/in/jwong1420</a></li>
+      <li><a href="#"><span class="icon">📍</span>Hong Kong</a></li>
     </ul>
+
+    <nav class="sidebar-nav">
+      <ul>
+        <li><a href="index.html" class="active">About</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="blog.html">Blog</a></li>
+      </ul>
+    </nav>
   </aside>
 
-  <!-- ── MAIN ── -->
   <main class="main">
 
-    <!-- ABOUT -->
+    <div class="page-header">
+      <h1>About</h1>
+    </div>
+
     <section id="about">
       <p class="section-title">About Me</p>
-      <p>
-        I'm a Global Business student at HKUST with a focus on sustainability
-        and social impact. My core belief is simple: business should be a force for change, not
-        just profit. Everything I work on connects back to that.
-      </p>
-      <p>
-        I co-founded <a href="https://zester.org" target="_blank" rel="noopener">Zester</a>,
-        a Hong Kong social enterprise that makes SDG education genuinely engaging through a
-        gamified card game, a digital learning platform, and a youth innovation competition.
-        Zester has reached 30,000+ students across schools and corporations including HSBC, BNY,
-        and TTI, and was recognised as the top 6 best student startups globally at the 
-        De La Vega Global Entrepreneurhsip Awards (out of 500K+ students and 32,000 teams), 
-        and at the JA Asia Pacific Company of the Year out of 81,000+ students.
-      </p>
-      <p>
-        Alongside Zester, I intern at HKSTP's Ecosystem Development and Partnerships team,
-        consult on real client projects through ICC at HKUST, and volunteer as a policy researcher
-        at Liber Research Community. I'm drawn to the intersections of sustainability, strategy,
-        and innovation ecosystems, and always looking for where business can drive the most
-        meaningful change.
-      </p>
+      <p>I'm a Global Business student at HKUST with a focus on sustainability and social impact. My core belief is simple: business should be a force for change, not just profit. Everything I work on connects back to that.</p>
+      <p>I co-founded <a href="https://zester.org" target="_blank" rel="noopener">Zester</a>, a Hong Kong social enterprise that makes SDG education genuinely engaging through a gamified card game, a digital learning platform, and a youth innovation competition. Zester has reached 30,000+ students across schools and corporations including HSBC, BNY, and TTI, and was recognised as the top 6 best student startups globally at the De La Vega Global Entrepreneurhsip Awards (out of 500K+ students and 32,000 teams), and at the JA Asia Pacific Company of the Year out of 81,000+ students.</p>
+      <p>Alongside Zester, I intern at HKSTP's Ecosystem Development and Partnerships team, consult on real client projects through ICC at HKUST, and volunteer as a policy researcher at Liber Research Community. I'm drawn to the intersections of sustainability, strategy, and innovation ecosystems, and always looking for where business can drive the most meaningful change.</p>
     </section>
 
-    <!-- FEATURE PHOTO -->
     <div class="feature-photo">
       <img src="assets/images/feature.jpg" alt="Speaking at the JA Hong Kong Company Programme Finals">
     </div>
 
-    <!-- FOCUS -->
     <section id="focus">
       <p class="section-title">What I'm Working On</p>
       <div class="focus-grid">
-
         <div class="focus-card">
           <div class="card-icon">🌱</div>
           <div class="org">Zester Limited</div>
           <h3>Sustainable Edutainment</h3>
-          <p>
-            Co-founder and CFO of a social enterprise redefining SDG education through a
-            gamified card game, sustainability workshops, and the SDG Innovation League.
-          </p>
+          <p>Co-founder and CFO of a social enterprise redefining SDG education through a gamified card game, sustainability workshops, and the SDG Innovation League.</p>
         </div>
-
         <div class="focus-card">
           <div class="card-icon">🚀</div>
           <div class="org">HKSTP</div>
           <h3>Innovation Ecosystems</h3>
-          <p>
-            Intern at HKSTP's Ecosystem Development and Partnerships team, supporting
-            startup ecosystem growth.
-          </p>
+          <p>Intern at HKSTP's Ecosystem Development and Partnerships team, supporting startup ecosystem growth.</p>
         </div>
-
         <div class="focus-card">
           <div class="card-icon">📊</div>
           <div class="org">ICC at HKUST</div>
           <h3>Strategy Consulting</h3>
-          <p>
-            Project consultant working on real client engagements, including market
-            analysis, brand strategy, and expansion planning for companies across Hong Kong.
-          </p>
+          <p>Project consultant working on real client engagements, including market analysis, brand strategy, and expansion planning for companies across Hong Kong.</p>
         </div>
-
         <div class="focus-card">
           <div class="card-icon">🔍</div>
           <div class="org">Liber Research Community</div>
           <h3>Policy Research</h3>
-          <p>
-            Volunteer researcher at an independent Hong Kong policy think tank, contributing
-            to evidence-based research on labour markets, housing, and urban policy.
-          </p>
+          <p>Volunteer researcher at an independent Hong Kong policy think tank, contributing to evidence-based research on labour markets, housing, and urban policy.</p>
         </div>
-
       </div>
     </section>
 
-    <!-- GALLERY -->
     <section id="gallery">
       <p class="section-title">Gallery</p>
       <div class="gallery-grid">
-
         <div class="gallery-item" onclick="openLightbox(this)">
           <img src="assets/images/gallery/photo1.jpg" alt="Emceeing HSBC x JA HK Innovation Pop-up" />
           <div class="gallery-caption">Emceeing HSBC x JA HK Innovation Pop-up · 2026</div>
         </div>
-
         <div class="gallery-item" onclick="openLightbox(this)">
           <img src="assets/images/gallery/photo2.jpg" alt="JA HK Company of the Year Finals Pitch" />
           <div class="gallery-caption">JA HK Company of the Year — Finals Pitch · Apr 2024</div>
         </div>
-
         <div class="gallery-item" onclick="openLightbox(this)">
           <img src="assets/images/gallery/photo3.jpg" alt="ESF Chairman's Award for Excellence" />
           <div class="gallery-caption">ESF Chairman's Award for Excellence · Aug 2025</div>
         </div>
-
         <div class="gallery-item" onclick="openLightbox(this)">
           <img src="assets/images/gallery/photo4.jpg" alt="SDG Innovation League" />
           <div class="gallery-caption">SDG Innovation League — 250+ participants · Dec 2024</div>
         </div>
-
       </div>
     </section>
 
-    <!-- lightbox -->
     <div class="lightbox" id="lightbox" onclick="closeLightbox()">
       <button class="lightbox-close" onclick="closeLightbox()">&#x2715;</button>
       <img id="lightbox-img" src="" alt="" />
@@ -540,9 +333,7 @@
       document.getElementById('lightbox-caption').textContent = caption ? caption.textContent : '';
       document.getElementById('lightbox').classList.add('active');
     }
-    function closeLightbox() {
-      document.getElementById('lightbox').classList.remove('active');
-    }
+    function closeLightbox() { document.getElementById('lightbox').classList.remove('active'); }
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
   </script>
 </body>
