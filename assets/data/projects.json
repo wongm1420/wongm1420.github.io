@@ -28,7 +28,16 @@
           "body": "30,000+ students reached, with 2,000+ active on ZestLabs. Zester won JA Asia Pacific Company of the Year, 1st out of 81,000+ students, and placed in the top 6 globally out of 32,000 teams at the De La Vega Global Entrepreneurship Awards."
         }
       ],
-      "links": []
+      "links": [
+        {
+          "label": "Our Website",
+          "url": "zester.org"
+        },
+        {
+          "label": "Portfolio",
+          "url": "https://drive.google.com/file/d/1JZNKzGuZD1rHUgOe8eQFjFXdzSEnrFXY/view?usp=sharing"
+        }
+      ]
     },
     {
       "id": "hkstp-clp-conference",
@@ -36,8 +45,8 @@
       "dateRange": "Jul – Aug 2026",
       "org": "HKSTP &times; CLP",
       "role": "Person-in-Charge",
-      "image": null,
-      "imageAlt": null,
+      "image": "assets/images/uploads/1788877947834-20260820-j0146.jpg",
+      "imageAlt": "Group photo",
       "fields": [
         {
           "label": "What it was",
@@ -45,18 +54,35 @@
         },
         {
           "label": "My role",
-          "body": "Person-in-Charge, running point on the event from planning through to the day itself."
+          "body": "Person-in-Charge, running point on the event from planning through to the day itself. Also acted as emcee of the conference."
         },
         {
           "label": "What I produced",
-          "body": "Coordinated with 2 external event agencies on the full rundown and day-of logistics, and hosted the conference as emcee."
+          "body": "Coordinated with 10 HKSTP tech ventures, 2 external event agencies, and internal teams on the full rundown and day-of logistics, and hosted the conference as emcee."
         },
         {
           "label": "What came of it",
-          "body": "A full-day conference delivered for 280+ participants and 10 tech ventures, with the Housing Society represented as Guest of Honour."
+          "body": "A full-day conference delivered for 230+ participants and 10 tech ventures, with Chairman of Hong Kong Housing Society Prof. Ling Kar-kan represented as Guest of Honour."
         }
       ],
-      "links": []
+      "links": [
+        {
+          "label": "Press Coverage - am730",
+          "url": "https://www.am730.com.hk/article/1048602"
+        },
+        {
+          "label": "Press Coverage - HKCD",
+          "url": "https://hkcd.com/newsTopic_content.php?id=8770739"
+        },
+        {
+          "label": "Press Coverage - IT Square",
+          "url": "https://it-square.hk/article/2026/08/20260820h2kujuairdefender"
+        },
+        {
+          "label": "Press Release",
+          "url": "https://www.clpgroup.com/content/dam/clp-group/channels/media/document/2026/20260820_en.pdf.coredownload.pdf"
+        }
+      ]
     },
     {
       "id": "sdg-innovation-league",
