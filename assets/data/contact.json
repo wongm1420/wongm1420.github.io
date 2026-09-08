@@ -1,0 +1,8 @@
+{
+  "pageTitle": "Contact",
+  "subhead": "The two places I actually check.",
+  "links": [
+    { "icon": "&#9993;", "label": "wongm1420@gmail.com", "url": "mailto:wongm1420@gmail.com" },
+    { "icon": "in", "label": "linkedin.com/in/jwong1420", "url": "https://linkedin.com/in/jwong1420" }
+  ]
+}

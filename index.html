@@ -8,116 +8,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
+<body data-page="home">
 
-  <aside class="sidebar">
-    <!-- To update the photo everywhere, replace this one file: assets/images/headshot.jpg -->
-    <img src="assets/images/headshot.jpg" alt="Jonathan Wong" class="sidebar-photo" />
-    <h1>Jonathan Wong</h1>
-    <p class="tagline">Global Business Student &amp; Sustainability Advocate</p>
+  <aside class="sidebar" id="sidebar-mount"></aside>
 
-    <ul class="contact-list">
-      <li><a href="mailto:wongm1420@gmail.com"><span class="icon">&#9993;</span>wongm1420@gmail.com</a></li>
-      <li><a href="https://linkedin.com/in/jwong1420" target="_blank" rel="noopener"><span class="icon">in</span>linkedin.com/in/jwong1420</a></li>
-      <li><span class="static"><span class="icon">&#128205;</span>Hong Kong</span></li>
-    </ul>
-
-    <nav class="sidebar-nav">
-      <ul>
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="resume.html">Resume</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="writing.html">Writing</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </aside>
-
-  <main class="main">
-
-    <div class="page-header">
-      <h1>Home</h1>
-    </div>
-
-    <section id="about">
-      <p class="section-title">About Me</p>
-      <div class="body-copy">
-        <p>I'm a first-year BBA Global Business student at HKUST. Most of my time outside class goes into Zester, the sustainability social enterprise I co-founded in 2023, alongside a mix of consulting, research, and internship work I run in parallel with it.</p>
-        <p>Zester has reached 30,000+ students across 44+ schools and corporate partners including HSBC, BNY, and TTI, and was named one of the top 6 student startups globally at the De La Vega Global Entrepreneurship Awards, out of 500,000+ students and 32,000 teams, and JA Asia Pacific Company of the Year, out of 81,000+ students.</p>
-        <p>This year I'm also interning at HKSTP's Ecosystem Development and Partnerships team, consulting on client projects through ICC at HKUST, doing policy research as a volunteer at Liber Research Community, tutoring, and running a small dropshipping brand on the side, with a few case competitions mixed in. I'm leaning toward industry over grad school after graduation, and most of what I take on right now is aimed at figuring out which corner of business I want to work in.</p>
-      </div>
-    </section>
-
-    <div class="feature-photo">
-      <img src="assets/images/feature.jpg" alt="Speaking at the JA Hong Kong Company Programme Finals">
-    </div>
-
-    <section id="project-preview">
-      <p class="section-title">Some of What I've Worked On</p>
-      <div class="preview-grid">
-        <a class="preview-card" href="projects.html#zester">
-          <img class="preview-card-img" src="assets/images/gallery/photo2.jpg" alt="Zester at the JA Hong Kong Company of the Year finals" />
-          <div class="preview-card-body">
-            <div class="preview-card-org">Zester Limited</div>
-            <h3>Building a sustainability social enterprise from a school project</h3>
-            <p>Co-founder, COO &amp; CFO. Operations, finance, and partnerships behind a company now working with 44+ schools and corporates like HSBC and BNY.</p>
-            <span class="read-more">Read the full story &rarr;</span>
-          </div>
-        </a>
-        <a class="preview-card" href="projects.html#sdg-innovation-league">
-          <img class="preview-card-img" src="assets/images/gallery/photo4.jpg" alt="SDG Innovation League event" />
-          <div class="preview-card-body">
-            <div class="preview-card-org">Zester &times; HKU &times; Ocean Park</div>
-            <h3>SDG Innovation League</h3>
-            <p>Head of Operations &amp; Finance for a three-phase competition that brought 250+ students across 17 schools to pitch SDG projects, backed by HK$350K+ in sponsorship.</p>
-            <span class="read-more">Read the full story &rarr;</span>
-          </div>
-        </a>
-        <a class="preview-card" href="projects.html#job-vacancy-study">
-          <div class="preview-card-body">
-            <div class="preview-card-org">Liber Research Community</div>
-            <h3>Cross-city job vacancy comparative study</h3>
-            <p>Policy research into whether Hong Kong's declining job openings are a local issue or part of a global pattern, later cited in HK01.</p>
-            <span class="read-more">Read the full story &rarr;</span>
-          </div>
-        </a>
-      </div>
-    </section>
-
-    <section id="recent-posts" hidden>
-      <p class="section-title">Recent Posts</p>
-      <ul class="recent-posts-list" id="recent-posts-list"></ul>
-    </section>
-
-    <section id="gallery">
-      <p class="section-title">Gallery</p>
-      <div class="gallery-grid">
-        <div class="gallery-item" onclick="openLightbox(this)">
-          <img src="assets/images/gallery/photo1.jpg" alt="Emceeing HSBC x JA HK Innovation Pop-up" />
-          <div class="gallery-caption">Emceeing HSBC x JA HK Innovation Pop-up &middot; 2026</div>
-        </div>
-        <div class="gallery-item" onclick="openLightbox(this)">
-          <img src="assets/images/gallery/photo2.jpg" alt="JA HK Company of the Year Finals Pitch" />
-          <div class="gallery-caption">JA HK Company of the Year &middot; Finals Pitch &middot; Apr 2024</div>
-        </div>
-        <div class="gallery-item" onclick="openLightbox(this)">
-          <img src="assets/images/gallery/photo3.jpg" alt="ESF Chairman's Award for Excellence" />
-          <div class="gallery-caption">ESF Chairman's Award for Excellence &middot; Aug 2025</div>
-        </div>
-        <div class="gallery-item" onclick="openLightbox(this)">
-          <img src="assets/images/gallery/photo4.jpg" alt="SDG Innovation League" />
-          <div class="gallery-caption">SDG Innovation League &middot; 250+ participants &middot; Dec 2024</div>
-        </div>
-      </div>
-    </section>
-
-    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-      <button class="lightbox-close" onclick="closeLightbox()">&#x2715;</button>
-      <img id="lightbox-img" src="" alt="" />
-      <div class="lightbox-caption" id="lightbox-caption"></div>
-    </div>
-
-  </main>
+  <main class="main" id="page-mount"></main>
 
   <script src="assets/js/main.js"></script>
 </body>

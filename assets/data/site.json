@@ -1,0 +1,17 @@
+{
+  "name": "Jonathan Wong",
+  "tagline": "Global Business Student & Sustainability Advocate",
+  "headshot": "assets/images/headshot.jpg",
+  "contactLinks": [
+    { "icon": "&#9993;", "label": "wongm1420@gmail.com", "url": "mailto:wongm1420@gmail.com" },
+    { "icon": "in", "label": "linkedin.com/in/jwong1420", "url": "https://linkedin.com/in/jwong1420" },
+    { "icon": "&#128205;", "label": "Hong Kong", "url": null }
+  ],
+  "nav": [
+    { "label": "Home", "href": "index.html" },
+    { "label": "Resume", "href": "resume.html" },
+    { "label": "Projects", "href": "projects.html" },
+    { "label": "Writing", "href": "writing.html" },
+    { "label": "Contact", "href": "contact.html" }
+  ]
+}
