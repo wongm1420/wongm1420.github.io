@@ -146,8 +146,8 @@
       "dateRange": "Apr 2026 – Present",
       "org": "Liber Research Community",
       "role": "Researcher (Volunteer)",
-      "image": null,
-      "imageAlt": null,
+      "image": "assets/images/uploads/1788878449522-701312128-1423944376437330-4825918041833044530-n.jpg",
+      "imageAlt": "Post",
       "fields": [
         {
           "label": "What it was",
@@ -166,7 +166,16 @@
           "body": "Published across 3 channels, reaching 4,000+ engagements and 100K+ overall reach, and later cited in an HK01 article on Hong Kong's labour market."
         }
       ],
-      "links": []
+      "links": [
+        {
+          "label": "Facebook Post",
+          "url": "https://www.facebook.com/share/p/19e3fyhwZU/"
+        },
+        {
+          "label": "HK01 Article ",
+          "url": "https://www.hk01.com/01%E8%AB%96%E5%A3%87/60353952/%E4%BE%86%E7%A8%BF-3-7-%E7%9A%84%E4%BD%8E%E5%A4%B1%E6%A5%AD%E7%8E%87%E4%B8%8B-%E5%B8%82%E6%B0%91%E7%82%BA%E4%BD%95%E4%BB%8D-%E6%90%B5%E5%B7%A5%E9%9B%A3"
+        }
+      ]
     }
   ]
 }
