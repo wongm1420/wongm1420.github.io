@@ -11,58 +11,22 @@
       "image": "assets/images/gallery/photo2.jpg",
       "imageAlt": "Zester at the JA Hong Kong Company of the Year finals",
       "fields": [
-        { "label": "What it was", "body": "Zester teaches the UN Sustainable Development Goals through a card game called Chief Zester of Earth. It grew out of a school project at Island School into a full social enterprise, now with a digital learning platform (ZestLabs) alongside the card game and in-person workshops for schools and corporates." },
-        { "label": "My role", "body": "Co-founder, COO &amp; CFO. I run day-to-day operations and partner relationships on the COO side, and bookkeeping, tax filings, and sponsorship budgeting on the CFO side." },
-        { "label": "What I produced", "body": "Built out our school and corporate network to 44+ schools and partners including HSBC, BNY, and TTI, delivered 6 sustainability workshops across Hong Kong and London, and ran the SDG Innovation League, an inter-school competition, from the ground up." },
-        { "label": "What came of it", "body": "30,000+ students reached, with 2,000+ active on ZestLabs. Zester won JA Asia Pacific Company of the Year, 1st out of 81,000+ students, and placed in the top 6 globally out of 32,000 teams at the De La Vega Global Entrepreneurship Awards." }
-      ],
-      "links": []
-    },
-    {
-      "id": "activewear",
-      "title": "Market Strategy &amp; Expansion: Women's Premium Activewear Brand",
-      "dateRange": "Sep 2025 – May 2026",
-      "org": "International Consulting Club (ICC) at HKUST",
-      "role": "Project Consultant",
-      "image": null,
-      "imageAlt": null,
-      "fields": [
-        { "label": "What it was", "body": "A 9-week consulting engagement through ICC at HKUST for a women's premium activewear brand based in Hong Kong. Working with a 6-person team, we diagnosed brand positioning gaps and identified growth opportunities across retail and digital channels." },
-        { "label": "My role", "body": "Project Consultant, leading market sizing, competitor benchmarking, customer research, and sales-channel analysis." },
-        { "label": "What I produced", "body": "Benchmarked 6 competitors and around 15 Instagram accounts, and pulled together findings from 60+ survey responses, 15 focus group participants, and 2 site visits in Causeway Bay. Analysed sales performance across 4 channels and put together a 25-slide final deck." },
-        { "label": "What came of it", "body": "3 recommendations delivered to the client on in-store experience, brand messaging, and customer engagement." }
-      ],
-      "links": []
-    },
-    {
-      "id": "sdg-innovation-league",
-      "title": "SDG Innovation League",
-      "dateRange": "Dec 2024 – Apr 2025",
-      "org": "Zester &times; HKU &times; Ocean Park",
-      "role": "Head of Operations &amp; Finance, Organising Committee",
-      "image": "assets/images/gallery/photo4.jpg",
-      "imageAlt": "SDG Innovation League event",
-      "fields": [
-        { "label": "What it was", "body": "A three-phase sustainability innovation competition for secondary school students, co-organised by Zester with HKU's Faculty of Education, Ocean Park, and UN SDSN HK. Students across 17 schools worked in teams to ideate, build, and pitch their own SDG projects to industry judges." },
-        { "label": "My role", "body": "Head of Operations &amp; Finance on the organising committee." },
-        { "label": "What I produced", "body": "Secured HK$350K+ in sponsorship from HKU, Ocean Park, and UN SDSN HK, directed logistics across all three phases including a full-day launch event and the final judging round, and coordinated 62 staff and volunteers." },
-        { "label": "What came of it", "body": "250+ students across 17 schools took part, and the competition ran on budget and on schedule." }
-      ],
-      "links": []
-    },
-    {
-      "id": "job-vacancy-study",
-      "title": "Cross-City Comparative Study on Job Vacancy Trends",
-      "dateRange": "Apr 2026 – Present",
-      "org": "Liber Research Community",
-      "role": "Researcher (Volunteer)",
-      "image": null,
-      "imageAlt": null,
-      "fields": [
-        { "label": "What it was", "body": "A cross-city comparative study on job vacancy trends for Liber Research Community, an independent Hong Kong policy think tank, looking at whether Hong Kong's declining job openings are a local labour market issue or part of a broader global pattern." },
-        { "label": "My role", "body": "Researcher (Volunteer), sourcing and analysing the data and writing up the findings for a policy audience." },
-        { "label": "What I produced", "body": "Pulled together around 10 public datasets into a spreadsheet model comparing unemployment-to-vacancy ratios across major global cities, then wrote the analysis up for publication." },
-        { "label": "What came of it", "body": "Published across 3 channels, reaching 4,000+ engagements and 100K+ overall reach, and later cited in an HK01 article on Hong Kong's labour market." }
+        {
+          "label": "What it was",
+          "body": "Zester teaches the UN Sustainable Development Goals through a card game called Chief Zester of Earth. It grew out of a school project at Island School into a full social enterprise, now with a digital learning platform (ZestLabs) alongside the card game and in-person workshops for schools and corporates."
+        },
+        {
+          "label": "My role",
+          "body": "Co-founder, COO &amp; CFO. I run day-to-day operations and partner relationships on the COO side, and bookkeeping, tax filings, and sponsorship budgeting on the CFO side."
+        },
+        {
+          "label": "What I produced",
+          "body": "Built out our school and corporate network to 44+ schools and partners including HSBC, BNY, and TTI, delivered 6 sustainability workshops across Hong Kong and London, and ran the SDG Innovation League, an inter-school competition, from the ground up."
+        },
+        {
+          "label": "What came of it",
+          "body": "30,000+ students reached, with 2,000+ active on ZestLabs. Zester won JA Asia Pacific Company of the Year, 1st out of 81,000+ students, and placed in the top 6 globally out of 32,000 teams at the De La Vega Global Entrepreneurship Awards."
+        }
       ],
       "links": []
     },
@@ -75,10 +39,106 @@
       "image": null,
       "imageAlt": null,
       "fields": [
-        { "label": "What it was", "body": "A conference co-hosted by HKSTP and CLP on sustainable residential living, bringing together 10 tech ventures and 280+ participants, with the Housing Society attending as Guest of Honour." },
-        { "label": "My role", "body": "Person-in-Charge, running point on the event from planning through to the day itself." },
-        { "label": "What I produced", "body": "Coordinated with 2 external event agencies on the full rundown and day-of logistics, and hosted the conference as emcee." },
-        { "label": "What came of it", "body": "A full-day conference delivered for 280+ participants and 10 tech ventures, with the Housing Society represented as Guest of Honour." }
+        {
+          "label": "What it was",
+          "body": "A conference co-hosted by HKSTP and CLP on sustainable residential living, bringing together 10 tech ventures and 280+ participants, with the Housing Society attending as Guest of Honour."
+        },
+        {
+          "label": "My role",
+          "body": "Person-in-Charge, running point on the event from planning through to the day itself."
+        },
+        {
+          "label": "What I produced",
+          "body": "Coordinated with 2 external event agencies on the full rundown and day-of logistics, and hosted the conference as emcee."
+        },
+        {
+          "label": "What came of it",
+          "body": "A full-day conference delivered for 280+ participants and 10 tech ventures, with the Housing Society represented as Guest of Honour."
+        }
+      ],
+      "links": []
+    },
+    {
+      "id": "sdg-innovation-league",
+      "title": "SDG Innovation League",
+      "dateRange": "Dec 2024 – Apr 2025",
+      "org": "Zester &times; HKU &times; Ocean Park",
+      "role": "Head of Operations &amp; Finance, Organising Committee",
+      "image": "assets/images/gallery/photo4.jpg",
+      "imageAlt": "SDG Innovation League event",
+      "fields": [
+        {
+          "label": "What it was",
+          "body": "A three-phase sustainability innovation competition for secondary school students, co-organised by Zester with HKU's Faculty of Education, Ocean Park, and UN SDSN HK. Students across 17 schools worked in teams to ideate, build, and pitch their own SDG projects to industry judges."
+        },
+        {
+          "label": "My role",
+          "body": "Head of Operations &amp; Finance on the organising committee."
+        },
+        {
+          "label": "What I produced",
+          "body": "Secured HK$350K+ in sponsorship from HKU, Ocean Park, and UN SDSN HK, directed logistics across all three phases including a full-day launch event and the final judging round, and coordinated 62 staff and volunteers."
+        },
+        {
+          "label": "What came of it",
+          "body": "250+ students across 17 schools took part, and the competition ran on budget and on schedule."
+        }
+      ],
+      "links": []
+    },
+    {
+      "id": "activewear",
+      "title": "Market Strategy &amp; Expansion: Women's Premium Activewear Brand",
+      "dateRange": "Sep 2025 – May 2026",
+      "org": "International Consulting Club (ICC) at HKUST",
+      "role": "Project Consultant",
+      "image": null,
+      "imageAlt": null,
+      "fields": [
+        {
+          "label": "What it was",
+          "body": "A 9-week consulting engagement through ICC at HKUST for a women's premium activewear brand based in Hong Kong. Working with a 6-person team, we diagnosed brand positioning gaps and identified growth opportunities across retail and digital channels."
+        },
+        {
+          "label": "My role",
+          "body": "Project Consultant, leading market sizing, competitor benchmarking, customer research, and sales-channel analysis."
+        },
+        {
+          "label": "What I produced",
+          "body": "Benchmarked 6 competitors and around 15 Instagram accounts, and pulled together findings from 60+ survey responses, 15 focus group participants, and 2 site visits in Causeway Bay. Analysed sales performance across 4 channels and put together a 25-slide final deck."
+        },
+        {
+          "label": "What came of it",
+          "body": "3 recommendations delivered to the client on in-store experience, brand messaging, and customer engagement."
+        }
+      ],
+      "links": []
+    },
+    {
+      "id": "job-vacancy-study",
+      "title": "Cross-City Comparative Study on Job Vacancy Trends",
+      "dateRange": "Apr 2026 – Present",
+      "org": "Liber Research Community",
+      "role": "Researcher (Volunteer)",
+      "image": null,
+      "imageAlt": null,
+      "fields": [
+        {
+          "label": "What it was",
+          "body": "A cross-city comparative study on job vacancy trends for Liber Research Community, an independent Hong Kong policy think tank, looking at whether Hong Kong's declining job openings are a local labour market issue or part of a broader global pattern."
+        },
+        {
+          "label": "My role",
+          "body": "Researcher (Volunteer), sourcing and analysing the data and writing up the findings for a policy audience."
+        },
+        {
+          "label": "What I produced",
+          "body": "Pulled together around 10 public datasets into a spreadsheet model comparing unemployment-to-vacancy ratios across major global cities, then wrote the analysis up for publication."
+        },
+        {
+          "label": "What came of it",
+          "body": "Published across 3 channels, reaching 4,000+ engagements and 100K+ overall reach, and later cited in an HK01 article on Hong Kong's labour market."
+        }
       ],
       "links": []
     }
