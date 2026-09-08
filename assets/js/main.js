@@ -169,7 +169,7 @@ function renderResumeSection(section) {
       return `<section id="${section.id}"><p class="section-title">${section.sectionTitle}</p>
         <div class="photo-section">
           <div><h3>${section.heading}</h3><p>${section.body}</p></div>
-          <a href="${section.link.url}" target="_blank" rel="noopener" class="photo-link">${section.link.label}</a>
+          <div>${(section.links || []).map(l => `<a href="${l.url}" target="_blank" rel="noopener" class="photo-link">${l.label}</a>`).join(' ')}</div>
         </div>
       </section>`;
     default:
@@ -183,8 +183,8 @@ async function renderResumePage() {
   const resume = await fetchJSON('assets/data/resume.json');
   if (!resume) return;
 
-  const jumpNavHtml = (resume.jumpNav || []).map(n =>
-    `<a href="${n.href}" onclick="document.getElementById('sectionNav').classList.remove('open')">${n.label}</a>`
+  const jumpNavHtml = (resume.sections || []).map(s =>
+    `<a href="#${s.id}" onclick="document.getElementById('sectionNav').classList.remove('open')">${s.sectionTitle}</a>`
   ).join('');
 
   mount.innerHTML = `

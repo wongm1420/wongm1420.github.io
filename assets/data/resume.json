@@ -1,14 +1,5 @@
 {
   "pageTitle": "Resume",
-  "jumpNav": [
-    { "label": "Resume", "href": "#resume" },
-    { "label": "Projects", "href": "#projects" },
-    { "label": "Awards", "href": "#awards" },
-    { "label": "Works &amp; Publications", "href": "#publications" },
-    { "label": "Qualifications", "href": "#qualifications" },
-    { "label": "Volunteering", "href": "#volunteering" },
-    { "label": "Photography", "href": "#photography" }
-  ],
   "sections": [
     {
       "type": "resume",
@@ -255,7 +246,9 @@
       "sectionTitle": "Photography",
       "heading": "Visual Storytelling",
       "body": "Photography is how I slow down and pay attention. I shoot landscapes, travel, and street. I'm always looking for the frame that says something a caption can't.",
-      "link": { "label": "View Portfolio &rarr;", "url": "https://jonathanwong.mypixieset.com/" }
+      "links": [
+        { "label": "View Portfolio &rarr;", "url": "https://jonathanwong.mypixieset.com/" }
+      ]
     }
   ]
 }

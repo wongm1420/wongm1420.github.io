@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin · Jonathan Wong</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+  <div id="login-screen" class="login-screen">
+    <div class="login-card">
+      <h1>Site Admin</h1>
+      <p>Paste a GitHub fine-grained personal access token scoped to <code>wongm1420.github.io</code> (Contents + Pull requests: read &amp; write). It's stored only in this browser.</p>
+      <input type="password" id="token-input" placeholder="github_pat_..." autocomplete="off" />
+      <button id="token-submit" class="btn btn-primary">Continue</button>
+      <p id="login-error" class="error-text" hidden></p>
+    </div>
+  </div>
+
+  <div id="app" class="app" hidden>
+    <header class="app-header">
+      <div class="app-header-title">
+        <strong>Site Admin</strong>
+        <span id="draft-status" class="draft-status">checking draft…</span>
+      </div>
+      <div class="app-header-actions">
+        <button id="btn-preview" class="btn btn-secondary">Preview draft</button>
+        <button id="btn-discard" class="btn btn-danger-outline">Discard draft</button>
+        <button id="btn-publish" class="btn btn-primary">Publish</button>
+        <button id="btn-logout" class="btn btn-ghost">Log out</button>
+      </div>
+    </header>
+
+    <div class="app-body">
+      <nav class="app-nav" id="app-nav"></nav>
+      <main class="app-main" id="app-main">
+        <p class="loading">Loading…</p>
+      </main>
+    </div>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>
