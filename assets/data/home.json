@@ -7,7 +7,7 @@
       "paragraphs": [
         "I'm a first-year BBA Global Business student at HKUST. Most of my time outside class goes into Zester, the sustainability social enterprise I co-founded in 2023, alongside a mix of consulting, research, and internship work I run in parallel with it.",
         "Zester has reached 30,000+ students across 44+ schools and corporate partners including HSBC, BNY, and TTI, and was named one of the top 6 student startups globally at the De La Vega Global Entrepreneurship Awards, out of 500,000+ students and 32,000 teams, and JA Asia Pacific Company of the Year, out of 81,000+ students.",
-        "This year I'm also interning at HKSTP's Ecosystem Development and Partnerships team, consulting on client projects through ICC at HKUST, doing policy research as a volunteer at Liber Research Community, tutoring, and running a small dropshipping brand on the side, with a few case competitions mixed in. I'm leaning toward industry over grad school after graduation, and most of what I take on right now is aimed at figuring out which corner of business I want to work in."
+        "In addition to Zester, I've interned at HKSTP's Partnerships team, and am consulting on client projects through ICC at HKUST, while doing policy research as a volunteer at Liber Research Community."
       ]
     },
     {
@@ -53,10 +53,31 @@
       "type": "gallery",
       "sectionTitle": "Gallery",
       "items": [
-        { "src": "assets/images/gallery/photo1.jpg", "alt": "Emceeing HSBC x JA HK Innovation Pop-up", "caption": "Emceeing HSBC x JA HK Innovation Pop-up &middot; 2026" },
-        { "src": "assets/images/gallery/photo2.jpg", "alt": "JA HK Company of the Year Finals Pitch", "caption": "JA HK Company of the Year &middot; Finals Pitch &middot; Apr 2024" },
-        { "src": "assets/images/gallery/photo3.jpg", "alt": "ESF Chairman's Award for Excellence", "caption": "ESF Chairman's Award for Excellence &middot; Aug 2025" },
-        { "src": "assets/images/gallery/photo4.jpg", "alt": "SDG Innovation League", "caption": "SDG Innovation League &middot; 250+ participants &middot; Dec 2024" }
+        {
+          "src": "assets/images/gallery/photo1.jpg",
+          "alt": "Emceeing HSBC x JA HK Innovation Pop-up",
+          "caption": "Emceeing HSBC x JA HK Innovation Pop-up &middot; 2026"
+        },
+        {
+          "src": "assets/images/gallery/photo2.jpg",
+          "alt": "JA HK Company of the Year Finals Pitch",
+          "caption": "JA HK Company of the Year &middot; Finals Pitch &middot; Apr 2024"
+        },
+        {
+          "src": "assets/images/gallery/photo3.jpg",
+          "alt": "ESF Chairman's Award for Excellence",
+          "caption": "ESF Chairman's Award for Excellence &middot; Aug 2025"
+        },
+        {
+          "src": "assets/images/gallery/photo4.jpg",
+          "alt": "SDG Innovation League",
+          "caption": "SDG Innovation League &middot; 250+ participants &middot; Dec 2024"
+        },
+        {
+          "src": "assets/images/uploads/1788876958302-20260820-s0151.jpg",
+          "alt": "CLP x HKSTP Sustainable Residential Living Conference",
+          "caption": "Conference Emcee &middot; 230+ participants &middot; Aug 2026"
+        }
       ]
     }
   ]
