@@ -67,7 +67,7 @@ section { margin-bottom: 60px; }
 
 /* ── PAGE HEADER ── */
 .page-header { margin-bottom: 40px; }
-.page-header h1 { font-family: 'Playfair Display', Georgia, serif; font-size: 2.6rem; font-weight: 700; color: var(--text); letter-spacing: 0; line-height: 1.15; }
+.page-header h1 { font-family: 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif; font-size: 2.6rem; font-weight: 800; color: var(--text); letter-spacing: 0; line-height: 1.15; }
 .page-header .subhead { font-size: 0.95rem; color: var(--muted); margin-top: 10px; line-height: 1.6; max-width: 560px; }
 
 .section-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
@@ -191,7 +191,7 @@ section { margin-bottom: 60px; }
 .case-study-body { padding: 32px 36px; }
 .case-study-meta { font-size: 0.78rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; margin-bottom: 8px; }
 .case-study-meta .dot { color: var(--accent); margin: 0 8px; }
-.case-study h2 { font-family: 'Playfair Display', Georgia, serif; font-size: 1.5rem; font-weight: 700; margin-bottom: 4px; }
+.case-study h2 { font-family: 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif; font-size: 1.5rem; font-weight: 800; margin-bottom: 4px; }
 .case-study .role { font-size: 0.88rem; color: var(--accent); font-weight: 600; margin-bottom: 20px; }
 .case-study-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
 .case-study-field h4 { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
