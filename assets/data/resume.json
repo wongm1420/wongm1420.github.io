@@ -9,8 +9,22 @@
         {
           "heading": "Education",
           "items": [
-            { "dateRange": "2025 – 2029", "title": "BBA Global Business", "titleLink": null, "company": "Hong Kong University of Science and Technology (HKUST)", "oneLiner": null, "bullets": [] },
-            { "dateRange": "2023 – 2025", "title": "IB Diploma &middot; 43/45", "titleLink": null, "company": "Island School, Hong Kong", "oneLiner": null, "bullets": [] }
+            {
+              "dateRange": "2025 – 2029",
+              "title": "BBA Global Business",
+              "titleLink": null,
+              "company": "Hong Kong University of Science and Technology (HKUST)",
+              "oneLiner": null,
+              "bullets": []
+            },
+            {
+              "dateRange": "2023 – 2025",
+              "title": "IB Diploma &middot; 43/45",
+              "titleLink": null,
+              "company": "ESF Island School, Hong Kong",
+              "oneLiner": null,
+              "bullets": []
+            }
           ]
         },
         {
@@ -21,7 +35,7 @@
               "title": "Part-Time Assistant (PTA)",
               "titleLink": null,
               "company": "Boston Consulting Group (BCG)",
-              "oneLiner": "Supporting BCG Hong Kong case teams part-time alongside coursework.",
+              "oneLiner": "Supporting BCG Hong Kong case teams part-time.",
               "bullets": [
                 "Note-taking and research support across expert calls, client interviews, and internal meetings for live case teams",
                 "Conducting market and literature research, consolidated into structured, source-linked summaries"
@@ -29,17 +43,17 @@
             },
             {
               "dateRange": "Jul – Aug 2026",
-              "title": "Summer Intern, Ecosystem Development &amp; Partnerships",
+              "title": "Summer Intern, Partnerships",
               "titleLink": null,
-              "company": "Hong Kong Science and Technology Parks (HKSTP)",
-              "oneLiner": "Supporting Hong Kong's flagship tech park in building its startup and innovation ecosystem.",
+              "company": "Hong Kong Science and Technology Parks Corporation (HKSTP)",
+              "oneLiner": "Supporting Hong Kong's largest I&T hub in building its startup and innovation ecosystem.",
               "bullets": [
-                "Partner outreach and relationship management across HKSTP's corporate and university network",
+                "Partner outreach and relationship management across HKSTP's corporate and innovation network",
                 "Research and analysis to support ecosystem development initiatives"
               ]
             },
             {
-              "dateRange": "Apr 2026 – Present",
+              "dateRange": "Apr 2026 – June 2026",
               "title": "Researcher (Volunteer) &#8599;",
               "titleLink": "https://liber-research.com/liber-research-home-page/",
               "company": "Liber Research Community",
@@ -151,20 +165,47 @@
         {
           "heading": "Zester Limited",
           "items": [
-            { "text": "JA Company of the Year 2025, 1st Place", "org": "JA Asia Pacific &middot; Mar 2025 &middot; 81,000+ students" },
-            { "text": "BNY Resilient Futures Award", "org": "JA Asia Pacific / Bank of New York &middot; Mar 2025" },
-            { "text": "PMIEF Best Application of Project Management Award, 1st Place", "org": "JA Asia Pacific / Project Management Institute Educational Foundation &middot; Mar 2025" },
-            { "text": "JA Company of the Year, Champion", "org": "Junior Achievement Hong Kong &middot; Apr 2024" },
-            { "text": "Best Offering Award, Champion", "org": "Junior Achievement Hong Kong &middot; Apr 2024" },
-            { "text": "Most Popular Offering Award", "org": "Junior Achievement Hong Kong &middot; Apr 2024" },
-            { "text": "Innovation Award", "org": "Junior Achievement Hong Kong &middot; Apr 2024" }
+            {
+              "text": "JA Company of the Year 2025, 1st Place",
+              "org": "JA Asia Pacific &middot; Mar 2025 &middot; 81,000+ students"
+            },
+            {
+              "text": "BNY Resilient Futures Award",
+              "org": "JA Asia Pacific / Bank of New York &middot; Mar 2025"
+            },
+            {
+              "text": "PMIEF Best Application of Project Management Award, 1st Place",
+              "org": "JA Asia Pacific / Project Management Institute Educational Foundation &middot; Mar 2025"
+            },
+            {
+              "text": "JA Company of the Year, Champion",
+              "org": "Junior Achievement Hong Kong &middot; Apr 2024"
+            },
+            {
+              "text": "Best Offering Award, Champion",
+              "org": "Junior Achievement Hong Kong &middot; Apr 2024"
+            },
+            {
+              "text": "Most Popular Offering Award",
+              "org": "Junior Achievement Hong Kong &middot; Apr 2024"
+            },
+            {
+              "text": "Innovation Award",
+              "org": "Junior Achievement Hong Kong &middot; Apr 2024"
+            }
           ]
         },
         {
           "heading": "Other",
           "items": [
-            { "text": "ESF Chairman's Award for Excellence, Outstanding Academic Achievement", "org": "English Schools Foundation &middot; Aug 2025" },
-            { "text": "Silver Level, Hong Kong Award for Young People", "org": "HKAYP &middot; Jan 2024" }
+            {
+              "text": "ESF Chairman's Award for Excellence, Outstanding Academic Achievement",
+              "org": "English Schools Foundation &middot; Aug 2025"
+            },
+            {
+              "text": "Silver Level, Hong Kong Award for Young People",
+              "org": "HKAYP &middot; Jan 2024"
+            }
           ]
         }
       ]
@@ -175,24 +216,59 @@
       "sectionTitle": "Works &amp; Publications",
       "items": [
         {
-          "meta": ["Liber Research Community", "HK01 &middot; 2026", "Labour Economics"],
+          "meta": [
+            "Liber Research Community",
+            "HK01 &middot; 2026",
+            "Labour Economics"
+          ],
           "title": "Cross-City Comparative Study on Job Vacancy Trends",
           "body": "A policy research piece examining job vacancy trends across major global cities, exploring whether Hong Kong's declining job openings reflect a local labour market issue or a broader global pattern. Published through Liber Research Community's channels. The findings were subsequently cited in HK01.",
           "links": [
-            { "label": "View on Facebook &#8599;", "url": "https://www.facebook.com/watch/?v=1002691825947359", "style": "primary" },
-            { "label": "View on Instagram &#8599;", "url": "https://www.instagram.com/p/DYZcJVCkjuf/", "style": "primary" },
-            { "label": "Cited in HK01 &#8599;", "url": "https://www.hk01.com/01%E8%AB%87%E5%A3%87/60353952/%E4%BE%86%E7%A8%BF-3-7-%E7%9A%84%E4%BD%8E%E5%A4%B1%E6%A5%AD%E7%8E%87%E4%B8%8B-%E5%B8%82%E6%B0%91%E7%82%BA%E4%BD%95%E4%BB%8D-%E6%90%B5%E5%B7%A5%E9%9B%A3", "style": "secondary" }
+            {
+              "label": "View on Facebook &#8599;",
+              "url": "https://www.facebook.com/watch/?v=1002691825947359",
+              "style": "primary"
+            },
+            {
+              "label": "View on Instagram &#8599;",
+              "url": "https://www.instagram.com/p/DYZcJVCkjuf/",
+              "style": "primary"
+            },
+            {
+              "label": "Cited in HK01 &#8599;",
+              "url": "https://www.hk01.com/01%E8%AB%87%E5%A3%87/60353952/%E4%BE%86%E7%A8%BF-3-7-%E7%9A%84%E4%BD%8E%E5%A4%B1%E6%A5%AD%E7%8E%87%E4%B8%8B-%E5%B8%82%E6%B0%91%E7%82%BA%E4%BD%95%E4%BB%8D-%E6%90%B5%E5%B7%A5%E9%9B%A3",
+              "style": "secondary"
+            }
           ]
         },
         {
-          "meta": ["Zester Limited", "Press Coverage"],
+          "meta": [
+            "Zester Limited",
+            "Press Coverage"
+          ],
           "title": "Media Coverage",
           "body": "Zester's work has been covered across Hong Kong media, including features on the SDG Innovation League and the HSBC x JA Hong Kong Company Programme.",
           "links": [
-            { "label": "Young Post &#8599;", "url": "https://www.youngpostclub.com/posties/kids/school-week/article/3261528/school-week-island-school", "style": "primary" },
-            { "label": "HKET &#8599;", "url": "https://topick.hket.com/article/3731761/%E5%85%A8%E6%B8%AF%E8%A6%8F%E6%A8%A1%E6%9C%80%E5%A4%A7%E9%9D%92%E5%B9%B4%E5%89%B5%E6%A5%AD%E8%A8%88%E5%8A%83%20%C2%A0%E6%BB%99%E8%B1%90%E9%8A%80%E8%A1%8C%E6%85%88%E5%96%84%E5%9F%BA%E9%87%91%E5%8A%A9%E5%AD%B8%E7%94%9F%E6%88%90%E5%B0%B1%E7%90%86%E6%83%B3", "style": "primary" },
-            { "label": "HKU Education (SDG Innovation League) &#8599;", "url": "https://www.facebook.com/education.hku/posts/%F0%9D%90%92%F0%9D%90%83%F0%9D%90%86-%F0%9D%90%88%F0%9D%90%A7%F0%9D%90%A7%F0%9D%90%A8%F0%9D%90%AF%F0%9D%90%9A%F0%9D%90%AD%F0%9D%90%A2%F0%9D%90%A8%F0%9D%90%A7-%F0%9D%90%8B%F0%9D%90%9E%F0%9D%90%9A%F0%9D%90%AE%F0%9D%90%9E-%F0%9D%90%82%F0%9D%90%9E%F0%9D%90%9C%F0%9D%90%9E%F0%9D%90%9B%F0%9D%90%AB%F0%9D%90%9A%F0%9D%90%AD%F0%9D%90%9E%F0%9D%90%AC-%F0%9D%90%92%F0%9D%90%AE%F0%9D%90%9C%F0%9D%90%9C%F0%9D%90%9E%F0%9D%90%AC%F0%9D%90%9F%F0%9D%90%AE%F0%9D%90%A5-%F0%9D%90%82%F0%9D%90%A8%F0%9D%90%A7%F0%9D%90%9C%F0%9D%90%AE%F0%9D%90%AC%F0%9D%90%A2%F0%9D%90%A8%F0%9D%90%A7-the-sdg-innovation-league/1052279943587204/", "style": "primary" },
-            { "label": "HK01 &#8599;", "url": "https://www.hk01.com/%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%A0%A1%E5%9C%92/999060/1800%E4%B8%AD%E5%AD%B8%E7%94%9F%E5%8F%83%E5%8A%A0%E5%89%B5%E6%A5%AD%E8%A8%88%E5%8A%83-%E6%8B%94%E8%90%83%E5%A5%B3%E6%9B%B8%E9%99%A2%E9%9A%8A%E4%BC%8D%E8%A3%BD%E7%94%A2%E5%93%81%E4%BF%83%E5%8B%BF%E6%AD%A7%E8%A6%96%E7%99%BD%E5%8C%96%E7%97%85%E4%BA%BA", "style": "primary" }
+            {
+              "label": "Young Post &#8599;",
+              "url": "https://www.youngpostclub.com/posties/kids/school-week/article/3261528/school-week-island-school",
+              "style": "primary"
+            },
+            {
+              "label": "HKET &#8599;",
+              "url": "https://topick.hket.com/article/3731761/%E5%85%A8%E6%B8%AF%E8%A6%8F%E6%A8%A1%E6%9C%80%E5%A4%A7%E9%9D%92%E5%B9%B4%E5%89%B5%E6%A5%AD%E8%A8%88%E5%8A%83%20%C2%A0%E6%BB%99%E8%B1%90%E9%8A%80%E8%A1%8C%E6%85%88%E5%96%84%E5%9F%BA%E9%87%91%E5%8A%A9%E5%AD%B8%E7%94%9F%E6%88%90%E5%B0%B1%E7%90%86%E6%83%B3",
+              "style": "primary"
+            },
+            {
+              "label": "HKU Education (SDG Innovation League) &#8599;",
+              "url": "https://www.facebook.com/education.hku/posts/%F0%9D%90%92%F0%9D%90%83%F0%9D%90%86-%F0%9D%90%88%F0%9D%90%A7%F0%9D%90%A7%F0%9D%90%A8%F0%9D%90%AF%F0%9D%90%9A%F0%9D%90%AD%F0%9D%90%A2%F0%9D%90%A8%F0%9D%90%A7-%F0%9D%90%8B%F0%9D%90%9E%F0%9D%90%9A%F0%9D%90%AE%F0%9D%90%9E-%F0%9D%90%82%F0%9D%90%9E%F0%9D%90%9C%F0%9D%90%9E%F0%9D%90%9B%F0%9D%90%AB%F0%9D%90%9A%F0%9D%90%AD%F0%9D%90%9E%F0%9D%90%AC-%F0%9D%90%92%F0%9D%90%AE%F0%9D%90%9C%F0%9D%90%9C%F0%9D%90%9E%F0%9D%90%AC%F0%9D%90%9F%F0%9D%90%AE%F0%9D%90%A5-%F0%9D%90%82%F0%9D%90%A8%F0%9D%90%A7%F0%9D%90%9C%F0%9D%90%AE%F0%9D%90%AC%F0%9D%90%A2%F0%9D%90%A8%F0%9D%90%A7-the-sdg-innovation-league/1052279943587204/",
+              "style": "primary"
+            },
+            {
+              "label": "HK01 &#8599;",
+              "url": "https://www.hk01.com/%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%A0%A1%E5%9C%92/999060/1800%E4%B8%AD%E5%AD%B8%E7%94%9F%E5%8F%83%E5%8A%A0%E5%89%B5%E6%A5%AD%E8%A8%88%E5%8A%83-%E6%8B%94%E8%90%83%E5%A5%B3%E6%9B%B8%E9%99%A2%E9%9A%8A%E4%BC%8D%E8%A3%BD%E7%94%A2%E5%93%81%E4%BF%83%E5%8B%BF%E6%AD%A7%E8%A6%96%E7%99%BD%E5%8C%96%E7%97%85%E4%BA%BA",
+              "style": "primary"
+            }
           ]
         }
       ]
@@ -202,9 +278,18 @@
       "id": "qualifications",
       "sectionTitle": "Qualifications",
       "items": [
-        { "text": "Member, Emerging Leader Ecosystem", "org": "Future Talent Council &middot; Apr 2026" },
-        { "text": "Student Affiliate", "org": "Royal Aeronautical Society &middot; May 2026 &middot; Credential ID 3075490" },
-        { "text": "Kickoff: Project Management Course", "org": "Project Management Institute &middot; May 2025" }
+        {
+          "text": "Member, Emerging Leader Ecosystem",
+          "org": "Future Talent Council &middot; Apr 2026"
+        },
+        {
+          "text": "Student Affiliate",
+          "org": "Royal Aeronautical Society &middot; May 2026 &middot; Credential ID 3075490"
+        },
+        {
+          "text": "Kickoff: Project Management Course",
+          "org": "Project Management Institute &middot; May 2025"
+        }
       ]
     },
     {
@@ -247,7 +332,10 @@
       "heading": "Visual Storytelling",
       "body": "Photography is how I slow down and pay attention. I shoot landscapes, travel, and street. I'm always looking for the frame that says something a caption can't.",
       "links": [
-        { "label": "View Portfolio &rarr;", "url": "https://jonathanwong.mypixieset.com/" }
+        {
+          "label": "View Portfolio &rarr;",
+          "url": "https://jonathanwong.mypixieset.com/"
+        }
       ]
     }
   ]
