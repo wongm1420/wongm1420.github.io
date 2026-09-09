@@ -35,10 +35,10 @@
               "title": "Part-Time Assistant (PTA)",
               "titleLink": null,
               "company": "Boston Consulting Group (BCG)",
-              "oneLiner": "Supporting BCG Hong Kong case teams part-time.",
+              "oneLiner": "Supporting BCG Hong Kong case teams on a part-time basis.",
               "bullets": [
                 "Note-taking and research support across expert calls, client interviews, and internal meetings for live case teams",
-                "Conducting market and literature research, consolidated into structured, source-linked summaries"
+                "Conducting market and literature research, consolidated into structured summaries"
               ]
             },
             {
@@ -49,7 +49,8 @@
               "oneLiner": "Supporting Hong Kong's largest I&T hub in building its startup and innovation ecosystem.",
               "bullets": [
                 "Partner outreach and relationship management across HKSTP's corporate and innovation network",
-                "Research and analysis to support ecosystem development initiatives"
+                "Research and analysis to support ecosystem development initiatives",
+                "Organising the CLP x HKSTP Sustainable Residential Living Conference as PIC"
               ]
             },
             {
@@ -136,12 +137,7 @@
           "title": "SDG Innovation League",
           "role": "Head of Operations &amp; Finance, Organising Committee",
           "body": "A three-phase sustainability innovation competition for secondary school students across Hong Kong, co-organised with HKU Faculty of Education, Ocean Park, and UN SDSN HK. Over 250 students across 17 schools participated to ideate, implement, and pitch SDG projects to industry judges.",
-          "bullets": [
-            "Secured HK$350K+ in sponsorship from HKU, Ocean Park, and UN SDSN HK through tailored proposals and stakeholder negotiations",
-            "Directed end-to-end logistics and operations across all three phases, including a full-day launch event and final judging round",
-            "Coordinated 62 staff and volunteers; built registration and communication systems for 250+ participants",
-            "Managed event budgeting and expense tracking; delivered on budget and on schedule"
-          ]
+          "bullets": []
         },
         {
           "dateRange": "Sep 2025 – May 2026",
@@ -149,11 +145,7 @@
           "title": "Market Strategy &amp; Expansion: Women's Premium Activewear Brand",
           "role": "Project Consultant",
           "body": "A 9-week consulting engagement for a women's premium activewear brand based in Hong Kong, conducted as part of a 6-person team. Focused on diagnosing brand positioning gaps and identifying growth opportunities across retail and digital channels.",
-          "bullets": [
-            "Led market sizing, competitor benchmarking, customer research, and sales-channel analysis",
-            "Benchmarked 6 competitors and ~15 Instagram accounts; synthesised findings from 60+ survey responses, 15 focus group participants, and 2 Causeway Bay site visits to identify positioning gaps",
-            "Analysed sales performance across 4 channels and delivered a 25-slide final deck with 3 actionable recommendations on in-store experience, brand messaging, and customer engagement"
-          ]
+          "bullets": []
         }
       ]
     },
@@ -166,32 +158,36 @@
           "heading": "Zester Limited",
           "items": [
             {
-              "text": "JA Company of the Year 2025, 1st Place",
+              "text": "Finalist - De La Vega Global Entrepreneurship Award",
+              "org": "JA Worldwide &middot; Mar 2026 &middot; Top 6 teams globally"
+            },
+            {
+              "text": "JA Company of the Year 2025, Champion (1st place)",
               "org": "JA Asia Pacific &middot; Mar 2025 &middot; 81,000+ students"
             },
             {
               "text": "BNY Resilient Futures Award",
-              "org": "JA Asia Pacific / Bank of New York &middot; Mar 2025"
+              "org": "JA Asia Pacific / Bank of New York (BNY) &middot; Mar 2025"
             },
             {
               "text": "PMIEF Best Application of Project Management Award, 1st Place",
-              "org": "JA Asia Pacific / Project Management Institute Educational Foundation &middot; Mar 2025"
+              "org": "JA Asia Pacific / Project Management Institute Educational Foundation (PMIEF) &middot; Mar 2025"
             },
             {
-              "text": "JA Company of the Year, Champion",
-              "org": "Junior Achievement Hong Kong &middot; Apr 2024"
-            },
-            {
-              "text": "Best Offering Award, Champion",
-              "org": "Junior Achievement Hong Kong &middot; Apr 2024"
-            },
-            {
-              "text": "Most Popular Offering Award",
+              "text": "JAHK Company of the Year, Champion",
               "org": "Junior Achievement Hong Kong &middot; Apr 2024"
             },
             {
               "text": "Innovation Award",
               "org": "Junior Achievement Hong Kong &middot; Apr 2024"
+            },
+            {
+              "text": "Best Offering Award",
+              "org": "Junior Achievement Hong Kong &middot; Mar 2024"
+            },
+            {
+              "text": "Most Popular Offering Award",
+              "org": "Junior Achievement Hong Kong &middot; Mar 2024"
             }
           ]
         },
