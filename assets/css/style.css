@@ -45,7 +45,7 @@ body {
 }
 
 .sidebar-photo { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; object-position: center top; border: 3px solid var(--accent); margin-bottom: 20px; }
-.sidebar h1 { color: #ffffff; font-size: 1.2rem; font-weight: 700; text-align: center; letter-spacing: 0.01em; margin-bottom: 6px; }
+.sidebar-name { color: #ffffff; font-size: 1.2rem; font-weight: 700; text-align: center; letter-spacing: 0.01em; margin-bottom: 6px; }
 .sidebar .tagline { color: var(--accent); font-size: 0.78rem; text-align: center; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 28px; line-height: 1.4; }
 
 .contact-list { list-style: none; width: 100%; margin-bottom: 0; }
