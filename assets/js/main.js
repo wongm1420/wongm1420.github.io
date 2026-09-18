@@ -54,7 +54,7 @@ function renderSidebar(site) {
 
   mount.innerHTML = `
     <img src="${site.headshot}" alt="${site.name}" class="sidebar-photo" />
-    <h1>${site.name}</h1>
+    <p class="sidebar-name">${site.name}</p>
     <p class="tagline">${site.tagline}</p>
     <ul class="contact-list">${contactHtml}</ul>
     <nav class="sidebar-nav"><ul>${navHtml}</ul></nav>
