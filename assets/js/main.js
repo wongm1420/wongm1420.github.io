@@ -240,6 +240,35 @@ async function renderProjectsPage() {
   `;
 }
 
+// ── SPEAKING ──
+function renderSpeakingCard(item) {
+  const img = item.image ? `<img class="speaking-img" src="${item.image}" alt="${item.imageAlt || ''}" loading="lazy" decoding="async" />` : '';
+  return `<li id="${item.id}"><article class="speaking-card${item.image ? ' has-img' : ''}">
+      ${img}
+      <div class="speaking-body">
+        <div class="speaking-meta"><span class="speaking-type">${item.type}</span><span class="speaking-date">${item.date}</span></div>
+        <h2>${item.title}</h2>
+        <p class="speaking-host">${item.host}</p>
+        <dl class="speaking-facts">
+          <div><dt>Role</dt><dd>${item.role}</dd></div>
+          <div><dt>Audience</dt><dd>${item.audience}</dd></div>
+        </dl>
+        <p class="speaking-summary">${item.summary}</p>
+      </div>
+    </article></li>`;
+}
+
+async function renderSpeakingPage() {
+  const mount = document.getElementById('page-mount');
+  if (!mount) return;
+  const data = await fetchJSON('assets/data/speaking.json');
+  if (!data) return;
+  mount.innerHTML = `
+    <div class="page-header"><h1>${data.pageTitle || 'Speaking'}</h1>${data.subhead ? `<p class="subhead">${data.subhead}</p>` : ''}</div>
+    <ul class="speaking-list">${(data.items || []).map(renderSpeakingCard).join('')}</ul>
+  `;
+}
+
 // ── CONTACT ──
 async function renderContactPage() {
   const mount = document.getElementById('page-mount');
@@ -355,6 +384,7 @@ async function renderPage() {
   if (page === 'home') await renderHomePage();
   else if (page === 'resume') await renderResumePage();
   else if (page === 'projects') await renderProjectsPage();
+  else if (page === 'speaking') await renderSpeakingPage();
   else if (page === 'contact') await renderContactPage();
   else if (page === 'writing') await renderWritingPage();
 }

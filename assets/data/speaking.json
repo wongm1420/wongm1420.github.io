@@ -1,0 +1,102 @@
+{
+  "pageTitle": "Speaking",
+  "subhead": "A record of my public speaking engagements: panels, emceeing, pitches and workshops. For more detail on any of them, get in touch.",
+  "items": [
+    {
+      "id": "ja-money-sense-2026",
+      "type": "Panel",
+      "date": "Oct 2026",
+      "title": "JA Money Sense Workshop",
+      "host": "JA Hong Kong &middot; Creative Secondary School",
+      "role": "Volunteer panel speaker",
+      "audience": "About 145 F3 students",
+      "summary": "Spoke on two panels about teenage financial literacy, covering needs vs wants, financial resilience and smart online shopping, in English.",
+      "image": "",
+      "imageAlt": ""
+    },
+    {
+      "id": "clp-hkstp-conference-2026",
+      "type": "Emcee",
+      "date": "Aug 2026",
+      "title": "Sustainable Residential Living Conference",
+      "host": "HKSTP &times; CLP",
+      "role": "Conference MC and project co-lead",
+      "audience": "230+ attendees",
+      "summary": "Hosted a half-day flagship GreenTech conference in Cantonese for senior government, developer and industry guests, running every segment and coordinating the rundown with 2 event agencies.",
+      "image": "assets/images/uploads/1788876958302-20260820-s0151.jpg",
+      "imageAlt": "Emceeing the CLP x HKSTP Sustainable Residential Living Conference"
+    },
+    {
+      "id": "bny-esg-workshop-2025",
+      "type": "Workshop",
+      "date": "Jun 2025",
+      "title": "BNY Corporate ESG Workshop",
+      "host": "Zester &times; BNY",
+      "role": "Facilitator (TBC)",
+      "audience": "20 staff",
+      "summary": "Ran a gamified SDG workshop built around the Zester card game for BNY employees.",
+      "image": "",
+      "imageAlt": ""
+    },
+    {
+      "id": "ja-apac-company-of-the-year-2025",
+      "type": "Pitch",
+      "date": "Mar 2025",
+      "title": "JA Asia Pacific Company of the Year",
+      "host": "JA Asia Pacific",
+      "role": "One of four team presenters",
+      "audience": "TBC",
+      "summary": "Presented the SDG Innovation League section of Zester's scripted team pitch, then took judges' Q&amp;A. Won 1st place out of 81,000+ students from 13 APAC countries.",
+      "image": "",
+      "imageAlt": ""
+    },
+    {
+      "id": "tti-esg-workshop-2024",
+      "type": "Workshop",
+      "date": "Nov 2024",
+      "title": "TTI Corporate ESG Workshop",
+      "host": "Zester &times; TTI",
+      "role": "Facilitator (TBC)",
+      "audience": "About 10 staff",
+      "summary": "Ran a gamified SDG workshop for TTI staff, following an earlier sales pitch to the company.",
+      "image": "",
+      "imageAlt": ""
+    },
+    {
+      "id": "ja-hk-company-of-the-year-2024",
+      "type": "Pitch",
+      "date": "Apr 2024",
+      "title": "JA Hong Kong Company of the Year",
+      "host": "JA Hong Kong &times; HSBC",
+      "role": "Team representative (1 of 4)",
+      "audience": "TBC",
+      "summary": "Pitched Zester to the judging panel and answered Q&amp;A. Won Champion, plus the Best Offering, Most Popular Offering and Innovation awards, out of 77 companies.",
+      "image": "assets/images/gallery/photo2.jpg",
+      "imageAlt": "Pitching Zester at the JA Hong Kong Company of the Year finals"
+    },
+    {
+      "id": "island-school-cpd-2024",
+      "type": "Workshop",
+      "date": "Apr 2024",
+      "title": "Sustainability Workshop, CPD Day",
+      "host": "Island School",
+      "role": "Facilitator (TBC)",
+      "audience": "Teachers (TBC)",
+      "summary": "Ran a sustainability workshop for teachers on a staff training day, using the Zester game.",
+      "image": "",
+      "imageAlt": ""
+    },
+    {
+      "id": "zester-early-sales-pitches-2024",
+      "type": "Pitch",
+      "date": "Feb &ndash; Mar 2024",
+      "title": "Early Zester Sales Pitches",
+      "host": "Zester &times; TTI and local schools",
+      "role": "Team member (TBC)",
+      "audience": "Small groups",
+      "summary": "Pitched Zester to corporate and school buyers. The TTI meeting led to a corporate version of the game, and Island School teachers bought sets for their departments.",
+      "image": "",
+      "imageAlt": ""
+    }
+  ]
+}

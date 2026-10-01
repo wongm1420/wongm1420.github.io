@@ -9,7 +9,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { chromium } from 'playwright';
 
 const BASE = process.env.BASE || 'http://localhost:8123';
-const pages = ['index', 'resume', 'projects', 'writing', 'contact'];
+const pages = ['index', 'resume', 'projects', 'speaking', 'writing', 'contact'];
 const browser = await chromium.launch();
 const page = await browser.newPage({ viewport: { width: 1280, height: 800 } });
 
