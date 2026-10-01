@@ -178,11 +178,7 @@ section:last-child { margin-bottom: 0; }
 .speaking-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; font-size: var(--step--1); margin-bottom: 10px; }
 .speaking-type { background: var(--accent-soft); color: var(--accent); font-weight: 600; letter-spacing: .06em; text-transform: uppercase; padding: 3px 10px; border-radius: 999px; }
 .speaking-date { color: var(--muted); font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
-<<<<<<< HEAD
-.speaking-card h2 { font-family: var(--font-display); font-weight: 400; font-size: var(--step-2); line-height: 1.1; letter-spacing: -.01em; }
-=======
 .speaking-card h2 { font-family: var(--font-display); font-weight: 700; font-size: var(--step-2); line-height: 1.1; letter-spacing: -.01em; }
->>>>>>> origin/main
 .speaking-host { color: var(--muted); margin-top: 4px; }
 .speaking-facts { display: flex; flex-wrap: wrap; gap: 8px 32px; margin: 16px 0 12px; }
 .speaking-facts dt { font-size: var(--step--1); font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
