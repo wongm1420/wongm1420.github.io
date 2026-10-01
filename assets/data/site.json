@@ -11,6 +11,7 @@
     { "label": "Home", "href": "index.html" },
     { "label": "Resume", "href": "resume.html" },
     { "label": "Projects", "href": "projects.html" },
+    { "label": "Speaking", "href": "speaking.html" },
     { "label": "Writing", "href": "writing.html" },
     { "label": "Contact", "href": "contact.html" }
   ]
