@@ -26,7 +26,9 @@ function dataUrl(path) {
 
 async function fetchJSON(path) {
   try {
-    const res = await fetch(dataUrl(path), isPreview() ? { cache: 'no-store' } : undefined);
+    let res = await fetch(dataUrl(path), isPreview() ? { cache: 'no-store' } : undefined);
+    // Preview: a file not on the draft branch yet falls back to the published copy
+    if (!res.ok && isPreview()) res = await fetch(path);
     if (!res.ok) return null;
     return await res.json();
   } catch (err) {
@@ -34,57 +36,73 @@ async function fetchJSON(path) {
   }
 }
 
-// ── SIDEBAR (every page) ──
-function renderSidebar(site) {
-  const mount = document.getElementById('sidebar-mount');
-  if (!mount || !site) return;
+// ── HEADER + FOOTER (every page) ──
+function renderChrome(site) {
+  if (!site) return;
   const current = location.pathname.split('/').pop() || 'index.html';
 
-  const contactHtml = (site.contactLinks || []).map(c => {
-    if (c.url) {
+  const header = document.getElementById('header-mount');
+  if (header) {
+    const navHtml = (site.nav || []).map(n =>
+      `<li><a href="${n.href}"${n.href === current ? ' aria-current="page"' : ''}>${n.label}</a></li>`
+    ).join('');
+    header.innerHTML = `<div class="header-inner">
+      <a class="brand" href="index.html">${site.name}</a>
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="nav" id="site-nav" aria-label="Main"><ul class="nav-list">${navHtml}</ul></nav>
+    </div>`;
+    const toggle = document.getElementById('nav-toggle');
+    const nav = document.getElementById('site-nav');
+    toggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(open));
+    });
+  }
+
+  const footer = document.getElementById('footer-mount');
+  if (footer) {
+    const links = (site.contactLinks || []).filter(c => c.url).map(c => {
       const external = c.url.startsWith('http') ? ' target="_blank" rel="noopener"' : '';
-      return `<li><a href="${c.url}"${external}><span class="icon">${c.icon}</span>${c.label}</a></li>`;
-    }
-    return `<li><span class="static"><span class="icon">${c.icon}</span>${c.label}</span></li>`;
-  }).join('');
-
-  const navHtml = (site.nav || []).map(n =>
-    `<li><a href="${n.href}"${n.href === current ? ' class="active"' : ''}>${n.label}</a></li>`
-  ).join('');
-
-  mount.innerHTML = `
-    <img src="${site.headshot}" alt="${site.name}" class="sidebar-photo" />
-    <h1>${site.name}</h1>
-    <p class="tagline">${site.tagline}</p>
-    <ul class="contact-list">${contactHtml}</ul>
-    <nav class="sidebar-nav"><ul>${navHtml}</ul></nav>
-  `;
+      return `<li><a href="${c.url}"${external}>${c.label}</a></li>`;
+    }).join('');
+    footer.innerHTML = `<div class="footer-inner">
+      <span>&copy; ${new Date().getFullYear()} ${site.name} &middot; Hong Kong</span>
+      <ul class="footer-links">${links}</ul>
+    </div>`;
+  }
 }
 
 // ── HOME ──
 function renderPreviewCard(item) {
-  const img = item.image ? `<img class="preview-card-img" src="${item.image}" alt="${item.imageAlt || ''}" />` : '';
+  const img = item.image ? `<img class="preview-card-img" src="${item.image}" alt="${item.imageAlt || ''}" loading="lazy" decoding="async" />` : '';
   return `<a class="preview-card" href="${item.link}">${img}<div class="preview-card-body"><div class="preview-card-org">${item.org}</div><h3>${item.title}</h3><p>${item.body}</p><span class="read-more">Read the full story &rarr;</span></div></a>`;
 }
 
 function renderGalleryItem(item) {
-  return `<div class="gallery-item" onclick="openLightbox(this)"><img src="${item.src}" alt="${item.alt}" /><div class="gallery-caption">${item.caption}</div></div>`;
+  return `<button type="button" class="gallery-item" onclick="openLightbox(this)" aria-label="Enlarge photo: ${item.alt}"><img src="${item.src}" alt="${item.alt}" loading="lazy" decoding="async" /><span class="gallery-caption">${item.caption}</span></button>`;
 }
 
 function renderHomeBlock(block) {
   switch (block.type) {
+    case 'hero':
+      return `<section class="hero" aria-labelledby="hero-title"><div>
+          ${block.eyebrow ? `<p class="hero-eyebrow">${block.eyebrow}</p>` : ''}
+          <h1 id="hero-title">${block.headline}</h1>
+          ${block.lede ? `<p class="hero-lede">${block.lede}</p>` : ''}
+          <div class="hero-ctas"><a class="btn primary" href="projects.html">See my projects</a><a class="btn" href="contact.html">Get in touch</a></div>
+        </div>${block.portrait ? `<div class="hero-portrait"><img src="${block.portrait}" alt="${block.portraitAlt || ''}" width="800" height="1000" /></div>` : ''}</section>`;
     case 'intro':
       return `<section id="about"><p class="section-title">${block.sectionTitle}</p><div class="body-copy">${(block.paragraphs || []).map(p => `<p>${p}</p>`).join('')}</div></section>`;
     case 'photo':
-      return `<div class="feature-photo"><img src="${block.src}" alt="${block.alt}"></div>`;
+      return `<div class="feature-photo"><img src="${block.src}" alt="${block.alt}" loading="lazy" decoding="async"></div>`;
     case 'projectPreview':
       return `<section id="project-preview"><p class="section-title">${block.sectionTitle}</p><div class="preview-grid">${(block.items || []).map(renderPreviewCard).join('')}</div></section>`;
     case 'recentPosts':
       return `<section id="recent-posts" hidden><p class="section-title">${block.sectionTitle}</p><ul class="recent-posts-list" id="recent-posts-list"></ul></section>`;
     case 'gallery':
       return `<section id="gallery"><p class="section-title">${block.sectionTitle}</p><div class="gallery-grid">${(block.items || []).map(renderGalleryItem).join('')}</div></section>
-        <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-          <button class="lightbox-close" onclick="closeLightbox()">&#x2715;</button>
+        <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer" onclick="closeLightbox()">
+          <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Close photo" onclick="closeLightbox()">&#x2715;</button>
           <img id="lightbox-img" src="" alt="" />
           <div class="lightbox-caption" id="lightbox-caption"></div>
         </div>`;
@@ -98,7 +116,8 @@ async function renderHomePage() {
   if (!mount) return;
   const home = await fetchJSON('assets/data/home.json');
   if (!home) return;
-  mount.innerHTML = `<div class="page-header"><h1>${home.pageTitle || 'Home'}</h1></div>` +
+  const hasHero = (home.blocks || []).some(b => b.type === 'hero');
+  mount.innerHTML = (hasHero ? '' : `<div class="page-header"><h1>${home.pageTitle || 'Home'}</h1></div>`) +
     (home.blocks || []).map(renderHomeBlock).join('');
   await renderRecentPosts();
 }
@@ -184,24 +203,19 @@ async function renderResumePage() {
   if (!resume) return;
 
   const jumpNavHtml = (resume.sections || []).map(s =>
-    `<a href="#${s.id}" onclick="document.getElementById('sectionNav').classList.remove('open')">${s.sectionTitle}</a>`
+    `<a href="#${s.id}">${s.sectionTitle}</a>`
   ).join('');
 
   mount.innerHTML = `
     <div class="page-header"><h1>${resume.pageTitle || 'Resume'}</h1></div>
-    <div class="section-nav" id="sectionNav">
-      <button class="section-nav-btn" onclick="document.getElementById('sectionNav').classList.toggle('open')">
-        Jump to section <span class="chevron">&#9662;</span>
-      </button>
-      <div class="section-nav-menu">${jumpNavHtml}</div>
-    </div>
+    <nav class="section-nav" id="sectionNav" aria-label="Resume sections"><div class="section-nav-menu">${jumpNavHtml}</div></nav>
     ${(resume.sections || []).map(renderResumeSection).join('')}
   `;
 }
 
 // ── PROJECTS ──
 function renderCaseStudy(item) {
-  const img = item.image ? `<img class="case-study-img" src="${item.image}" alt="${item.imageAlt || ''}" />` : '';
+  const img = item.image ? `<img class="case-study-img" src="${item.image}" alt="${item.imageAlt || ''}" loading="lazy" decoding="async" />` : '';
   return `<section id="${item.id}">
     <article class="case-study">
       ${img}
@@ -225,6 +239,35 @@ async function renderProjectsPage() {
   mount.innerHTML = `
     <div class="page-header"><h1>${data.pageTitle || 'Projects'}</h1>${data.subhead ? `<p class="subhead">${data.subhead}</p>` : ''}</div>
     ${(data.items || []).map(renderCaseStudy).join('')}
+  `;
+}
+
+// ── SPEAKING ──
+function renderSpeakingCard(item) {
+  const img = item.image ? `<img class="speaking-img" src="${item.image}" alt="${item.imageAlt || ''}" loading="lazy" decoding="async" />` : '';
+  return `<li id="${item.id}"><article class="speaking-card${item.image ? ' has-img' : ''}">
+      ${img}
+      <div class="speaking-body">
+        <div class="speaking-meta"><span class="speaking-type">${item.type}</span><span class="speaking-date">${item.date}</span></div>
+        <h2>${item.title}</h2>
+        <p class="speaking-host">${item.host}</p>
+        <dl class="speaking-facts">
+          <div><dt>Role</dt><dd>${item.role}</dd></div>
+          <div><dt>Audience</dt><dd>${item.audience}</dd></div>
+        </dl>
+        <p class="speaking-summary">${item.summary}</p>
+      </div>
+    </article></li>`;
+}
+
+async function renderSpeakingPage() {
+  const mount = document.getElementById('page-mount');
+  if (!mount) return;
+  const data = await fetchJSON('assets/data/speaking.json');
+  if (!data) return;
+  mount.innerHTML = `
+    <div class="page-header"><h1>${data.pageTitle || 'Speaking'}</h1>${data.subhead ? `<p class="subhead">${data.subhead}</p>` : ''}</div>
+    <ul class="speaking-list">${(data.items || []).map(renderSpeakingCard).join('')}</ul>
   `;
 }
 
@@ -254,11 +297,16 @@ function openLightbox(el) {
   lightboxImg.src = img.src;
   lightboxImg.alt = img.alt;
   lightboxCaption.textContent = caption ? caption.textContent : '';
+  lastFocus = el;
   document.getElementById('lightbox').classList.add('active');
+  document.getElementById('lightbox-close').focus();
 }
+let lastFocus = null;
 function closeLightbox() {
   const lightbox = document.getElementById('lightbox');
-  if (lightbox) lightbox.classList.remove('active');
+  if (!lightbox || !lightbox.classList.contains('active')) return;
+  lightbox.classList.remove('active');
+  if (lastFocus) lastFocus.focus();
 }
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 
@@ -330,20 +378,15 @@ async function renderWritingPage() {
   `;
 }
 
-// Resume section-jump dropdown: close when clicking outside it
-document.addEventListener('click', e => {
-  const nav = document.getElementById('sectionNav');
-  if (nav && !nav.contains(e.target)) nav.classList.remove('open');
-});
-
 async function renderPage() {
   const site = await fetchJSON('assets/data/site.json');
-  renderSidebar(site);
+  renderChrome(site);
 
   const page = document.body.dataset.page;
   if (page === 'home') await renderHomePage();
   else if (page === 'resume') await renderResumePage();
   else if (page === 'projects') await renderProjectsPage();
+  else if (page === 'speaking') await renderSpeakingPage();
   else if (page === 'contact') await renderContactPage();
   else if (page === 'writing') await renderWritingPage();
 }

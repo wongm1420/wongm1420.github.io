@@ -92,7 +92,26 @@ async function getDraftStatus() {
 async function publishDraft() {
   const draftRef = await ghGetRef(DRAFT_BRANCH);
   if (!draftRef) throw new Error('No draft to publish.');
-  await ghUpdateRef(MAIN_BRANCH, draftRef.object.sha, false);
+  try {
+    await ghUpdateRef(MAIN_BRANCH, draftRef.object.sha, false);
+    return;
+  } catch (err) {
+    if (!/ 422 /.test(err.message)) throw err;
+  }
+  // Draft is not a fast-forward of main (main moved on since the draft was
+  // made). Bring main's changes into the draft, then fast-forward main.
+  try {
+    await ghRequest(`/repos/${REPO}/merges`, 'POST', {
+      base: DRAFT_BRANCH, head: MAIN_BRANCH, commit_message: 'Merge main into draft'
+    });
+  } catch (err) {
+    if (/ 409 /.test(err.message)) {
+      throw new Error('The draft and the published site both changed the same content, so they cannot be combined automatically. Ask Claude to sync the draft with main, or Discard the draft (this loses its unpublished edits).');
+    }
+    throw err;
+  }
+  const merged = await ghGetRef(DRAFT_BRANCH);
+  await ghUpdateRef(MAIN_BRANCH, merged.object.sha, false);
 }
 
 async function discardDraft() {
@@ -372,6 +391,13 @@ const SCHEMAS = {
     fields: [
       { key: 'pageTitle', label: 'Page header', type: 'text' },
       { key: 'blocks', label: 'Sections (in order)', type: 'blockList', blockTypes: {
+        hero: [
+          { key: 'eyebrow', label: 'Small line above headline', type: 'text', optional: true },
+          { key: 'headline', label: 'Headline (one specific sentence)', type: 'text' },
+          { key: 'lede', label: 'Supporting line', type: 'text', optional: true },
+          { key: 'portrait', label: 'Portrait photo', type: 'image', optional: true },
+          { key: 'portraitAlt', label: 'Portrait alt text', type: 'text', optional: true }
+        ],
         intro: [
           { key: 'sectionTitle', label: 'Section title', type: 'text' },
           { key: 'paragraphs', label: 'Paragraphs', type: 'stringList' }
@@ -506,6 +532,25 @@ const SCHEMAS = {
       ]}
     ]
   },
+  speaking: {
+    label: 'Speaking', file: 'assets/data/speaking.json',
+    fields: [
+      { key: 'pageTitle', label: 'Page header', type: 'text' },
+      { key: 'subhead', label: 'Subheading', type: 'text' },
+      { key: 'items', label: 'Engagements (newest first)', type: 'list', itemLabel: 'engagement', itemFields: [
+        { key: 'id', label: 'ID (used in links, e.g. ja-money-sense-2026)', type: 'text' },
+        { key: 'type', label: 'Type (Panel, Emcee, Pitch, Workshop)', type: 'text' },
+        { key: 'date', label: 'Date (e.g. "Aug 2026")', type: 'text' },
+        { key: 'title', label: 'Event name', type: 'text' },
+        { key: 'host', label: 'Host / organiser', type: 'text' },
+        { key: 'role', label: 'My role', type: 'text' },
+        { key: 'audience', label: 'Audience (e.g. "230+ attendees" or "TBC")', type: 'text' },
+        { key: 'summary', label: 'Summary (1\u20132 sentences)', type: 'textarea' },
+        { key: 'image', label: 'Photo (optional)', type: 'image', optional: true },
+        { key: 'imageAlt', label: 'Photo alt text', type: 'text', optional: true }
+      ]}
+    ]
+  },
   contact: {
     label: 'Contact', file: 'assets/data/contact.json',
     fields: [
@@ -553,7 +598,10 @@ async function loadTab(tabKey) {
   main.appendChild(el('p', { class: 'loading' }, 'Loading…'));
 
   await ensureDraftBranch();
-  const data = await ghGetJSON(schema.file, DRAFT_BRANCH);
+  // A page added to the site after the draft branch was created has no file
+  // on the draft yet: start from the published copy, saving creates it on draft.
+  let data = await ghGetJSON(schema.file, DRAFT_BRANCH);
+  if (data === null) data = await ghGetJSON(schema.file, MAIN_BRANCH);
   if (data === null) {
     main.innerHTML = '';
     main.appendChild(el('p', { class: 'error-text' }, `Could not load ${schema.file}.`));
@@ -617,7 +665,7 @@ async function refreshDraftStatus() {
 
 function wireHeaderButtons() {
   document.getElementById('btn-preview').addEventListener('click', () => {
-    const page = { home: 'index.html', resume: 'resume.html', projects: 'projects.html', contact: 'contact.html', writing: 'writing.html', site: 'index.html' }[activeTab] || 'index.html';
+    const page = { home: 'index.html', resume: 'resume.html', projects: 'projects.html', speaking: 'speaking.html', contact: 'contact.html', writing: 'writing.html', site: 'index.html' }[activeTab] || 'index.html';
     window.open(`../${page}?preview=draft`, '_blank');
   });
 
