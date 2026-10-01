@@ -92,7 +92,26 @@ async function getDraftStatus() {
 async function publishDraft() {
   const draftRef = await ghGetRef(DRAFT_BRANCH);
   if (!draftRef) throw new Error('No draft to publish.');
-  await ghUpdateRef(MAIN_BRANCH, draftRef.object.sha, false);
+  try {
+    await ghUpdateRef(MAIN_BRANCH, draftRef.object.sha, false);
+    return;
+  } catch (err) {
+    if (!/ 422 /.test(err.message)) throw err;
+  }
+  // Draft is not a fast-forward of main (main moved on since the draft was
+  // made). Bring main's changes into the draft, then fast-forward main.
+  try {
+    await ghRequest(`/repos/${REPO}/merges`, 'POST', {
+      base: DRAFT_BRANCH, head: MAIN_BRANCH, commit_message: 'Merge main into draft'
+    });
+  } catch (err) {
+    if (/ 409 /.test(err.message)) {
+      throw new Error('The draft and the published site both changed the same content, so they cannot be combined automatically. Ask Claude to sync the draft with main, or Discard the draft (this loses its unpublished edits).');
+    }
+    throw err;
+  }
+  const merged = await ghGetRef(DRAFT_BRANCH);
+  await ghUpdateRef(MAIN_BRANCH, merged.object.sha, false);
 }
 
 async function discardDraft() {
@@ -579,7 +598,10 @@ async function loadTab(tabKey) {
   main.appendChild(el('p', { class: 'loading' }, 'Loading…'));
 
   await ensureDraftBranch();
-  const data = await ghGetJSON(schema.file, DRAFT_BRANCH);
+  // A page added to the site after the draft branch was created has no file
+  // on the draft yet: start from the published copy, saving creates it on draft.
+  let data = await ghGetJSON(schema.file, DRAFT_BRANCH);
+  if (data === null) data = await ghGetJSON(schema.file, MAIN_BRANCH);
   if (data === null) {
     main.innerHTML = '';
     main.appendChild(el('p', { class: 'error-text' }, `Could not load ${schema.file}.`));

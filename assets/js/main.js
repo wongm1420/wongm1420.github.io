@@ -26,7 +26,9 @@ function dataUrl(path) {
 
 async function fetchJSON(path) {
   try {
-    const res = await fetch(dataUrl(path), isPreview() ? { cache: 'no-store' } : undefined);
+    let res = await fetch(dataUrl(path), isPreview() ? { cache: 'no-store' } : undefined);
+    // Preview: a file not on the draft branch yet falls back to the published copy
+    if (!res.ok && isPreview()) res = await fetch(path);
     if (!res.ok) return null;
     return await res.json();
   } catch (err) {
