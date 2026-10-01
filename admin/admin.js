@@ -372,6 +372,13 @@ const SCHEMAS = {
     fields: [
       { key: 'pageTitle', label: 'Page header', type: 'text' },
       { key: 'blocks', label: 'Sections (in order)', type: 'blockList', blockTypes: {
+        hero: [
+          { key: 'eyebrow', label: 'Small line above headline', type: 'text', optional: true },
+          { key: 'headline', label: 'Headline (one specific sentence)', type: 'text' },
+          { key: 'lede', label: 'Supporting line', type: 'text', optional: true },
+          { key: 'portrait', label: 'Portrait photo', type: 'image', optional: true },
+          { key: 'portraitAlt', label: 'Portrait alt text', type: 'text', optional: true }
+        ],
         intro: [
           { key: 'sectionTitle', label: 'Section title', type: 'text' },
           { key: 'paragraphs', label: 'Paragraphs', type: 'stringList' }

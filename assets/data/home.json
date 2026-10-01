@@ -2,8 +2,16 @@
   "pageTitle": "Home",
   "blocks": [
     {
+      "type": "hero",
+      "eyebrow": "Co-founder, Zester · HKUST BBA Global Business",
+      "headline": "Building sustainability education that reaches 30,000+ students.",
+      "lede": "I'm Jonathan Wong, a Hong Kong student entrepreneur turning the UN SDGs into something young people actually play.",
+      "portrait": "assets/images/headshot.jpg",
+      "portraitAlt": "Portrait of Jonathan Wong"
+    },
+    {
       "type": "intro",
-      "sectionTitle": "About Me",
+      "sectionTitle": "About",
       "paragraphs": [
         "I'm a first-year BBA Global Business student at HKUST. Most of my time outside class goes into Zester, the sustainability social enterprise I co-founded in 2023, alongside a mix of consulting, research, and internship work I run in parallel with it.",
         "Zester has reached 30,000+ students across 44+ schools and corporate partners including HSBC, BNY, and TTI, and was named one of the top 6 student startups globally at the De La Vega Global Entrepreneurship Awards, out of 500,000+ students and 32,000 teams, and JA Asia Pacific Company of the Year, out of 81,000+ students.",
@@ -17,7 +25,7 @@
     },
     {
       "type": "projectPreview",
-      "sectionTitle": "Some of What I've Worked On",
+      "sectionTitle": "Selected work",
       "items": [
         {
           "org": "Zester Limited",
