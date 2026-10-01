@@ -14,6 +14,17 @@
       "imageAlt": ""
     },
     {
+      "id": "hku-common-core-workshop-2026",
+      "date": "Sep 2026",
+      "title": "HKU × Zester Common Core Staff Workshop",
+      "host": "Zester × HKU Common Core",
+      "role": "Lead facilitator",
+      "audience": "25+ educators",
+      "summary": "Planned and ran a 90-minute interactive workshop for HKU Common Core teaching staff, who played the Zester card game and explored how gamified SDG learning applies to their teaching.",
+      "image": "",
+      "imageAlt": ""
+    },
+    {
       "id": "hkstp-townhall-2026",
       "date": "Aug 2026",
       "title": "HKSTP Townhall: Summer Intern Appreciation & Sharing Session",
@@ -43,6 +54,17 @@
       "role": "Intern speaker",
       "audience": "About 50 students, the CEO and Chief Talent Officer",
       "summary": "Shared my summer internship experience and my takeaways from the One Person Hackathon with the CEO, the Chief Talent Officer and fellow students.",
+      "image": "",
+      "imageAlt": ""
+    },
+    {
+      "id": "etmc-3mt-talk-2026",
+      "date": "May 2026",
+      "title": "Three Minute Thesis Talk, ETMC 2026",
+      "host": "HKUST Center for Language Education",
+      "role": "Presenter",
+      "audience": "About 20 students",
+      "summary": "Presented my research on how gamification shapes motivation in sustainability learning, in a three-minute talk with a single slide and no notes, followed by peer Q&A.",
       "image": "",
       "imageAlt": ""
     },
@@ -104,11 +126,22 @@
     {
       "id": "island-school-cpd-2024",
       "date": "Apr 2024",
-      "title": "Sustainability Workshop, CPD Day",
-      "host": "Island School",
+      "title": "Teacher CPD Day Sustainability Workshop",
+      "host": "Island School / ESF",
       "role": "Facilitator (TBC)",
-      "audience": "Teachers (TBC)",
-      "summary": "Ran a sustainability workshop for teachers on a staff training day, using the Zester game.",
+      "audience": "18 teachers",
+      "summary": "Ran a sustainability workshop for 18 teachers on a staff training day, using the Zester game.",
+      "image": "",
+      "imageAlt": ""
+    },
+    {
+      "id": "hku-med-experiential-learning-2024",
+      "date": "Mar 2024",
+      "title": "Experiential Learning Workshop, HKU MEd",
+      "host": "Zester × HKU MEd",
+      "role": "Facilitator (TBC)",
+      "audience": "Master's students (TBC)",
+      "summary": "Ran a gamified SDG workshop on experiential learning for HKU Master of Education students.",
       "image": "",
       "imageAlt": ""
     }
