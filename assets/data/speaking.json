@@ -4,7 +4,6 @@
   "items": [
     {
       "id": "ja-money-sense-2026",
-      "type": "Panel",
       "date": "Oct 2026",
       "title": "JA Money Sense Workshop",
       "host": "JA Hong Kong &middot; Creative Secondary School",
@@ -16,7 +15,6 @@
     },
     {
       "id": "clp-hkstp-conference-2026",
-      "type": "Emcee",
       "date": "Aug 2026",
       "title": "Sustainable Residential Living Conference",
       "host": "HKSTP &times; CLP",
@@ -27,8 +25,18 @@
       "imageAlt": "Emceeing the CLP x HKSTP Sustainable Residential Living Conference"
     },
     {
+      "id": "ja-hk-innovation-popup-2026",
+      "date": "Mar 2026",
+      "title": "Innovation Pop-up, JA Company Programme",
+      "host": "JA Hong Kong &times; HSBC",
+      "role": "MC",
+      "audience": "TBC",
+      "summary": "Emceed the Innovation Pop-up for JA Hong Kong's Company Programme, hosting the programme on the day.",
+      "image": "assets/images/gallery/photo1.jpg",
+      "imageAlt": "Emceeing the HSBC x JA HK Innovation Pop-up"
+    },
+    {
       "id": "bny-esg-workshop-2025",
-      "type": "Workshop",
       "date": "Jun 2025",
       "title": "BNY Corporate ESG Workshop",
       "host": "Zester &times; BNY",
@@ -40,7 +48,6 @@
     },
     {
       "id": "ja-apac-company-of-the-year-2025",
-      "type": "Pitch",
       "date": "Mar 2025",
       "title": "JA Asia Pacific Company of the Year",
       "host": "JA Asia Pacific",
@@ -52,7 +59,6 @@
     },
     {
       "id": "tti-esg-workshop-2024",
-      "type": "Workshop",
       "date": "Nov 2024",
       "title": "TTI Corporate ESG Workshop",
       "host": "Zester &times; TTI",
@@ -64,7 +70,6 @@
     },
     {
       "id": "ja-hk-company-of-the-year-2024",
-      "type": "Pitch",
       "date": "Apr 2024",
       "title": "JA Hong Kong Company of the Year",
       "host": "JA Hong Kong &times; HSBC",
@@ -76,25 +81,12 @@
     },
     {
       "id": "island-school-cpd-2024",
-      "type": "Workshop",
       "date": "Apr 2024",
       "title": "Sustainability Workshop, CPD Day",
       "host": "Island School",
       "role": "Facilitator (TBC)",
       "audience": "Teachers (TBC)",
       "summary": "Ran a sustainability workshop for teachers on a staff training day, using the Zester game.",
-      "image": "",
-      "imageAlt": ""
-    },
-    {
-      "id": "zester-early-sales-pitches-2024",
-      "type": "Pitch",
-      "date": "Feb &ndash; Mar 2024",
-      "title": "Early Zester Sales Pitches",
-      "host": "Zester &times; TTI and local schools",
-      "role": "Team member (TBC)",
-      "audience": "Small groups",
-      "summary": "Pitched Zester to corporate and school buyers. The TTI meeting led to a corporate version of the game, and Island School teachers bought sets for their departments.",
       "image": "",
       "imageAlt": ""
     }

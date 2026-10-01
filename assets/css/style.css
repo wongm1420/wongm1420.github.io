@@ -172,12 +172,12 @@ section:last-child { margin-bottom: 0; }
 /* ── SPEAKING PAGE ── */
 .speaking-list { list-style: none; display: grid; gap: 16px; }
 .speaking-card { display: grid; grid-template-columns: minmax(0, 1fr); background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
-.speaking-card.has-img { grid-template-columns: 220px minmax(0, 1fr); }
-.speaking-img { width: 100%; height: 100%; min-height: 180px; object-fit: cover; }
+.speaking-card.has-img { grid-template-columns: minmax(240px, 320px) minmax(0, 1fr); }
+.speaking-media { padding: clamp(16px, 2.5vw, 24px) 0 clamp(16px, 2.5vw, 24px) clamp(16px, 2.5vw, 24px); }
+.speaking-photo { display: block; width: 100%; aspect-ratio: 3 / 2; padding: 0; border: 0; border-radius: 10px; overflow: hidden; background: var(--accent-soft); cursor: zoom-in; }
+.speaking-photo img { display: block; width: 100%; height: 100%; object-fit: contain; }
 .speaking-body { padding: clamp(20px, 3vw, 32px); }
-.speaking-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; font-size: var(--step--1); margin-bottom: 10px; }
-.speaking-type { background: var(--accent-soft); color: var(--accent); font-weight: 600; letter-spacing: .06em; text-transform: uppercase; padding: 3px 10px; border-radius: 999px; }
-.speaking-date { color: var(--muted); font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
+.speaking-date { color: var(--muted); font-size: var(--step--1); font-weight: 600; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 10px; }
 .speaking-card h2 { font-family: var(--font-display); font-weight: 700; font-size: var(--step-2); line-height: 1.1; letter-spacing: -.01em; }
 .speaking-host { color: var(--muted); margin-top: 4px; }
 .speaking-facts { display: flex; flex-wrap: wrap; gap: 8px 32px; margin: 16px 0 12px; }
@@ -280,7 +280,7 @@ section:last-child { margin-bottom: 0; }
   .photo-section { flex-direction: column; align-items: flex-start; }
   .gallery-grid { grid-template-columns: 1fr; }
   .speaking-card.has-img { grid-template-columns: minmax(0, 1fr); }
-  .speaking-img { height: 200px; }
+  .speaking-media { padding: clamp(16px, 2.5vw, 24px) clamp(16px, 2.5vw, 24px) 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
