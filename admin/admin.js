@@ -539,14 +539,13 @@ const SCHEMAS = {
       { key: 'subhead', label: 'Subheading', type: 'text' },
       { key: 'items', label: 'Engagements (newest first)', type: 'list', itemLabel: 'engagement', itemFields: [
         { key: 'id', label: 'ID (used in links, e.g. ja-money-sense-2026)', type: 'text' },
-        { key: 'type', label: 'Type (Panel, Emcee, Pitch, Workshop)', type: 'text' },
         { key: 'date', label: 'Date (e.g. "Aug 2026")', type: 'text' },
         { key: 'title', label: 'Event name', type: 'text' },
         { key: 'host', label: 'Host / organiser', type: 'text' },
         { key: 'role', label: 'My role', type: 'text' },
         { key: 'audience', label: 'Audience (e.g. "230+ attendees" or "TBC")', type: 'text' },
         { key: 'summary', label: 'Summary (1\u20132 sentences)', type: 'textarea' },
-        { key: 'image', label: 'Photo (optional)', type: 'image', optional: true },
+        { key: 'image', label: 'Photo (optional, shown uncropped in a 3:2 box)', type: 'image', optional: true },
         { key: 'imageAlt', label: 'Photo alt text', type: 'text', optional: true }
       ]}
     ]

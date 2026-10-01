@@ -244,11 +244,11 @@ async function renderProjectsPage() {
 
 // ── SPEAKING ──
 function renderSpeakingCard(item) {
-  const img = item.image ? `<img class="speaking-img" src="${item.image}" alt="${item.imageAlt || ''}" loading="lazy" decoding="async" />` : '';
+  const photo = item.image ? `<div class="speaking-media"><button type="button" class="speaking-photo" onclick="openLightbox(this)" aria-label="Enlarge photo: ${item.imageAlt || item.title}"><img src="${item.image}" alt="${item.imageAlt || ''}" loading="lazy" decoding="async" /></button></div>` : '';
   return `<li id="${item.id}"><article class="speaking-card${item.image ? ' has-img' : ''}">
-      ${img}
+      ${photo}
       <div class="speaking-body">
-        <div class="speaking-meta"><span class="speaking-type">${item.type}</span><span class="speaking-date">${item.date}</span></div>
+        <div class="speaking-date">${item.date}</div>
         <h2>${item.title}</h2>
         <p class="speaking-host">${item.host}</p>
         <dl class="speaking-facts">
@@ -268,6 +268,11 @@ async function renderSpeakingPage() {
   mount.innerHTML = `
     <div class="page-header"><h1>${data.pageTitle || 'Speaking'}</h1>${data.subhead ? `<p class="subhead">${data.subhead}</p>` : ''}</div>
     <ul class="speaking-list">${(data.items || []).map(renderSpeakingCard).join('')}</ul>
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer" onclick="closeLightbox()">
+      <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Close photo" onclick="closeLightbox()">&#x2715;</button>
+      <img id="lightbox-img" src="" alt="" />
+      <div class="lightbox-caption" id="lightbox-caption"></div>
+    </div>
   `;
 }
 
@@ -296,7 +301,7 @@ function openLightbox(el) {
   if (!lightboxImg) return;
   lightboxImg.src = img.src;
   lightboxImg.alt = img.alt;
-  lightboxCaption.textContent = caption ? caption.textContent : '';
+  lightboxCaption.textContent = caption ? caption.textContent : img.alt;
   lastFocus = el;
   document.getElementById('lightbox').classList.add('active');
   document.getElementById('lightbox-close').focus();
