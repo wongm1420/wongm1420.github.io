@@ -74,8 +74,8 @@
       "title": "Innovation Pop-up, JA Company Programme",
       "host": "JA Hong Kong &times; HSBC",
       "role": "MC",
-      "audience": "TBC",
-      "summary": "Emceed the Innovation Pop-up for JA Hong Kong's Company Programme, hosting the programme on the day.",
+      "audience": "200+ attendees",
+      "summary": "Emceed the Innovation Pop-up for JA Hong Kong's Company Programme, hosting the programme end-to-end across 2 full event days.",
       "image": "assets/images/gallery/photo1.jpg",
       "imageAlt": "Emceeing the HSBC x JA HK Innovation Pop-up"
     },
@@ -83,11 +83,11 @@
       "id": "bny-esg-workshop-2025",
       "date": "Jun 2025",
       "title": "BNY Corporate ESG Workshop",
-      "host": "Zester &times; BNY",
+      "host": "Zester &times; BNY; Facilitated by JA Asia Pacific",
       "role": "Facilitator",
       "audience": "20+ staff",
       "summary": "Ran a gamified SDG workshop built around the Zester card game for BNY employees.",
-      "image": "assets/images/uploads/1790877241436-img-20250910-wa0024.jpg",
+      "image": "assets/images/uploads/1790878368815-img-20250910-wa0024-2.jpg",
       "imageAlt": ""
     },
     {
@@ -98,18 +98,7 @@
       "role": "One of four team presenters",
       "audience": "80+ attendees, 12 judges",
       "summary": "Presented the SDG Innovation League section of Zester's scripted team pitch, then took judges' Q&amp;A. Won 1st place out of 81,000+ students from 13 APAC countries.",
-      "image": "assets/images/uploads/1790877339132-whatsapp-image-2025-03-11-at-13.42.59-59885c19.jpg",
-      "imageAlt": ""
-    },
-    {
-      "id": "tti-esg-workshop-2024",
-      "date": "Nov 2024",
-      "title": "TTI Corporate ESG Workshop",
-      "host": "Zester &times; TTI",
-      "role": "Facilitator",
-      "audience": "~10 staff",
-      "summary": "Ran a gamified SDG workshop for TTI staff, following an earlier sales pitch to the company.",
-      "image": "assets/images/uploads/1790877519027-img-20241129-wa0056.jpg",
+      "image": "assets/images/uploads/1790878191137-img-20250314-wa0067-2.jpg",
       "imageAlt": ""
     },
     {
@@ -122,17 +111,6 @@
       "summary": "Pitched Zester to the judging panel and answered Q&amp;A. Won Champion, plus the Best Offering, Most Popular Offering and Innovation awards, out of 77 companies.",
       "image": "assets/images/gallery/photo2.jpg",
       "imageAlt": "Pitching Zester at the JA Hong Kong Company of the Year finals"
-    },
-    {
-      "id": "island-school-cpd-2024",
-      "date": "Apr 2024",
-      "title": "Teacher CPD Day Sustainability Workshop",
-      "host": "English Schools Foundation (ESF), Hong Kong",
-      "role": "Facilitator",
-      "audience": "20+ teachers",
-      "summary": "Ran a sustainability workshop for teachers on a staff training day, using the Zester game.",
-      "image": "assets/images/uploads/1790877652822-whatsapp-image-2026-10-02-at-02.00.11.jpg",
-      "imageAlt": ""
     }
   ]
 }
