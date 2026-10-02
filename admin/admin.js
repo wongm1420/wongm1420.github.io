@@ -447,6 +447,7 @@ const SCHEMAS = {
               { key: 'title', label: 'Title', type: 'text' },
               { key: 'titleLink', label: 'Title link (optional)', type: 'url', optional: true },
               { key: 'company', label: 'Company / school', type: 'text' },
+              { key: 'companyLink', label: 'Company link (optional)', type: 'url', optional: true },
               { key: 'oneLiner', label: 'One-liner (optional)', type: 'textarea', optional: true },
               { key: 'bullets', label: 'Bullets', type: 'stringList' }
             ]}
@@ -500,6 +501,7 @@ const SCHEMAS = {
             { key: 'dateRange', label: 'Dates', type: 'text' },
             { key: 'title', label: 'Title', type: 'text' },
             { key: 'company', label: 'Organisation', type: 'text' },
+            { key: 'companyLink', label: 'Organisation link (optional)', type: 'url', optional: true },
             { key: 'oneLiner', label: 'One-liner (optional)', type: 'textarea', optional: true },
             { key: 'bullets', label: 'Bullets', type: 'stringList' }
           ]}

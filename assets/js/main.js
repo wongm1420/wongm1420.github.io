@@ -36,16 +36,63 @@ async function fetchJSON(path) {
   }
 }
 
+// ── ICONS (inline SVG, keyed by "icon" in resume.json) ──
+const ICONS = {
+  file: '<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/>',
+  education: '<path d="M22 10 12 5 2 10l10 5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/>',
+  briefcase: '<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/>',
+  users: '<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M18 14.4c2.1.7 3.5 2.6 3.5 5.6"/>',
+  rocket: '<path d="M5 15c-1.5 1.3-2 5-2 5s3.7-.5 5-2M12 15l-3-3a22 22 0 0 1 8-9 12 12 0 0 1 4 .1 12 12 0 0 1 .1 4 22 22 0 0 1-9 8z"/><circle cx="15" cy="9" r="1.5"/>',
+  trophy: '<path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0zM7 6H4v1a3 3 0 0 0 3 3M17 6h3v1a3 3 0 0 1-3 3"/>',
+  book: '<path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zM4 19a2 2 0 0 1 2-2h13"/>',
+  badge: '<circle cx="12" cy="9" r="6"/><path d="m8.5 14.5-1.5 6.5 5-3 5 3-1.5-6.5"/>',
+  heart: '<path d="M12 20s-8-4.7-8-10.5A4.5 4.5 0 0 1 12 7a4.5 4.5 0 0 1 8 2.5C20 15.3 12 20 12 20z"/>',
+  camera: '<path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/>'
+};
+
+function iconSvg(name) {
+  const body = ICONS[name];
+  return body
+    ? `<svg class="icon" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${body}</svg>`
+    : '';
+}
+
+function sectionTitleHtml(section) {
+  return `<h2 class="section-title">${iconSvg(section.icon)}<span>${section.sectionTitle}</span></h2>`;
+}
+
+function blockHeadingHtml(block) {
+  return `<h3 class="block-heading">${iconSvg(block.icon)}<span>${block.heading}</span></h3>`;
+}
+
+// Entries for the Resume dropdown in the header: sub-blocks of the main
+// resume section first, then every other resume section.
+function resumeNavItems(resume) {
+  const items = [];
+  (resume.sections || []).forEach(s => {
+    if (s.type === 'resume') {
+      (s.blocks || []).forEach(b => b.id && items.push({ id: b.id, label: b.heading }));
+    } else {
+      items.push({ id: s.id, label: s.sectionTitle });
+    }
+  });
+  return items;
+}
+
 // ── HEADER + FOOTER (every page) ──
-function renderChrome(site) {
+function renderChrome(site, resume) {
   if (!site) return;
   const current = location.pathname.split('/').pop() || 'index.html';
 
   const header = document.getElementById('header-mount');
   if (header) {
-    const navHtml = (site.nav || []).map(n =>
-      `<li><a href="${n.href}"${n.href === current ? ' aria-current="page"' : ''}>${n.label}</a></li>`
-    ).join('');
+    const subItems = resume ? resumeNavItems(resume) : [];
+    const navHtml = (site.nav || []).map(n => {
+      const link = `<a href="${n.href}"${n.href === current ? ' aria-current="page"' : ''}>${n.label}</a>`;
+      if (n.href !== 'resume.html' || !subItems.length) return `<li>${link}</li>`;
+      const sub = subItems.map(i => `<li><a href="resume.html#${i.id}">${i.label}</a></li>`).join('');
+      return `<li class="has-sub">${link}<button class="sub-toggle" aria-expanded="false" aria-label="Show resume sections"></button><ul class="subnav">${sub}</ul></li>`;
+    }).join('');
     header.innerHTML = `<div class="header-inner">
       <a class="brand" href="index.html">${site.name}</a>
       <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
@@ -56,6 +103,12 @@ function renderChrome(site) {
     toggle.addEventListener('click', () => {
       const open = nav.classList.toggle('open');
       toggle.setAttribute('aria-expanded', String(open));
+    });
+    header.querySelectorAll('.sub-toggle').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const open = btn.parentElement.classList.toggle('sub-open');
+        btn.setAttribute('aria-expanded', String(open));
+      });
     });
   }
 
@@ -130,25 +183,28 @@ function renderResumeItem(item) {
   const bullets = (item.bullets || []).length
     ? `<ul>${item.bullets.map(b => `<li>${b}</li>`).join('')}</ul>` : '';
   const oneLiner = item.oneLiner ? `<p class="one-liner">${item.oneLiner}</p>` : '';
+  const companyHtml = item.companyLink
+    ? `<a href="${item.companyLink}" target="_blank" rel="noopener">${item.company}</a>`
+    : item.company;
   return `<div class="resume-item">
-    <span class="resume-date">${item.dateRange}</span>
     <div class="resume-content">
       <h4>${titleHtml}</h4>
-      <div class="company">${item.company}</div>
+      <div class="company">${companyHtml}</div>
       ${oneLiner}
       ${bullets}
     </div>
+    <span class="resume-date">${item.dateRange}</span>
   </div>`;
 }
 
 function renderResumeSection(section) {
   switch (section.type) {
     case 'resume':
-      return `<section id="${section.id}"><p class="section-title">${section.sectionTitle}</p>` +
-        (section.blocks || []).map(b => `<div class="resume-block"><h3>${b.heading}</h3>${(b.items || []).map(renderResumeItem).join('')}</div>`).join('') +
+      return `<section id="${section.id}">${sectionTitleHtml(section)}` +
+        (section.blocks || []).map(b => `<div class="resume-block"${b.id ? ` id="${b.id}"` : ''}>${blockHeadingHtml(b)}${(b.items || []).map(renderResumeItem).join('')}</div>`).join('') +
         `</section>`;
     case 'projectsSummary':
-      return `<section id="${section.id}"><p class="section-title">${section.sectionTitle}</p>
+      return `<section id="${section.id}">${sectionTitleHtml(section)}
         ${section.note ? `<p style="font-size:0.85rem; color:var(--muted); margin-bottom:20px;">${section.note}</p>` : ''}
         ${(section.items || []).map(p => `
           <div class="project-card">
@@ -160,14 +216,14 @@ function renderResumeSection(section) {
           </div>`).join('')}
       </section>`;
     case 'awards':
-      return `<section id="${section.id}"><p class="section-title">${section.sectionTitle}</p>
+      return `<section id="${section.id}">${sectionTitleHtml(section)}
         ${(section.groups || []).map(g => `
-          <div class="resume-block"><h3>${g.heading}</h3>
+          <div class="resume-block">${blockHeadingHtml(g)}
             <ul class="awards-list">${(g.items || []).map(a => `<li><span class="award-dot"></span><div>${a.text}<span class="award-org">${a.org}</span></div></li>`).join('')}</ul>
           </div>`).join('')}
       </section>`;
     case 'publications':
-      return `<section id="${section.id}"><p class="section-title">${section.sectionTitle}</p>
+      return `<section id="${section.id}">${sectionTitleHtml(section)}
         ${(section.items || []).map(pub => `
           <div class="pub-card">
             <div class="pub-meta">${(pub.meta || []).map(m => `<span>${m}</span>`).join('')}</div>
@@ -177,15 +233,15 @@ function renderResumeSection(section) {
           </div>`).join('')}
       </section>`;
     case 'qualifications':
-      return `<section id="${section.id}"><p class="section-title">${section.sectionTitle}</p>
+      return `<section id="${section.id}">${sectionTitleHtml(section)}
         <ul class="awards-list">${(section.items || []).map(a => `<li><span class="award-dot"></span><div>${a.text}<span class="award-org">${a.org}</span></div></li>`).join('')}</ul>
       </section>`;
     case 'volunteering':
-      return `<section id="${section.id}"><p class="section-title">${section.sectionTitle}</p>
+      return `<section id="${section.id}">${sectionTitleHtml(section)}
         <div class="resume-block">${(section.items || []).map(renderResumeItem).join('')}</div>
       </section>`;
     case 'photography':
-      return `<section id="${section.id}"><p class="section-title">${section.sectionTitle}</p>
+      return `<section id="${section.id}">${sectionTitleHtml(section)}
         <div class="photo-section">
           <div><h3>${section.heading}</h3><p>${section.body}</p></div>
           <div>${(section.links || []).map(l => `<a href="${l.url}" target="_blank" rel="noopener" class="photo-link">${l.label}</a>`).join(' ')}</div>
@@ -387,8 +443,11 @@ async function renderWritingPage() {
 }
 
 async function renderPage() {
-  const site = await fetchJSON('assets/data/site.json');
-  renderChrome(site);
+  const [site, resume] = await Promise.all([
+    fetchJSON('assets/data/site.json'),
+    fetchJSON('assets/data/resume.json')
+  ]);
+  renderChrome(site, resume);
 
   const page = document.body.dataset.page;
   if (page === 'home') await renderHomePage();
