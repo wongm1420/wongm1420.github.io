@@ -63,14 +63,19 @@
     {
       "id": "hkstp-ceo-sharing-session-2026",
       "date": "Aug 2026",
-      "title": "CEO Sharing Session: One Person Hackathon",
-      "host": "HKSTP Summer Internship Programme",
+      "title": "Leadership Exchange: CEO Sharing Session",
+      "host": "HKSTP One-Person Company (OPC) Hackathon",
       "role": "Speaker",
       "audience": "50+ students, HKSTP CEO and CTO",
       "summary": "Shared my summer internship experience and my takeaways from the One Person Hackathon with HKSTP CEO Terry Wong, CTO Fanny Wong, and fellow students.",
       "image": "assets/images/uploads/1790877073985-untitled-155-of-55-.jpg",
-      "imageAlt": "",
-      "links": []
+      "imageAlt": "HKSTP One-Person Company (OPC) Hackathon",
+      "links": [
+        {
+          "label": "Linkedin Post",
+          "url": "https://www.linkedin.com/posts/hong-kong-science-and-technology-parks-corporation_learn-how-we-pilot-ai-in-asias-flagship-activity-7503344999607013377-vJvN?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEXOv6sBXovKMjyuQGSHbvoGmK52aD5WVyI"
+        }
+      ]
     },
     {
       "id": "etmc-3mt-talk-2026",
@@ -111,7 +116,12 @@
       "summary": "Ran a gamified SDG workshop built around the Zester card game for BNY employees.",
       "image": "assets/images/uploads/1790878368815-img-20250910-wa0024-2.jpg",
       "imageAlt": "",
-      "links": []
+      "links": [
+        {
+          "label": "Linkedin Post",
+          "url": "https://www.linkedin.com/feed/update/urn:li:activity:7346922085857824769/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEXOv6sBXovKMjyuQGSHbvoGmK52aD5WVyI"
+        }
+      ]
     },
     {
       "id": "ja-apac-company-of-the-year-2025",
