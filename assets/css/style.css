@@ -184,6 +184,9 @@ section:last-child { margin-bottom: 0; }
 .speaking-facts dt { font-size: var(--step--1); font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
 .speaking-facts dd { color: var(--accent); font-weight: 600; }
 .speaking-summary { line-height: 1.65; max-width: 68ch; }
+.speaking-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+.speaking-link { display: inline-block; font-size: var(--step--1); font-weight: 600; padding: 8px 18px; border-radius: 999px; text-decoration: none; background: var(--accent-soft); color: var(--accent); }
+.speaking-link:hover { background: var(--accent); color: var(--on-accent); }
 
 /* ── RESUME ── */
 .section-nav { margin-bottom: clamp(32px, 5vw, 56px); display: flex; flex-wrap: wrap; gap: 8px; }

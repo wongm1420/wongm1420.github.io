@@ -245,6 +245,9 @@ async function renderProjectsPage() {
 // ── SPEAKING ──
 function renderSpeakingCard(item) {
   const photo = item.image ? `<div class="speaking-media"><button type="button" class="speaking-photo" onclick="openLightbox(this)" aria-label="Enlarge photo: ${item.imageAlt || item.title}"><img src="${item.image}" alt="${item.imageAlt || ''}" loading="lazy" decoding="async" /></button></div>` : '';
+  const linkList = (item.links || []).filter(l => l.url && l.label).slice(0, 3);
+  const links = linkList.length ? `
+        <div class="speaking-links">${linkList.map(l => `<a href="${l.url}" target="_blank" rel="noopener" class="speaking-link">${l.label}</a>`).join('')}</div>` : '';
   return `<li id="${item.id}"><article class="speaking-card${item.image ? ' has-img' : ''}">
       ${photo}
       <div class="speaking-body">
@@ -255,7 +258,7 @@ function renderSpeakingCard(item) {
           <div><dt>Role</dt><dd>${item.role}</dd></div>
           <div><dt>Audience</dt><dd>${item.audience}</dd></div>
         </dl>
-        <p class="speaking-summary">${item.summary}</p>
+        <p class="speaking-summary">${item.summary}</p>${links}
       </div>
     </article></li>`;
 }

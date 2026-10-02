@@ -77,7 +77,13 @@
       "audience": "200+ attendees",
       "summary": "Emceed the Innovation Pop-up for JA Hong Kong's Company Programme, hosting the programme end-to-end across 2 full event days.",
       "image": "assets/images/gallery/photo1.jpg",
-      "imageAlt": "Emceeing the HSBC x JA HK Innovation Pop-up"
+      "imageAlt": "Emceeing the HSBC x JA HK Innovation Pop-up",
+      "links": [
+        {
+          "label": "View LinkedIn post",
+          "url": "https://www.linkedin.com/posts/jwong1420_honoured-to-emcee-at-the-hsbc-hong-kong-x-activity-7436946448874729472-IrIv"
+        }
+      ]
     },
     {
       "id": "bny-esg-workshop-2025",

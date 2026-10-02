@@ -297,7 +297,7 @@ function emptyItemFromFields(itemFields) {
 function renderListField(obj, field) {
   if (!Array.isArray(obj[field.key])) obj[field.key] = [];
   const container = el('div', {});
-  function redraw() {
+  let redraw = function () {
     container.innerHTML = '';
     obj[field.key].forEach((item, i) => {
       const controls = el('div', { class: 'list-controls' }, [
@@ -311,12 +311,14 @@ function renderListField(obj, field) {
       ]);
       container.appendChild(block);
     });
-  }
-  redraw();
+  };
   const addBtn = el('button', {
     class: 'btn btn-secondary add-row', type: 'button',
     onclick: () => { obj[field.key].push(emptyItemFromFields(field.itemFields)); redraw(); }
   }, `+ Add ${field.itemLabel || 'item'}`);
+  const origRedraw = redraw;
+  redraw = function () { origRedraw(); addBtn.hidden = !!field.maxItems && obj[field.key].length >= field.maxItems; };
+  redraw();
   return el('div', { class: 'field' }, [el('label', {}, field.label), container, addBtn]);
 }
 
@@ -546,7 +548,8 @@ const SCHEMAS = {
         { key: 'audience', label: 'Audience (e.g. "230+ attendees" or "TBC")', type: 'text' },
         { key: 'summary', label: 'Summary (1\u20132 sentences)', type: 'textarea' },
         { key: 'image', label: 'Photo (optional, shown uncropped in a 3:2 box)', type: 'image', optional: true },
-        { key: 'imageAlt', label: 'Photo alt text', type: 'text', optional: true }
+        { key: 'imageAlt', label: 'Photo alt text', type: 'text', optional: true },
+        { key: 'links', label: 'Links at bottom of card (up to 3, e.g. more details or a photo gallery)', type: 'list', itemLabel: 'link', maxItems: 3, itemFields: LINK_ITEM_FIELDS }
       ]}
     ]
   },
