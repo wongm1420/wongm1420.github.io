@@ -11,7 +11,8 @@
       "audience": "140+ secondary students",
       "summary": "Spoke on two panels about teenage financial literacy, covering needs vs wants, financial resilience and smart online shopping, in English.",
       "image": "",
-      "imageAlt": ""
+      "imageAlt": "",
+      "links": []
     },
     {
       "id": "hku-common-core-workshop-2026",
@@ -22,7 +23,13 @@
       "audience": "25+ educators",
       "summary": "Planned and ran a 90-minute interactive workshop for HKU Common Core teaching staff, who played the Zester card game and explored how gamified SDG learning applies to their teaching.",
       "image": "assets/images/uploads/1790878961955-whatsapp-image-2026-09-07-at-19.31.34-l.jpg",
-      "imageAlt": ""
+      "imageAlt": "",
+      "links": [
+        {
+          "label": "Event Details",
+          "url": "https://commoncore.hku.hk/event/gamify-your-teaching-play-learn-and-get-inspired/"
+        }
+      ]
     },
     {
       "id": "hkstp-townhall-2026",
@@ -33,7 +40,8 @@
       "audience": "450+ staff",
       "summary": "Co-hosted the summer intern segment of HKSTP's company-wide townhall in front of the whole company and 8 C-suite members, and represented the intern cohort to share our internship experience and takeaways.",
       "image": "assets/images/uploads/1790878936742-whatsapp-image-2026-10-02-at-02.18.36-2.jpg",
-      "imageAlt": ""
+      "imageAlt": "",
+      "links": []
     },
     {
       "id": "clp-hkstp-conference-2026",
@@ -44,7 +52,13 @@
       "audience": "230+ attendees",
       "summary": "Hosted a half-day flagship conference for senior government, developer and industry guests, running every segment and coordinating the rundown with 2 event agencies.",
       "image": "assets/images/uploads/1788876958302-20260820-s0151.jpg",
-      "imageAlt": "Emceeing the CLP x HKSTP Sustainable Residential Living Conference"
+      "imageAlt": "Emceeing the CLP x HKSTP Sustainable Residential Living Conference",
+      "links": [
+        {
+          "label": "Press Release",
+          "url": "https://www.clpgroup.com/content/dam/clp-group/channels/media/document/2026/20260820_en.pdf.coredownload.pdf"
+        }
+      ]
     },
     {
       "id": "hkstp-ceo-sharing-session-2026",
@@ -55,7 +69,8 @@
       "audience": "50+ students, HKSTP CEO and CTO",
       "summary": "Shared my summer internship experience and my takeaways from the One Person Hackathon with HKSTP CEO Terry Wong, CTO Fanny Wong, and fellow students.",
       "image": "assets/images/uploads/1790877073985-untitled-155-of-55-.jpg",
-      "imageAlt": ""
+      "imageAlt": "",
+      "links": []
     },
     {
       "id": "etmc-3mt-talk-2026",
@@ -66,7 +81,13 @@
       "audience": "20+ students",
       "summary": "Presented my research at the HKUST Education & Technology Mini Conference (ETMC) 2026 on how gamification shapes motivation in sustainability learning, in a three-minute talk with a single slide and no notes, followed by peer Q&A.",
       "image": "assets/images/uploads/1790879682933-img-62752-.jpg",
-      "imageAlt": ""
+      "imageAlt": "",
+      "links": [
+        {
+          "label": "Ínstagram Page",
+          "url": "https://www.instagram.com/etmc2026/"
+        }
+      ]
     },
     {
       "id": "ja-hk-innovation-popup-2026",
@@ -77,7 +98,8 @@
       "audience": "200+ attendees",
       "summary": "Emceed the Innovation Pop-up for JA Hong Kong's Company Programme, hosting the programme end-to-end across 2 full event days.",
       "image": "assets/images/gallery/photo1.jpg",
-      "imageAlt": "Emceeing the HSBC x JA HK Innovation Pop-up"
+      "imageAlt": "Emceeing the HSBC x JA HK Innovation Pop-up",
+      "links": []
     },
     {
       "id": "bny-esg-workshop-2025",
@@ -88,7 +110,8 @@
       "audience": "20+ staff",
       "summary": "Ran a gamified SDG workshop built around the Zester card game for BNY employees.",
       "image": "assets/images/uploads/1790878368815-img-20250910-wa0024-2.jpg",
-      "imageAlt": ""
+      "imageAlt": "",
+      "links": []
     },
     {
       "id": "ja-apac-company-of-the-year-2025",
@@ -99,7 +122,8 @@
       "audience": "80+ attendees, 12 judges",
       "summary": "Presented the SDG Innovation League section of Zester's scripted team pitch, then took judges' Q&amp;A. Won 1st place out of 81,000+ students from 13 APAC countries.",
       "image": "assets/images/uploads/1790878191137-img-20250314-wa0067-2.jpg",
-      "imageAlt": ""
+      "imageAlt": "",
+      "links": []
     },
     {
       "id": "ja-hk-company-of-the-year-2024",
@@ -110,7 +134,13 @@
       "audience": "200+ atteendees",
       "summary": "Pitched Zester to the judging panel and answered Q&amp;A. Won Champion, plus the Best Offering, Most Popular Offering and Innovation awards, out of 77 companies.",
       "image": "assets/images/gallery/photo2.jpg",
-      "imageAlt": "Pitching Zester at the JA Hong Kong Company of the Year finals"
+      "imageAlt": "Pitching Zester at the JA Hong Kong Company of the Year finals",
+      "links": [
+        {
+          "label": "SCMP Article",
+          "url": "https://www.youngpostclub.com/posties/kids/school-week/article/3261528/school-week-island-school"
+        }
+      ]
     }
   ]
 }
