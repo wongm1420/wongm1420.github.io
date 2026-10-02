@@ -4,7 +4,7 @@
     {
       "type": "hero",
       "eyebrow": "Co-founder, Zester · HKUST BBA Global Business",
-      "headline": "Building sustainability education that reaches 30,000+ students.",
+      "headline": "Impact-focused social entrepreneur reaching 30,000+ students.",
       "lede": "I'm Jonathan Wong, a Hong Kong student entrepreneur turning the UN SDGs into something young people actually play.",
       "portrait": "assets/images/headshot.jpg",
       "portraitAlt": "Portrait of Jonathan Wong"
@@ -15,7 +15,7 @@
       "paragraphs": [
         "I'm a BBA Global Business student at HKUST. Most of my time outside class goes into Zester, the sustainability social enterprise I co-founded in 2023, alongside a mix of consulting, research, and internship work I run in parallel with it.",
         "Zester has reached 30,000+ students across 44+ schools and corporate partners including HSBC, BNY, and TTI, and was named one of the top 6 student startups globally at the De La Vega Global Entrepreneurship Awards, out of 500,000+ students and 32,000 teams, and JA Asia Pacific Company of the Year, out of 81,000+ students.",
-        "In addition to Zester, I've interned at HKSTP's Partnerships team, and am consulting on client projects through ICC at HKUST, while doing policy research as a volunteer at Liber Research Community."
+        "In addition to Zester, I've interned at HKSTP's Partnerships team, and am consulting on client projects through the International Consulting Club (ICC) at HKUST and the Cambridge Consulting Network (CCN-HK), while doing policy research as a volunteer at Liber Research Community. I currently support consulting teams at BCG as a Part-Time Assistant."
       ]
     },
     {
@@ -90,6 +90,11 @@
           "src": "assets/images/uploads/1788878674819-don-8600.jpg",
           "alt": "Speaking at HKSTP GBA Tour",
           "caption": "Speaking at HKSTP GBA Tour &middot; Aug 2026"
+        },
+        {
+          "src": "assets/images/uploads/1790906203031-20260820-clp-conference-404.jpg",
+          "alt": "CLP x HKSTP Sustainable Residential Living Conference",
+          "caption": "Conference Emcee &middot; 230+ participants &middot; Aug 2026"
         }
       ]
     }
