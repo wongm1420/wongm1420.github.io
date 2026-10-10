@@ -3,6 +3,62 @@
   "subhead": "",
   "items": [
     {
+      "id": "wyfa-youth-delegate",
+      "title": "World Youth for Action Summit",
+      "dateRange": "Nov 2026",
+      "org": "JA Worldwide",
+      "role": "Youth Delegate, Hong Kong",
+      "image": null,
+      "imageAlt": "",
+      "fields": [
+        {
+          "label": "What it was",
+          "body": "JA Worldwide's World Youth for Action (WYFA) Summit, held in New Delhi on 17–21 November 2026. It brings together 50 youth delegates from around the world and 50 thought leaders, including JA Worldwide Board of Governors members, JA Institute Research Advisory Council members and global sector partners, to produce youth-authored recommendations for the next Global Goals (2030–2045)."
+        },
+        {
+          "label": "My role",
+          "body": "One of 50 Youth Delegates, selected through a competitive application process and representing Hong Kong. This includes four mandatory pre-Summit preparation calls and collaborative workshop sessions at the Summit."
+        },
+        {
+          "label": "What I produced",
+          "body": "To be added after the Summit."
+        },
+        {
+          "label": "What came of it",
+          "body": "The delegates' recommendations will be compiled into a White Paper on Youth Recommendations, co-signed by ten global youth-serving organizations and presented to the UN in March 2027."
+        }
+      ],
+      "links": []
+    },
+    {
+      "id": "ftc-student-fellowship",
+      "title": "FTC Global Student Fellowship",
+      "dateRange": "Sep 2026 – Mar 2027",
+      "org": "Future Talent Council",
+      "role": "Student Fellow",
+      "image": null,
+      "imageAlt": "",
+      "fields": [
+        {
+          "label": "What it was",
+          "body": "A six-month remote research programme on the future of work, run by the Future Talent Council (Boston). The September 2026 cohort brings together students from universities across 6 continents, collaborating asynchronously across 18 time zones through Scenario Studios and expert-led Masterclasses."
+        },
+        {
+          "label": "My role",
+          "body": "Student Fellow, working in an international team on a research-led capstone."
+        },
+        {
+          "label": "What I produced",
+          "body": "To be added. The team will co-author an Insight Brief (whitepaper) and a research poster."
+        },
+        {
+          "label": "What came of it",
+          "body": "To be added. Findings will be presented at a live virtual Capstone in March 2027, and the poster is eligible for the Future Talent Summit in Stockholm (June 2027)."
+        }
+      ],
+      "links": []
+    },
+    {
       "id": "zester",
       "title": "Zester Limited",
       "dateRange": "Sep 2023 – Present",

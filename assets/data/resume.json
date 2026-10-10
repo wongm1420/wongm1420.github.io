@@ -128,6 +128,30 @@
           "icon": "users",
           "items": [
             {
+              "dateRange": "Nov 2026",
+              "title": "Youth Delegate",
+              "titleLink": null,
+              "company": "World Youth for Action Summit, JA Worldwide (New Delhi, India)",
+              "oneLiner": "Selected as one of 50 youth delegates (ages 16–29) from around the world for JA Worldwide's flagship global youth advocacy initiative, representing Hong Kong.",
+              "bullets": [
+                "Collaborating with 50 thought leaders, including JA Worldwide Board of Governors members, JA Institute Research Advisory Council members and global sector partners, in hands-on workshops",
+                "Contributing to the White Paper on Youth Recommendations for the next Global Goals (2030–2045), to be co-signed by ten global youth-serving organizations and presented to the UN in March 2027",
+                "Preparing through four pre-Summit calls with fellow delegates, plus upskilling sessions and networking with the wider JA ecosystem"
+              ]
+            },
+            {
+              "dateRange": "Sep 2026 – Mar 2027",
+              "title": "Student Fellow",
+              "titleLink": null,
+              "company": "Future Talent Council (FTC) Global Student Fellowship, September 2026 Cohort",
+              "oneLiner": "Selected for a six-month remote research programme on the future of work run by the Future Talent Council (Boston), with a cohort spanning 6 continents and 18 time zones.",
+              "bullets": [
+                "Working in an international team across time zones, with Scenario Studios and expert-led Masterclasses on the future of work",
+                "Co-authoring an Insight Brief (whitepaper) and a research poster, to be presented at a live virtual Capstone in March 2027",
+                "Eligible to present the poster at the Future Talent Summit in Stockholm (June 2027) to 400+ global executive delegates"
+              ]
+            },
+            {
               "dateRange": "Sep 2026 – Present",
               "title": "Student Consultant",
               "titleLink": null,
