@@ -94,7 +94,7 @@ function renderChrome(site, resume) {
       return `<li class="has-sub">${link}<button class="sub-toggle" aria-expanded="false" aria-label="Show resume sections"></button><ul class="subnav">${sub}</ul></li>`;
     }).join('');
     header.innerHTML = `<div class="header-inner">
-      <a class="brand" href="index.html">${site.name}</a>
+      <a class="brand" href="index.html"><img class="brand-mark" src="assets/images/favicon.svg" alt="" width="34" height="34">${site.name}</a>
       <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
       <nav class="nav" id="site-nav" aria-label="Main"><ul class="nav-list">${navHtml}</ul></nav>
     </div>`;
@@ -325,7 +325,7 @@ async function renderSpeakingPage() {
   const data = await fetchJSON('assets/data/speaking.json');
   if (!data) return;
   mount.innerHTML = `
-    <div class="page-header"><h1>${data.pageTitle || 'Speaking'}</h1>${data.subhead ? `<p class="subhead">${data.subhead}</p>` : ''}</div>
+    <div class="page-header has-avatar"><img class="page-avatar" src="assets/images/speaking-avatar.svg" alt="Illustration of Jonathan Wong holding a microphone" width="96" height="96"><div><h1>${data.pageTitle || 'Speaking'}</h1>${data.subhead ? `<p class="subhead">${data.subhead}</p>` : ''}</div></div>
     <ul class="speaking-list">${(data.items || []).map(renderSpeakingCard).join('')}</ul>
     <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer" onclick="closeLightbox()">
       <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Close photo" onclick="closeLightbox()">&#x2715;</button>
