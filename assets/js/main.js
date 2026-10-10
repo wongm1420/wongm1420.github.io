@@ -200,12 +200,13 @@ function renderResumeItem(item) {
 function renderResumeSection(section) {
   switch (section.type) {
     case 'resume':
-      return `<section id="${section.id}">${sectionTitleHtml(section)}` +
+      // The page <h1> already says "Resume"; keep an h2 for outline order but hide it visually
+      return `<section id="${section.id}"><h2 class="sr-only">${section.sectionTitle}</h2>` +
         (section.blocks || []).map(b => `<div class="resume-block"${b.id ? ` id="${b.id}"` : ''}>${blockHeadingHtml(b)}${(b.items || []).map(renderResumeItem).join('')}</div>`).join('') +
         `</section>`;
     case 'projectsSummary':
       return `<section id="${section.id}">${sectionTitleHtml(section)}
-        ${section.note ? `<p style="font-size:0.85rem; color:var(--muted); margin-bottom:20px;">${section.note}</p>` : ''}
+        ${section.note ? `<p class="section-note">${section.note}</p>` : ''}
         ${(section.items || []).map(p => `
           <div class="project-card">
             <div class="project-meta"><span class="project-date">${p.dateRange}</span><span>${p.org}</span></div>
@@ -258,8 +259,9 @@ async function renderResumePage() {
   const resume = await fetchJSON('assets/data/resume.json');
   if (!resume) return;
 
-  const jumpNavHtml = (resume.sections || []).map(s =>
-    `<a href="#${s.id}">${s.sectionTitle}</a>`
+  // Same entries as the header's Resume sub-menu, so the two navs always agree
+  const jumpNavHtml = resumeNavItems(resume).map(n =>
+    `<a href="#${n.id}">${n.label}</a>`
   ).join('');
 
   mount.innerHTML = `
@@ -459,3 +461,12 @@ async function renderPage() {
 }
 
 document.addEventListener('DOMContentLoaded', renderPage);
+
+// Header: show the bottom edge only once content scrolls beneath it
+(function () {
+  const header = document.querySelector('.site-header');
+  if (!header) return;
+  const update = () => header.classList.toggle('scrolled', window.scrollY > 4);
+  update();
+  window.addEventListener('scroll', update, { passive: true });
+})();
