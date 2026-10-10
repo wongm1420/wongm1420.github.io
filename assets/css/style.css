@@ -310,7 +310,10 @@ h2.section-title .icon { width: 1.1em; height: 1.1em; flex: none; padding: 8px; 
 .resume-block:nth-of-type(4n+2) .block-heading .icon { color: var(--accent-2); }
 .resume-block:nth-of-type(4n+3) .block-heading .icon { color: var(--accent-3); }
 .resume-block:nth-of-type(4n) .block-heading .icon { color: var(--accent-4); }
-h2.section-title:nth-of-type(odd) .icon { background: var(--accent-2-soft); color: var(--accent-2); }
+#page-mount > section:nth-of-type(4n+1) h2.section-title .icon { background: var(--accent-soft); color: var(--accent); }
+#page-mount > section:nth-of-type(4n+2) h2.section-title .icon { background: var(--accent-2-soft); color: var(--accent-2); }
+#page-mount > section:nth-of-type(4n+3) h2.section-title .icon { background: var(--accent-3-soft); color: var(--accent-3); }
+#page-mount > section:nth-of-type(4n) h2.section-title .icon { background: var(--accent-4-soft); color: var(--accent-4); }
 .contact-page-list li:nth-child(4n+1) .icon { background: var(--accent-soft); color: var(--accent); }
 .contact-page-list li:nth-child(4n+2) .icon { background: var(--accent-2-soft); color: var(--accent-2); }
 .contact-page-list li:nth-child(4n+3) .icon { background: var(--accent-3-soft); color: var(--accent-3); }
