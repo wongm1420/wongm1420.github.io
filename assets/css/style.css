@@ -374,3 +374,4 @@ h2.section-title:nth-of-type(odd) .icon { background: var(--accent-2-soft); colo
 
 .not-found { display: grid; place-content: center; text-align: center; gap: 20px; }
 .not-found h1 { font-family: var(--font-display); font-weight: 700; font-size: var(--step-4); line-height: 1; }
+.sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
