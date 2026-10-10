@@ -205,7 +205,7 @@ function renderResumeSection(section) {
         `</section>`;
     case 'projectsSummary':
       return `<section id="${section.id}">${sectionTitleHtml(section)}
-        ${section.note ? `<p style="font-size:0.85rem; color:var(--muted); margin-bottom:20px;">${section.note}</p>` : ''}
+        ${section.note ? `<p class="section-note">${section.note}</p>` : ''}
         ${(section.items || []).map(p => `
           <div class="project-card">
             <div class="project-meta"><span class="project-date">${p.dateRange}</span><span>${p.org}</span></div>
@@ -459,3 +459,12 @@ async function renderPage() {
 }
 
 document.addEventListener('DOMContentLoaded', renderPage);
+
+// Header: show the bottom edge only once content scrolls beneath it
+(function () {
+  const header = document.querySelector('.site-header');
+  if (!header) return;
+  const update = () => header.classList.toggle('scrolled', window.scrollY > 4);
+  update();
+  window.addEventListener('scroll', update, { passive: true });
+})();
