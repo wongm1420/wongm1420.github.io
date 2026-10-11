@@ -178,7 +178,7 @@ async function renderHomePage() {
 // ── RESUME ──
 // Entries carry an ISO-ish "endDate" ("YYYY-MM" or "present"). Lists are sorted by it
 // (Present first, then later end dates, stable so ties keep their JSON order) and
-// anything that ended more than OLDER_YEARS ago sits behind a per-section button.
+// anything that ended more than OLDER_YEARS ago (or is flagged "older": true) sits behind a per-section button.
 const OLDER_YEARS = 3;
 
 function endKey(item) {
@@ -188,6 +188,7 @@ function endKey(item) {
 }
 
 function isOlder(item) {
+  if (item.older === true) return true;
   const m = /^(\d{4})-(\d{2})$/.exec(item.endDate || '');
   if (!m) return false;
   const cutoff = new Date();
