@@ -96,10 +96,6 @@ a:hover { color: var(--accent-strong); }
 .header-inner { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--gutter); height: var(--header-h); display: flex; align-items: center; justify-content: space-between; gap: 24px; }
 .brand { font-family: var(--font-display); font-weight: 800; font-size: 1.9rem; color: var(--text); text-decoration: none; letter-spacing: -.01em; line-height: 1; }
 .brand:hover { color: var(--accent); }
-.brand { display: inline-flex; align-items: center; gap: 10px; }
-.brand-mark { width: 34px; height: 34px; border-radius: 8px; flex: none; }
-.page-header.has-avatar { display: flex; align-items: center; gap: clamp(16px, 3vw, 28px); }
-.page-avatar { width: clamp(72px, 12vw, 96px); height: auto; border-radius: 20px; flex: none; }
 .nav-list { list-style: none; display: flex; gap: 4px; }
 .nav-list a { display: flex; align-items: center; min-height: 44px; padding: 0 .9em; border-radius: 999px; color: var(--text-2); text-decoration: none; font-size: var(--step--1); font-weight: 500; transition: color .2s, background .2s; }
 .nav-list a:hover { color: var(--text); background: var(--surface-2); }
