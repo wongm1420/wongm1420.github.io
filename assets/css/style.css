@@ -249,9 +249,10 @@ h2.section-title .icon { width: 1.1em; height: 1.1em; flex: none; padding: 8px; 
 
 /* Resume timeline: dot per entry, vertical line linking them */
 #education .resume-item, #experience .resume-item, #extracurriculars .resume-item, #volunteering .resume-item { position: relative; padding-left: 30px; }
-#education .resume-item::before, #experience .resume-item::before, #extracurriculars .resume-item::before, #volunteering .resume-item::before { content: ""; position: absolute; left: 0; top: 28px; width: 11px; height: 11px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px var(--bg); z-index: 1; }
-#education .resume-item:not(:last-child)::after, #experience .resume-item:not(:last-child)::after, #extracurriculars .resume-item:not(:last-child)::after, #volunteering .resume-item:not(:last-child)::after { content: ""; position: absolute; left: 5px; top: 34px; bottom: -28px; width: 2px; background: var(--border); }
+#education .resume-item::before, #experience .resume-item::before, #extracurriculars .resume-item::before, #volunteering .resume-item::before { content: ""; position: absolute; left: 0; top: 22px; width: 11px; height: 11px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px var(--bg); z-index: 1; }
+#education .resume-item:not(:last-child)::after, #experience .resume-item:not(:last-child)::after, #extracurriculars .resume-item:not(:last-child)::after, #volunteering .resume-item:not(:last-child)::after { content: ""; position: absolute; left: 5px; top: 28px; bottom: -22px; width: 2px; background: var(--border); }
 
+#education .resume-item, #experience .resume-item, #extracurriculars .resume-item, #volunteering .resume-item { border-bottom: 0; padding-top: 16px; padding-bottom: 16px; }
 /* Collapsible bullets */
 details.resume-item { display: block; }
 @media (min-width: 721px) { .resume-item:not(.has-details) { padding-right: 48px; } }
