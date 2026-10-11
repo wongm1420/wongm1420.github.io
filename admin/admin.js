@@ -243,6 +243,15 @@ function renderUrlField(obj, field) {
   return el('div', { class: 'field' }, [el('label', {}, field.label), input]);
 }
 
+function renderCheckboxField(obj, field) {
+  const input = el('input', {
+    type: 'checkbox',
+    onchange: e => { if (e.target.checked) obj[field.key] = true; else delete obj[field.key]; }
+  });
+  input.checked = obj[field.key] === true;
+  return el('div', { class: 'field field-checkbox' }, [el('label', {}, [input, ' ' + field.label])]);
+}
+
 function renderStringListField(obj, field) {
   if (!Array.isArray(obj[field.key])) obj[field.key] = [];
   const rows = el('div', {});
@@ -277,6 +286,7 @@ function renderFieldByType(obj, field) {
     case 'text': return renderTextField(obj, field);
     case 'textarea': return renderTextareaField(obj, field);
     case 'url': return renderUrlField(obj, field);
+    case 'checkbox': return renderCheckboxField(obj, field);
     case 'image': return renderImageField(obj, field);
     case 'stringList': return renderStringListField(obj, field);
     case 'list': return renderListField(obj, field);
@@ -287,6 +297,7 @@ function renderFieldByType(obj, field) {
 function emptyItemFromFields(itemFields) {
   const item = {};
   itemFields.forEach(f => {
+    if (f.type === 'checkbox') return;
     if (f.type === 'stringList') item[f.key] = [];
     else if (f.type === 'list') item[f.key] = [];
     else item[f.key] = f.optional ? null : '';
@@ -450,7 +461,8 @@ const SCHEMAS = {
               { key: 'companyLink', label: 'Company link (optional)', type: 'url', optional: true },
               { key: 'oneLiner', label: 'One-liner (optional)', type: 'textarea', optional: true },
               { key: 'bullets', label: 'Bullets', type: 'stringList' },
-              { key: 'endDate', label: 'End date for sorting/hiding (YYYY-MM, or "present")', type: 'text' }
+              { key: 'endDate', label: 'End date for sorting/hiding (YYYY-MM, or "present")', type: 'text' },
+              { key: 'older', label: 'Always show under "Show older records"', type: 'checkbox' }
             ]}
           ]}
         ],
@@ -464,7 +476,8 @@ const SCHEMAS = {
             { key: 'role', label: 'Role', type: 'text' },
             { key: 'body', label: 'Body', type: 'textarea' },
             { key: 'bullets', label: 'Bullets', type: 'stringList' },
-            { key: 'endDate', label: 'End date for sorting/hiding (YYYY-MM, or "present")', type: 'text' }
+            { key: 'endDate', label: 'End date for sorting/hiding (YYYY-MM, or "present")', type: 'text' },
+            { key: 'older', label: 'Always show under "Show older records"', type: 'checkbox' }
           ]}
         ],
         awards: [
@@ -474,7 +487,8 @@ const SCHEMAS = {
             { key: 'items', label: 'Awards', type: 'list', itemLabel: 'award', itemFields: [
               { key: 'text', label: 'Award text', type: 'text' },
               { key: 'org', label: 'Org / date', type: 'text' },
-              { key: 'endDate', label: 'End date for sorting/hiding (YYYY-MM, or "present")', type: 'text' }
+              { key: 'endDate', label: 'End date for sorting/hiding (YYYY-MM, or "present")', type: 'text' },
+              { key: 'older', label: 'Always show under "Show older records"', type: 'checkbox' }
             ]}
           ]}
         ],
@@ -485,6 +499,7 @@ const SCHEMAS = {
             { key: 'title', label: 'Title', type: 'text' },
             { key: 'body', label: 'Body', type: 'textarea' },
             { key: 'endDate', label: 'End date for sorting/hiding (YYYY-MM, or "present")', type: 'text' },
+            { key: 'older', label: 'Always show under "Show older records"', type: 'checkbox' },
             { key: 'links', label: 'Links', type: 'list', itemLabel: 'link', itemFields: [
               { key: 'label', label: 'Label', type: 'text' },
               { key: 'url', label: 'URL', type: 'url' },
@@ -497,7 +512,8 @@ const SCHEMAS = {
           { key: 'items', label: 'Qualifications', type: 'list', itemLabel: 'qualification', itemFields: [
             { key: 'text', label: 'Text', type: 'text' },
             { key: 'org', label: 'Org / date', type: 'text' },
-            { key: 'endDate', label: 'End date for sorting/hiding (YYYY-MM, or "present")', type: 'text' }
+            { key: 'endDate', label: 'End date for sorting/hiding (YYYY-MM, or "present")', type: 'text' },
+            { key: 'older', label: 'Always show under "Show older records"', type: 'checkbox' }
           ]}
         ],
         volunteering: [
@@ -509,7 +525,8 @@ const SCHEMAS = {
             { key: 'companyLink', label: 'Organisation link (optional)', type: 'url', optional: true },
             { key: 'oneLiner', label: 'One-liner (optional)', type: 'textarea', optional: true },
             { key: 'bullets', label: 'Bullets', type: 'stringList' },
-            { key: 'endDate', label: 'End date for sorting/hiding (YYYY-MM, or "present")', type: 'text' }
+            { key: 'endDate', label: 'End date for sorting/hiding (YYYY-MM, or "present")', type: 'text' },
+            { key: 'older', label: 'Always show under "Show older records"', type: 'checkbox' }
           ]}
         ],
         photography: [
