@@ -16,7 +16,8 @@
               "company": "Hong Kong University of Science and Technology (HKUST)",
               "oneLiner": null,
               "bullets": [],
-              "companyLink": "https://www.ust.hk"
+              "companyLink": "https://www.ust.hk",
+              "endDate": "2029-06"
             },
             {
               "dateRange": "2023 – 2025",
@@ -25,7 +26,8 @@
               "company": "ESF Island School, Hong Kong",
               "oneLiner": null,
               "bullets": [],
-              "companyLink": "https://islandschool.esf.edu.hk"
+              "companyLink": "https://islandschool.esf.edu.hk",
+              "endDate": "2025-06"
             }
           ],
           "id": "education",
@@ -34,43 +36,6 @@
         {
           "heading": "Professional Experience",
           "items": [
-            {
-              "dateRange": "Aug 2026 – Jan 2027",
-              "title": "Part-Time Assistant (PTA)",
-              "titleLink": null,
-              "company": "Boston Consulting Group (BCG)",
-              "oneLiner": "Supporting BCG Hong Kong case teams on a part-time basis.",
-              "bullets": [
-                "Note-taking and research support across expert calls, client interviews, and internal meetings for live case teams",
-                "Conducting market and literature research, consolidated into structured summaries"
-              ],
-              "companyLink": "https://www.bcg.com"
-            },
-            {
-              "dateRange": "Jul 2026 – Aug 2026",
-              "title": "Summer Intern, Partnerships",
-              "titleLink": null,
-              "company": "Hong Kong Science and Technology Parks Corporation (HKSTP)",
-              "oneLiner": "Supporting Hong Kong's largest I&T hub in building its startup and innovation ecosystem.",
-              "bullets": [
-                "Partner outreach and relationship management across HKSTP's corporate and innovation network",
-                "Research and analysis to support ecosystem development initiatives",
-                "Organising the CLP x HKSTP Sustainable Residential Living Conference as PIC"
-              ],
-              "companyLink": "https://www.hkstp.org"
-            },
-            {
-              "dateRange": "Apr 2026 – Jun 2026",
-              "title": "Researcher (Volunteer) &#8599;",
-              "titleLink": "https://liber-research.com/liber-research-home-page/",
-              "company": "Liber Research Community",
-              "oneLiner": "Contributing evidence-based policy research to an independent Hong Kong think tank.",
-              "bullets": [
-                "Cross-city comparative study on job vacancy trends across major global cities, examining whether declining job openings reflect a local HK issue or a broader global pattern",
-                "Sourcing and analysing public datasets; developing analytical write-ups for policy audiences"
-              ],
-              "companyLink": "https://liber-research.com/liber-research-home-page/"
-            },
             {
               "dateRange": "Sep 2023 – Present",
               "title": "Co-founder, COO &amp; CFO &#8599;",
@@ -83,7 +48,48 @@
                 "SDG Innovation League: 250+ participants across 17 schools, co-organised with HKU and Ocean Park, HK$350K+ in sponsorship secured",
                 "Delivered 6 sustainability workshops in Hong Kong and London"
               ],
-              "companyLink": "https://zester.org"
+              "companyLink": "https://zester.org",
+              "endDate": "present"
+            },
+            {
+              "dateRange": "Aug 2026 – Jan 2027",
+              "title": "Part-Time Assistant (PTA)",
+              "titleLink": null,
+              "company": "Boston Consulting Group (BCG)",
+              "oneLiner": "Supporting BCG Hong Kong case teams on a part-time basis.",
+              "bullets": [
+                "Note-taking and research support across expert calls, client interviews, and internal meetings for live case teams",
+                "Conducting market and literature research, consolidated into structured summaries"
+              ],
+              "companyLink": "https://www.bcg.com",
+              "endDate": "2027-01"
+            },
+            {
+              "dateRange": "Jul 2026 – Aug 2026",
+              "title": "Summer Intern, Partnerships",
+              "titleLink": null,
+              "company": "Hong Kong Science and Technology Parks Corporation (HKSTP)",
+              "oneLiner": "Supporting Hong Kong's largest I&T hub in building its startup and innovation ecosystem.",
+              "bullets": [
+                "Partner outreach and relationship management across HKSTP's corporate and innovation network",
+                "Research and analysis to support ecosystem development initiatives",
+                "Organising the CLP x HKSTP Sustainable Residential Living Conference as PIC"
+              ],
+              "companyLink": "https://www.hkstp.org",
+              "endDate": "2026-08"
+            },
+            {
+              "dateRange": "Apr 2026 – Jun 2026",
+              "title": "Researcher (Volunteer) &#8599;",
+              "titleLink": "https://liber-research.com/liber-research-home-page/",
+              "company": "Liber Research Community",
+              "oneLiner": "Contributing evidence-based policy research to an independent Hong Kong think tank.",
+              "bullets": [
+                "Cross-city comparative study on job vacancy trends across major global cities, examining whether declining job openings reflect a local HK issue or a broader global pattern",
+                "Sourcing and analysing public datasets; developing analytical write-ups for policy audiences"
+              ],
+              "companyLink": "https://liber-research.com/liber-research-home-page/",
+              "endDate": "2026-06"
             },
             {
               "dateRange": "Jul 2025 – Aug 2025",
@@ -95,7 +101,8 @@
                 "Conducted company and land searches on ~80 properties to support audit evidence gathering for 8 clients",
                 "Researched Panama ship registry regulations to verify client asset ownership for audit purposes",
                 "Analysed partnership and JV structures for a client case; delivered recommendations with 2 preferred structures"
-              ]
+              ],
+              "endDate": "2025-08"
             },
             {
               "dateRange": "Dec 2022 – Jan 2025",
@@ -105,7 +112,8 @@
               "oneLiner": "Part-time data collection role conducting government-commissioned passenger surveys across Hong Kong's public transport network.",
               "bullets": [
                 "Surveys covered 7 government-commissioned transport studies, including the annual $2 Transport Concession Scheme audit"
-              ]
+              ],
+              "endDate": "2025-01"
             },
             {
               "dateRange": "Jul 2020 – Aug 2020",
@@ -116,7 +124,8 @@
               "bullets": [
                 "Compiled financial records and assisted with data entry and bookkeeping for various clients",
                 "Assisted with company secretary duties including Company Registration and Business Registration"
-              ]
+              ],
+              "endDate": "2020-08"
             }
           ],
           "id": "experience",
@@ -128,16 +137,50 @@
           "icon": "users",
           "items": [
             {
-              "dateRange": "Nov 2026",
-              "title": "Youth Delegate",
+              "dateRange": "Sep 2026 – Present",
+              "title": "Student Consultant",
               "titleLink": null,
-              "company": "World Youth for Action Summit, JA Worldwide (New Delhi, India)",
-              "oneLiner": "Selected as one of 50 youth delegates (ages 16–29) from around the world for JA Worldwide's flagship global youth advocacy initiative, representing Hong Kong.",
+              "company": "Cambridge Consulting Network Hong Kong (CCN-HK)",
+              "companyLink": "https://cambridgeconsultingnetwork.co",
+              "oneLiner": "Joining an international student consulting club with 450+ members from top Hong Kong universities, serving clients across corporates, start-ups, NGOs and government bodies.",
               "bullets": [
-                "Collaborating with 50 thought leaders, including JA Worldwide Board of Governors members, JA Institute Research Advisory Council members and global sector partners, in hands-on workshops",
-                "Contributing to the White Paper on Youth Recommendations for the next Global Goals (2030–2045), to be co-signed by ten global youth-serving organizations and presented to the UN in March 2027",
-                "Preparing through four pre-Summit calls with fellow delegates, plus upskilling sessions and networking with the wider JA ecosystem"
-              ]
+                "Selected as a Student Consultant for the 2026/27 Semester 1 intake",
+                "Taking part in the semester-long mentorship programme and consulting training"
+              ],
+              "endDate": "present"
+            },
+            {
+              "dateRange": "Sep 2025 – Present",
+              "title": "Project Consultant",
+              "titleLink": null,
+              "company": "International Consulting Club (ICC) at HKUST",
+              "oneLiner": "Delivering real consulting engagements for external clients through HKUST's student consulting club.",
+              "bullets": [
+                "Brand strategy and market expansion for a women's premium activewear brand based in Hong Kong",
+                "Market and competitor analysis, retail expansion assessment, and revenue growth opportunities across offline and overseas channels"
+              ],
+              "endDate": "present"
+            },
+            {
+              "dateRange": "Sep 2025 – Present",
+              "title": "Business Student Ambassador",
+              "titleLink": null,
+              "company": "HKUST Business School",
+              "companyLink": "https://bm.ust.hk",
+              "oneLiner": "Representing HKUST Business School at recruitment and promotion events while building presentation and leadership skills.",
+              "bullets": [
+                "Selected in 2025 and renewed for the 2026/27 academic year"
+              ],
+              "endDate": "present"
+            },
+            {
+              "dateRange": "Apr 2026 – Present",
+              "title": "Member",
+              "titleLink": null,
+              "company": "Emerging Leader Ecosystem, Future Talent Council",
+              "oneLiner": null,
+              "bullets": [],
+              "endDate": "present"
             },
             {
               "dateRange": "Sep 2026 – Mar 2027",
@@ -149,41 +192,21 @@
                 "Working in an international team across time zones, with Scenario Studios and expert-led Masterclasses on the future of work",
                 "Co-authoring an Insight Brief (whitepaper) and a research poster, to be presented at a live virtual Capstone in March 2027",
                 "Eligible to present the poster at the Future Talent Summit in Stockholm (June 2027) to 400+ global executive delegates"
-              ]
+              ],
+              "endDate": "2027-03"
             },
             {
-              "dateRange": "Sep 2026 – Present",
-              "title": "Student Consultant",
+              "dateRange": "Nov 2026",
+              "title": "Youth Delegate",
               "titleLink": null,
-              "company": "Cambridge Consulting Network Hong Kong (CCN-HK)",
-              "companyLink": "https://cambridgeconsultingnetwork.co",
-              "oneLiner": "Joining an international student consulting club with 450+ members from top Hong Kong universities, serving clients across corporates, start-ups, NGOs and government bodies.",
+              "company": "World Youth for Action Summit, JA Worldwide (New Delhi, India)",
+              "oneLiner": "Selected as one of 50 youth delegates (ages 16–29) from around the world for JA Worldwide's flagship global youth advocacy initiative, representing Hong Kong.",
               "bullets": [
-                "Selected as a Student Consultant for the 2026/27 Semester 1 intake",
-                "Taking part in the semester-long mentorship programme and consulting training"
-              ]
-            },
-            {
-              "dateRange": "Sep 2025 – Present",
-              "title": "Business Student Ambassador",
-              "titleLink": null,
-              "company": "HKUST Business School",
-              "companyLink": "https://bm.ust.hk",
-              "oneLiner": "Representing HKUST Business School at recruitment and promotion events while building presentation and leadership skills.",
-              "bullets": [
-                "Selected in 2025 and renewed for the 2026/27 academic year"
-              ]
-            },
-            {
-              "dateRange": "Sep 2025 – Present",
-              "title": "Project Consultant",
-              "titleLink": null,
-              "company": "International Consulting Club (ICC) at HKUST",
-              "oneLiner": "Delivering real consulting engagements for external clients through HKUST's student consulting club.",
-              "bullets": [
-                "Brand strategy and market expansion for a women's premium activewear brand based in Hong Kong",
-                "Market and competitor analysis, retail expansion assessment, and revenue growth opportunities across offline and overseas channels"
-              ]
+                "Collaborating with 50 thought leaders, including JA Worldwide Board of Governors members, JA Institute Research Advisory Council members and global sector partners, in hands-on workshops",
+                "Contributing to the White Paper on Youth Recommendations for the next Global Goals (2030–2045), to be co-signed by ten global youth-serving organizations and presented to the UN in March 2027",
+                "Preparing through four pre-Summit calls with fellow delegates, plus upskilling sessions and networking with the wider JA ecosystem"
+              ],
+              "endDate": "2026-11"
             }
           ]
         }
@@ -197,20 +220,22 @@
       "note": "Full write-ups for these and other projects are on the <a href=\"projects.html\" style=\"color:var(--accent); font-weight:600;\">Projects page</a>.",
       "items": [
         {
-          "dateRange": "Dec 2024 – Apr 2025",
-          "org": "Zester Limited &times; HKU &times; Ocean Park",
-          "title": "SDG Innovation League",
-          "role": "Head of Operations &amp; Finance, Organising Committee",
-          "body": "A three-phase sustainability innovation competition for secondary school students across Hong Kong, co-organised with HKU Faculty of Education, Ocean Park, and UN SDSN HK. Over 250 students across 17 schools participated to ideate, implement, and pitch SDG projects to industry judges.",
-          "bullets": []
-        },
-        {
           "dateRange": "Sep 2025 – May 2026",
           "org": "International Consulting Club (ICC) at HKUST",
           "title": "Market Strategy &amp; Expansion: Women's Premium Activewear Brand",
           "role": "Project Consultant",
           "body": "A 9-week consulting engagement for a women's premium activewear brand based in Hong Kong, conducted as part of a 6-person team. Focused on diagnosing brand positioning gaps and identifying growth opportunities across retail and digital channels.",
-          "bullets": []
+          "bullets": [],
+          "endDate": "2026-05"
+        },
+        {
+          "dateRange": "Dec 2024 – Apr 2025",
+          "org": "Zester Limited &times; HKU &times; Ocean Park",
+          "title": "SDG Innovation League",
+          "role": "Head of Operations &amp; Finance, Organising Committee",
+          "body": "A three-phase sustainability innovation competition for secondary school students across Hong Kong, co-organised with HKU Faculty of Education, Ocean Park, and UN SDSN HK. Over 250 students across 17 schools participated to ideate, implement, and pitch SDG projects to industry judges.",
+          "bullets": [],
+          "endDate": "2025-04"
         }
       ],
       "icon": "rocket"
@@ -225,35 +250,43 @@
           "items": [
             {
               "text": "Finalist - De La Vega Global Entrepreneurship Award",
-              "org": "JA Worldwide &middot; Mar 2026 &middot; Top 6 teams globally"
+              "org": "JA Worldwide &middot; Mar 2026 &middot; Top 6 teams globally",
+              "endDate": "2026-03"
             },
             {
               "text": "JA Company of the Year 2025, Champion (1st place)",
-              "org": "JA Asia Pacific &middot; Mar 2025 &middot; 81,000+ students"
+              "org": "JA Asia Pacific &middot; Mar 2025 &middot; 81,000+ students",
+              "endDate": "2025-03"
             },
             {
               "text": "BNY Resilient Futures Award",
-              "org": "JA Asia Pacific / Bank of New York (BNY) &middot; Mar 2025"
+              "org": "JA Asia Pacific / Bank of New York (BNY) &middot; Mar 2025",
+              "endDate": "2025-03"
             },
             {
               "text": "PMIEF Best Application of Project Management Award, 1st Place",
-              "org": "JA Asia Pacific / Project Management Institute Educational Foundation (PMIEF) &middot; Mar 2025"
+              "org": "JA Asia Pacific / Project Management Institute Educational Foundation (PMIEF) &middot; Mar 2025",
+              "endDate": "2025-03"
             },
             {
               "text": "JAHK Company of the Year, Champion",
-              "org": "Junior Achievement Hong Kong &middot; Apr 2024"
+              "org": "Junior Achievement Hong Kong &middot; Apr 2024",
+              "endDate": "2024-04"
             },
             {
               "text": "Innovation Award",
-              "org": "Junior Achievement Hong Kong &middot; Apr 2024"
+              "org": "Junior Achievement Hong Kong &middot; Apr 2024",
+              "endDate": "2024-04"
             },
             {
               "text": "Best Offering Award",
-              "org": "Junior Achievement Hong Kong &middot; Mar 2024"
+              "org": "Junior Achievement Hong Kong &middot; Mar 2024",
+              "endDate": "2024-03"
             },
             {
               "text": "Most Popular Offering Award",
-              "org": "Junior Achievement Hong Kong &middot; Mar 2024"
+              "org": "Junior Achievement Hong Kong &middot; Mar 2024",
+              "endDate": "2024-03"
             }
           ],
           "icon": "trophy"
@@ -263,11 +296,8 @@
           "items": [
             {
               "text": "ESF Chairman's Award for Excellence, Outstanding Academic Achievement",
-              "org": "English Schools Foundation &middot; Aug 2025"
-            },
-            {
-              "text": "Silver Level, Hong Kong Award for Young People",
-              "org": "HKAYP &middot; Jan 2024"
+              "org": "English Schools Foundation &middot; Aug 2025",
+              "endDate": "2025-08"
             }
           ],
           "icon": "trophy"
@@ -299,7 +329,8 @@
               "url": "https://drive.google.com/file/d/1WaVbatiBHJe6RF1Psk2E7nYCdAE4Z2f-/view?usp=sharing",
               "style": "secondary"
             }
-          ]
+          ],
+          "endDate": "2026-06"
         },
         {
           "meta": [
@@ -325,7 +356,8 @@
               "url": "https://www.hk01.com/01%E8%AB%87%E5%A3%87/60353952/%E4%BE%86%E7%A8%BF-3-7-%E7%9A%84%E4%BD%8E%E5%A4%B1%E6%A5%AD%E7%8E%87%E4%B8%8B-%E5%B8%82%E6%B0%91%E7%82%BA%E4%BD%95%E4%BB%8D-%E6%90%B5%E5%B7%A5%E9%9B%A3",
               "style": "secondary"
             }
-          ]
+          ],
+          "endDate": "2026-06"
         },
         {
           "meta": [
@@ -366,16 +398,19 @@
       "sectionTitle": "Qualifications",
       "items": [
         {
-          "text": "Member, Emerging Leader Ecosystem",
-          "org": "Future Talent Council &middot; Apr 2026"
-        },
-        {
           "text": "Student Affiliate",
-          "org": "Royal Aeronautical Society &middot; May 2026 &middot; Credential ID 3075490"
+          "org": "Royal Aeronautical Society &middot; May 2026 &middot; Credential ID 3075490",
+          "endDate": "2026-05"
         },
         {
           "text": "Kickoff: Project Management Course",
-          "org": "Project Management Institute &middot; May 2025"
+          "org": "Project Management Institute &middot; May 2025",
+          "endDate": "2025-05"
+        },
+        {
+          "text": "Silver Level, Hong Kong Award for Young People",
+          "org": "HKAYP &middot; Jan 2024",
+          "endDate": "2024-01"
         }
       ],
       "icon": "badge"
@@ -394,7 +429,8 @@
             "Emceed the HSBC x JA HK Innovation Pop-up for the JA Company Programme, hosting the programme end-to-end across 2 full event days for 200+ attendees",
             "Spoke on two panels at the JA Money Sense Workshop for 140+ secondary students, covering needs vs wants, financial resilience and smart online shopping",
             "Volunteered across multiple JA HK events, sharing my experience as a JA Company Programme alumnus to inspire the next cohort of student entrepreneurs"
-          ]
+          ],
+          "endDate": "present"
         },
         {
           "dateRange": "Sep 2023 – Mar 2024",
@@ -404,14 +440,16 @@
           "bullets": [
             "Led a team of 4 to create and run four extracurricular sessions for Form 1–3 students, enhancing English communication and delivery skills in an interactive format",
             "Delivered at CCC Ming Kei College and ELCHK Lutheran Secondary School"
-          ]
+          ],
+          "endDate": "2024-03"
         },
         {
           "dateRange": "Jan 2023 – Apr 2023",
           "title": "PYP Exhibition Mentor",
           "company": "ESF Beacon Hill School",
           "oneLiner": "Mentoring Year 6 students through their PYP Exhibition collaborative inquiry project.",
-          "bullets": []
+          "bullets": [],
+          "endDate": "2023-04"
         },
         {
           "dateRange": "Oct 2022 – Apr 2023",
@@ -420,7 +458,8 @@
           "oneLiner": "Planning and delivering weekly after-school English sessions for primary students in Hong Kong.",
           "bullets": [
             "Interactive activities for a class of 20 P1–P3 students at PLK Mrs Chan Nam Chong Memorial Primary School"
-          ]
+          ],
+          "endDate": "2023-04"
         }
       ],
       "icon": "heart"
