@@ -421,6 +421,17 @@
       "sectionTitle": "Volunteering",
       "items": [
         {
+          "dateRange": "Sep 2026 – Present",
+          "title": "Member",
+          "company": "GBUS Career & Professional Development (CPD) Team, HKUST",
+          "oneLiner": "Helping run industry and career sharing events for students in the BBA in Global Business programme.",
+          "bullets": [
+            "Facilitate industry sharing sessions and invite guest speakers, connecting GBUS students with practitioners and alumni",
+            "Provide student support on industry and career sharing events, from theme planning and promotion to event logistics"
+          ],
+          "endDate": "present"
+        },
+        {
           "dateRange": "Apr 2025 – Present",
           "title": "University Volunteer",
           "company": "Junior Achievement Hong Kong",
