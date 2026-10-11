@@ -180,21 +180,23 @@ function renderResumeItem(item) {
   const titleHtml = item.titleLink
     ? `<a href="${item.titleLink}" target="_blank" rel="noopener">${item.title}</a>`
     : item.title;
-  const bullets = (item.bullets || []).length
-    ? `<ul>${item.bullets.map(b => `<li>${b}</li>`).join('')}</ul>` : '';
+  const hasBullets = (item.bullets || []).length > 0;
   const oneLiner = item.oneLiner ? `<p class="one-liner">${item.oneLiner}</p>` : '';
   const companyHtml = item.companyLink
     ? `<a href="${item.companyLink}" target="_blank" rel="noopener">${item.company}</a>`
     : item.company;
-  return `<div class="resume-item">
-    <div class="resume-content">
+  const head = `<div class="resume-content">
       <h4>${titleHtml}</h4>
       <div class="company">${companyHtml}</div>
       ${oneLiner}
-      ${bullets}
     </div>
-    <span class="resume-date">${item.dateRange}</span>
-  </div>`;
+    <span class="resume-date">${item.dateRange}</span>`;
+  if (!hasBullets) return `<div class="resume-item">${head}</div>`;
+  // Bullets sit behind a native <details> so the list stays compact by default
+  return `<details class="resume-item has-details">
+    <summary class="resume-summary">${head}<span class="resume-chevron" aria-hidden="true"></span></summary>
+    <div class="resume-more resume-content"><ul>${item.bullets.map(b => `<li>${b}</li>`).join('')}</ul></div>
+  </details>`;
 }
 
 function renderResumeSection(section) {
