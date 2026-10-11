@@ -254,6 +254,7 @@ h2.section-title .icon { width: 1.1em; height: 1.1em; flex: none; padding: 8px; 
 
 /* Collapsible bullets */
 details.resume-item { display: block; }
+@media (min-width: 721px) { .resume-item:not(.has-details) { padding-right: 48px; } }
 .resume-summary { display: grid; grid-template-columns: minmax(0, 1fr) auto 24px; gap: 24px; cursor: pointer; list-style: none; }
 .resume-summary::-webkit-details-marker { display: none; }
 .resume-summary:hover h4, .resume-summary:hover h4 a { color: var(--accent); }
