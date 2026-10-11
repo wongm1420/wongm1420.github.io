@@ -449,7 +449,8 @@ const SCHEMAS = {
               { key: 'company', label: 'Company / school', type: 'text' },
               { key: 'companyLink', label: 'Company link (optional)', type: 'url', optional: true },
               { key: 'oneLiner', label: 'One-liner (optional)', type: 'textarea', optional: true },
-              { key: 'bullets', label: 'Bullets', type: 'stringList' }
+              { key: 'bullets', label: 'Bullets', type: 'stringList' },
+              { key: 'endDate', label: 'End date for sorting/hiding (YYYY-MM, or "present")', type: 'text' }
             ]}
           ]}
         ],
@@ -462,7 +463,8 @@ const SCHEMAS = {
             { key: 'title', label: 'Title', type: 'text' },
             { key: 'role', label: 'Role', type: 'text' },
             { key: 'body', label: 'Body', type: 'textarea' },
-            { key: 'bullets', label: 'Bullets', type: 'stringList' }
+            { key: 'bullets', label: 'Bullets', type: 'stringList' },
+            { key: 'endDate', label: 'End date for sorting/hiding (YYYY-MM, or "present")', type: 'text' }
           ]}
         ],
         awards: [
@@ -471,7 +473,8 @@ const SCHEMAS = {
             { key: 'heading', label: 'Group heading', type: 'text' },
             { key: 'items', label: 'Awards', type: 'list', itemLabel: 'award', itemFields: [
               { key: 'text', label: 'Award text', type: 'text' },
-              { key: 'org', label: 'Org / date', type: 'text' }
+              { key: 'org', label: 'Org / date', type: 'text' },
+              { key: 'endDate', label: 'End date for sorting/hiding (YYYY-MM, or "present")', type: 'text' }
             ]}
           ]}
         ],
@@ -481,6 +484,7 @@ const SCHEMAS = {
             { key: 'meta', label: 'Meta line items', type: 'stringList' },
             { key: 'title', label: 'Title', type: 'text' },
             { key: 'body', label: 'Body', type: 'textarea' },
+            { key: 'endDate', label: 'End date for sorting/hiding (YYYY-MM, or "present")', type: 'text' },
             { key: 'links', label: 'Links', type: 'list', itemLabel: 'link', itemFields: [
               { key: 'label', label: 'Label', type: 'text' },
               { key: 'url', label: 'URL', type: 'url' },
@@ -492,7 +496,8 @@ const SCHEMAS = {
           { key: 'sectionTitle', label: 'Section title', type: 'text' },
           { key: 'items', label: 'Qualifications', type: 'list', itemLabel: 'qualification', itemFields: [
             { key: 'text', label: 'Text', type: 'text' },
-            { key: 'org', label: 'Org / date', type: 'text' }
+            { key: 'org', label: 'Org / date', type: 'text' },
+            { key: 'endDate', label: 'End date for sorting/hiding (YYYY-MM, or "present")', type: 'text' }
           ]}
         ],
         volunteering: [
@@ -503,7 +508,8 @@ const SCHEMAS = {
             { key: 'company', label: 'Organisation', type: 'text' },
             { key: 'companyLink', label: 'Organisation link (optional)', type: 'url', optional: true },
             { key: 'oneLiner', label: 'One-liner (optional)', type: 'textarea', optional: true },
-            { key: 'bullets', label: 'Bullets', type: 'stringList' }
+            { key: 'bullets', label: 'Bullets', type: 'stringList' },
+            { key: 'endDate', label: 'End date for sorting/hiding (YYYY-MM, or "present")', type: 'text' }
           ]}
         ],
         photography: [

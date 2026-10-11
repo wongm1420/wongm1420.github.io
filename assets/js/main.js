@@ -176,6 +176,61 @@ async function renderHomePage() {
 }
 
 // ── RESUME ──
+// Entries carry an ISO-ish "endDate" ("YYYY-MM" or "present"). Lists are sorted by it
+// (Present first, then later end dates, stable so ties keep their JSON order) and
+// anything that ended more than OLDER_YEARS ago sits behind a per-section button.
+const OLDER_YEARS = 3;
+
+function endKey(item) {
+  if (item.endDate === 'present') return Infinity;
+  const m = /^(\d{4})-(\d{2})$/.exec(item.endDate || '');
+  return m ? +m[1] * 12 + (+m[2] - 1) : -Infinity;
+}
+
+function isOlder(item) {
+  const m = /^(\d{4})-(\d{2})$/.exec(item.endDate || '');
+  if (!m) return false;
+  const cutoff = new Date();
+  cutoff.setFullYear(cutoff.getFullYear() - OLDER_YEARS);
+  return new Date(+m[1], +m[2], 0, 23, 59, 59) < cutoff; // last day of the end month
+}
+
+const sortByEnd = items => items.map((it, i) => [it, i])
+  .sort((a, b) => (endKey(b[0]) - endKey(a[0])) || (a[1] - b[1]) || 0)
+  .map(p => p[0]);
+
+// Renders newest-first; older entries get a `hidden` flag and the block gets a toggle button.
+function olderParts(items, renderFn) {
+  let older = 0;
+  const html = sortByEnd(items || []).map(it => {
+    const out = renderFn(it);
+    if (!isOlder(it)) return out;
+    older++;
+    return out.replace(/^<(\w+)/, '<$1 data-older hidden');
+  }).join('');
+  const button = older
+    ? `<button type="button" class="older-toggle" aria-expanded="false" data-count="${older}">Show older records (${older})</button>`
+    : '';
+  return { html, button };
+}
+
+function renderWithOlder(items, renderFn) {
+  const { html, button } = olderParts(items, renderFn);
+  return html + button;
+}
+
+function toggleOlder(btn) {
+  const open = btn.getAttribute('aria-expanded') !== 'true';
+  btn.parentElement.querySelectorAll('[data-older]').forEach(el => { el.hidden = !open; });
+  btn.setAttribute('aria-expanded', String(open));
+  btn.textContent = `${open ? 'Hide' : 'Show'} older records (${btn.dataset.count})`;
+}
+
+document.addEventListener('click', e => {
+  const btn = e.target.closest && e.target.closest('.older-toggle');
+  if (btn) toggleOlder(btn);
+});
+
 function renderResumeItem(item) {
   const titleHtml = item.titleLink
     ? `<a href="${item.titleLink}" target="_blank" rel="noopener">${item.title}</a>`
@@ -199,49 +254,72 @@ function renderResumeItem(item) {
   </details>`;
 }
 
+function renderAwardItem(a) {
+  return `<li><span class="award-dot"></span><div>${a.text}<span class="award-org">${a.org}</span></div></li>`;
+}
+
+// Award-style lists: the toggle sits after the <ul>, not inside it
+function renderAwardList(items) {
+  const { html, button } = olderParts(items, renderAwardItem);
+  return `<ul class="awards-list">${html}</ul>${button}`;
+}
+
+// Projects and publications: plain list rows, long description inside a <details>
+function renderProjectItem(p) {
+  const bullets = (p.bullets || []).length ? `<ul>${p.bullets.map(b => `<li>${b}</li>`).join('')}</ul>` : '';
+  return `<details class="resume-item has-details">
+    <summary class="resume-summary"><div class="resume-content">
+      <h4>${p.title}</h4>
+      <div class="company">${p.org}</div>
+      <p class="one-liner">${p.role}</p>
+    </div>
+    <span class="resume-date">${p.dateRange}</span><span class="resume-chevron" aria-hidden="true"></span></summary>
+    <div class="resume-more resume-content"><p>${p.body}</p>${bullets}</div>
+  </details>`;
+}
+
+function renderPublicationItem(pub) {
+  const links = (pub.links || []).map(l => `<a href="${l.url}" target="_blank" rel="noopener" class="pub-link ${l.style}">${l.label}</a>`).join('');
+  return `<details class="resume-item has-details pub-item">
+    <summary class="resume-summary"><div class="resume-content">
+      <h4>${pub.title}</h4>
+      <div class="company">${(pub.meta || []).join(' &middot; ')}</div>
+      ${links ? `<div class="pub-links">${links}</div>` : ''}
+    </div><span class="resume-chevron" aria-hidden="true"></span></summary>
+    <div class="resume-more resume-content"><p>${pub.body}</p></div>
+  </details>`;
+}
+
 function renderResumeSection(section) {
   switch (section.type) {
     case 'resume':
       // The page <h1> already says "Resume"; keep an h2 for outline order but hide it visually
       return `<section id="${section.id}"><h2 class="sr-only">${section.sectionTitle}</h2>` +
-        (section.blocks || []).map(b => `<div class="resume-block"${b.id ? ` id="${b.id}"` : ''}>${blockHeadingHtml(b)}${(b.items || []).map(renderResumeItem).join('')}</div>`).join('') +
+        (section.blocks || []).map(b => `<div class="resume-block"${b.id ? ` id="${b.id}"` : ''}>${blockHeadingHtml(b)}${renderWithOlder(b.items, renderResumeItem)}</div>`).join('') +
         `</section>`;
     case 'projectsSummary':
       return `<section id="${section.id}">${sectionTitleHtml(section)}
         ${section.note ? `<p class="section-note">${section.note}</p>` : ''}
-        ${(section.items || []).map(p => `
-          <div class="project-card">
-            <div class="project-meta"><span class="project-date">${p.dateRange}</span><span>${p.org}</span></div>
-            <h3>${p.title}</h3>
-            <div class="project-org">${p.role}</div>
-            <p>${p.body}</p>
-            <ul>${(p.bullets || []).map(b => `<li>${b}</li>`).join('')}</ul>
-          </div>`).join('')}
+        <div class="resume-block">${renderWithOlder(section.items, renderProjectItem)}</div>
       </section>`;
     case 'awards':
       return `<section id="${section.id}">${sectionTitleHtml(section)}
         ${(section.groups || []).map(g => `
           <div class="resume-block">${blockHeadingHtml(g)}
-            <ul class="awards-list">${(g.items || []).map(a => `<li><span class="award-dot"></span><div>${a.text}<span class="award-org">${a.org}</span></div></li>`).join('')}</ul>
+            ${renderAwardList(g.items)}
           </div>`).join('')}
       </section>`;
     case 'publications':
       return `<section id="${section.id}">${sectionTitleHtml(section)}
-        ${(section.items || []).map(pub => `
-          <div class="pub-card">
-            <div class="pub-meta">${(pub.meta || []).map(m => `<span>${m}</span>`).join('')}</div>
-            <h3>${pub.title}</h3>
-            <p>${pub.body}</p>
-            <div class="pub-links">${(pub.links || []).map(l => `<a href="${l.url}" target="_blank" rel="noopener" class="pub-link ${l.style}">${l.label}</a>`).join('')}</div>
-          </div>`).join('')}
+        <div class="resume-block">${renderWithOlder(section.items, renderPublicationItem)}</div>
       </section>`;
     case 'qualifications':
       return `<section id="${section.id}">${sectionTitleHtml(section)}
-        <ul class="awards-list">${(section.items || []).map(a => `<li><span class="award-dot"></span><div>${a.text}<span class="award-org">${a.org}</span></div></li>`).join('')}</ul>
+        <div class="resume-block">${renderAwardList(section.items)}</div>
       </section>`;
     case 'volunteering':
       return `<section id="${section.id}">${sectionTitleHtml(section)}
-        <div class="resume-block">${(section.items || []).map(renderResumeItem).join('')}</div>
+        <div class="resume-block">${renderWithOlder(section.items, renderResumeItem)}</div>
       </section>`;
     case 'photography':
       return `<section id="${section.id}">${sectionTitleHtml(section)}
