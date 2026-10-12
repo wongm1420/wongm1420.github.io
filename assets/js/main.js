@@ -36,16 +36,63 @@ async function fetchJSON(path) {
   }
 }
 
+// ── ICONS (inline SVG, keyed by "icon" in resume.json) ──
+const ICONS = {
+  file: '<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/>',
+  education: '<path d="M22 10 12 5 2 10l10 5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/>',
+  briefcase: '<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/>',
+  users: '<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M18 14.4c2.1.7 3.5 2.6 3.5 5.6"/>',
+  rocket: '<path d="M5 15c-1.5 1.3-2 5-2 5s3.7-.5 5-2M12 15l-3-3a22 22 0 0 1 8-9 12 12 0 0 1 4 .1 12 12 0 0 1 .1 4 22 22 0 0 1-9 8z"/><circle cx="15" cy="9" r="1.5"/>',
+  trophy: '<path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0zM7 6H4v1a3 3 0 0 0 3 3M17 6h3v1a3 3 0 0 1-3 3"/>',
+  book: '<path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zM4 19a2 2 0 0 1 2-2h13"/>',
+  badge: '<circle cx="12" cy="9" r="6"/><path d="m8.5 14.5-1.5 6.5 5-3 5 3-1.5-6.5"/>',
+  heart: '<path d="M12 20s-8-4.7-8-10.5A4.5 4.5 0 0 1 12 7a4.5 4.5 0 0 1 8 2.5C20 15.3 12 20 12 20z"/>',
+  camera: '<path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/>'
+};
+
+function iconSvg(name) {
+  const body = ICONS[name];
+  return body
+    ? `<svg class="icon" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${body}</svg>`
+    : '';
+}
+
+function sectionTitleHtml(section) {
+  return `<h2 class="section-title">${iconSvg(section.icon)}<span>${section.sectionTitle}</span></h2>`;
+}
+
+function blockHeadingHtml(block) {
+  return `<h3 class="block-heading">${iconSvg(block.icon)}<span>${block.heading}</span></h3>`;
+}
+
+// Entries for the Resume dropdown in the header: sub-blocks of the main
+// resume section first, then every other resume section.
+function resumeNavItems(resume) {
+  const items = [];
+  (resume.sections || []).forEach(s => {
+    if (s.type === 'resume') {
+      (s.blocks || []).forEach(b => b.id && items.push({ id: b.id, label: b.heading }));
+    } else {
+      items.push({ id: s.id, label: s.sectionTitle });
+    }
+  });
+  return items;
+}
+
 // ── HEADER + FOOTER (every page) ──
-function renderChrome(site) {
+function renderChrome(site, resume) {
   if (!site) return;
   const current = location.pathname.split('/').pop() || 'index.html';
 
   const header = document.getElementById('header-mount');
   if (header) {
-    const navHtml = (site.nav || []).map(n =>
-      `<li><a href="${n.href}"${n.href === current ? ' aria-current="page"' : ''}>${n.label}</a></li>`
-    ).join('');
+    const subItems = resume ? resumeNavItems(resume) : [];
+    const navHtml = (site.nav || []).map(n => {
+      const link = `<a href="${n.href}"${n.href === current ? ' aria-current="page"' : ''}>${n.label}</a>`;
+      if (n.href !== 'resume.html' || !subItems.length) return `<li>${link}</li>`;
+      const sub = subItems.map(i => `<li><a href="resume.html#${i.id}">${i.label}</a></li>`).join('');
+      return `<li class="has-sub">${link}<button class="sub-toggle" aria-expanded="false" aria-label="Show resume sections"></button><ul class="subnav">${sub}</ul></li>`;
+    }).join('');
     header.innerHTML = `<div class="header-inner">
       <a class="brand" href="index.html">${site.name}</a>
       <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
@@ -56,6 +103,12 @@ function renderChrome(site) {
     toggle.addEventListener('click', () => {
       const open = nav.classList.toggle('open');
       toggle.setAttribute('aria-expanded', String(open));
+    });
+    header.querySelectorAll('.sub-toggle').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const open = btn.parentElement.classList.toggle('sub-open');
+        btn.setAttribute('aria-expanded', String(open));
+      });
     });
   }
 
@@ -123,69 +176,154 @@ async function renderHomePage() {
 }
 
 // ── RESUME ──
+// Entries carry an ISO-ish "endDate" ("YYYY-MM" or "present"). Lists are sorted by it
+// (Present first, then later end dates, stable so ties keep their JSON order) and
+// anything that ended more than OLDER_YEARS ago (or is flagged "older": true) sits behind a per-section button.
+const OLDER_YEARS = 3;
+
+function endKey(item) {
+  if (item.endDate === 'present') return Infinity;
+  const m = /^(\d{4})-(\d{2})$/.exec(item.endDate || '');
+  return m ? +m[1] * 12 + (+m[2] - 1) : -Infinity;
+}
+
+function isOlder(item) {
+  if (item.older === true) return true;
+  const m = /^(\d{4})-(\d{2})$/.exec(item.endDate || '');
+  if (!m) return false;
+  const cutoff = new Date();
+  cutoff.setFullYear(cutoff.getFullYear() - OLDER_YEARS);
+  return new Date(+m[1], +m[2], 0, 23, 59, 59) < cutoff; // last day of the end month
+}
+
+const sortByEnd = items => items.map((it, i) => [it, i])
+  .sort((a, b) => (endKey(b[0]) - endKey(a[0])) || (a[1] - b[1]) || 0)
+  .map(p => p[0]);
+
+// Renders newest-first; older entries get a `hidden` flag and the block gets a toggle button.
+function olderParts(items, renderFn) {
+  let older = 0;
+  const html = sortByEnd(items || []).map(it => {
+    const out = renderFn(it);
+    if (!isOlder(it)) return out;
+    older++;
+    return out.replace(/^<(\w+)/, '<$1 data-older hidden');
+  }).join('');
+  const button = older
+    ? `<button type="button" class="older-toggle" aria-expanded="false" data-count="${older}">Show older records (${older})</button>`
+    : '';
+  return { html, button };
+}
+
+function renderWithOlder(items, renderFn) {
+  const { html, button } = olderParts(items, renderFn);
+  return html + button;
+}
+
+function toggleOlder(btn) {
+  const open = btn.getAttribute('aria-expanded') !== 'true';
+  btn.parentElement.querySelectorAll('[data-older]').forEach(el => { el.hidden = !open; });
+  btn.setAttribute('aria-expanded', String(open));
+  btn.textContent = `${open ? 'Hide' : 'Show'} older records (${btn.dataset.count})`;
+}
+
+document.addEventListener('click', e => {
+  const btn = e.target.closest && e.target.closest('.older-toggle');
+  if (btn) toggleOlder(btn);
+});
+
 function renderResumeItem(item) {
   const titleHtml = item.titleLink
     ? `<a href="${item.titleLink}" target="_blank" rel="noopener">${item.title}</a>`
     : item.title;
-  const bullets = (item.bullets || []).length
-    ? `<ul>${item.bullets.map(b => `<li>${b}</li>`).join('')}</ul>` : '';
+  const hasBullets = (item.bullets || []).length > 0;
   const oneLiner = item.oneLiner ? `<p class="one-liner">${item.oneLiner}</p>` : '';
-  return `<div class="resume-item">
-    <span class="resume-date">${item.dateRange}</span>
-    <div class="resume-content">
+  const companyHtml = item.companyLink
+    ? `<a href="${item.companyLink}" target="_blank" rel="noopener">${item.company}</a>`
+    : item.company;
+  const head = `<div class="resume-content">
       <h4>${titleHtml}</h4>
-      <div class="company">${item.company}</div>
+      <div class="company">${companyHtml}</div>
       ${oneLiner}
-      ${bullets}
     </div>
-  </div>`;
+    <span class="resume-date">${item.dateRange}</span>`;
+  if (!hasBullets) return `<div class="resume-item">${head}</div>`;
+  // Bullets sit behind a native <details> so the list stays compact by default
+  return `<details class="resume-item has-details">
+    <summary class="resume-summary">${head}<span class="resume-chevron" aria-hidden="true"></span></summary>
+    <div class="resume-more resume-content"><ul>${item.bullets.map(b => `<li>${b}</li>`).join('')}</ul></div>
+  </details>`;
+}
+
+function renderAwardItem(a) {
+  return `<li><span class="award-dot"></span><div>${a.text}<span class="award-org">${a.org}</span></div></li>`;
+}
+
+// Award-style lists: the toggle sits after the <ul>, not inside it
+function renderAwardList(items) {
+  const { html, button } = olderParts(items, renderAwardItem);
+  return `<ul class="awards-list">${html}</ul>${button}`;
+}
+
+// Projects and publications: plain list rows, long description inside a <details>
+function renderProjectItem(p) {
+  const bullets = (p.bullets || []).length ? `<ul>${p.bullets.map(b => `<li>${b}</li>`).join('')}</ul>` : '';
+  return `<details class="resume-item has-details">
+    <summary class="resume-summary"><div class="resume-content">
+      <h4>${p.title}</h4>
+      <div class="company">${p.org}</div>
+      <p class="one-liner">${p.role}</p>
+    </div>
+    <span class="resume-date">${p.dateRange}</span><span class="resume-chevron" aria-hidden="true"></span></summary>
+    <div class="resume-more resume-content"><p>${p.body}</p>${bullets}</div>
+  </details>`;
+}
+
+function renderPublicationItem(pub) {
+  const links = (pub.links || []).map(l => `<a href="${l.url}" target="_blank" rel="noopener" class="pub-link ${l.style}">${l.label}</a>`).join('');
+  return `<details class="resume-item has-details pub-item">
+    <summary class="resume-summary"><div class="resume-content">
+      <h4>${pub.title}</h4>
+      <div class="company">${(pub.meta || []).join(' &middot; ')}</div>
+      ${links ? `<div class="pub-links">${links}</div>` : ''}
+    </div><span class="resume-chevron" aria-hidden="true"></span></summary>
+    <div class="resume-more resume-content"><p>${pub.body}</p></div>
+  </details>`;
 }
 
 function renderResumeSection(section) {
   switch (section.type) {
     case 'resume':
-      return `<section id="${section.id}"><p class="section-title">${section.sectionTitle}</p>` +
-        (section.blocks || []).map(b => `<div class="resume-block"><h3>${b.heading}</h3>${(b.items || []).map(renderResumeItem).join('')}</div>`).join('') +
+      // The page <h1> already says "Resume"; keep an h2 for outline order but hide it visually
+      return `<section id="${section.id}"><h2 class="sr-only">${section.sectionTitle}</h2>` +
+        (section.blocks || []).map(b => `<div class="resume-block"${b.id ? ` id="${b.id}"` : ''}>${blockHeadingHtml(b)}${renderWithOlder(b.items, renderResumeItem)}</div>`).join('') +
         `</section>`;
     case 'projectsSummary':
-      return `<section id="${section.id}"><p class="section-title">${section.sectionTitle}</p>
-        ${section.note ? `<p style="font-size:0.85rem; color:var(--muted); margin-bottom:20px;">${section.note}</p>` : ''}
-        ${(section.items || []).map(p => `
-          <div class="project-card">
-            <div class="project-meta"><span class="project-date">${p.dateRange}</span><span>${p.org}</span></div>
-            <h3>${p.title}</h3>
-            <div class="project-org">${p.role}</div>
-            <p>${p.body}</p>
-            <ul>${(p.bullets || []).map(b => `<li>${b}</li>`).join('')}</ul>
-          </div>`).join('')}
+      return `<section id="${section.id}">${sectionTitleHtml(section)}
+        ${section.note ? `<p class="section-note">${section.note}</p>` : ''}
+        <div class="resume-block">${renderWithOlder(section.items, renderProjectItem)}</div>
       </section>`;
     case 'awards':
-      return `<section id="${section.id}"><p class="section-title">${section.sectionTitle}</p>
+      return `<section id="${section.id}">${sectionTitleHtml(section)}
         ${(section.groups || []).map(g => `
-          <div class="resume-block"><h3>${g.heading}</h3>
-            <ul class="awards-list">${(g.items || []).map(a => `<li><span class="award-dot"></span><div>${a.text}<span class="award-org">${a.org}</span></div></li>`).join('')}</ul>
+          <div class="resume-block">${blockHeadingHtml(g)}
+            ${renderAwardList(g.items)}
           </div>`).join('')}
       </section>`;
     case 'publications':
-      return `<section id="${section.id}"><p class="section-title">${section.sectionTitle}</p>
-        ${(section.items || []).map(pub => `
-          <div class="pub-card">
-            <div class="pub-meta">${(pub.meta || []).map(m => `<span>${m}</span>`).join('')}</div>
-            <h3>${pub.title}</h3>
-            <p>${pub.body}</p>
-            <div class="pub-links">${(pub.links || []).map(l => `<a href="${l.url}" target="_blank" rel="noopener" class="pub-link ${l.style}">${l.label}</a>`).join('')}</div>
-          </div>`).join('')}
+      return `<section id="${section.id}">${sectionTitleHtml(section)}
+        <div class="resume-block">${renderWithOlder(section.items, renderPublicationItem)}</div>
       </section>`;
     case 'qualifications':
-      return `<section id="${section.id}"><p class="section-title">${section.sectionTitle}</p>
-        <ul class="awards-list">${(section.items || []).map(a => `<li><span class="award-dot"></span><div>${a.text}<span class="award-org">${a.org}</span></div></li>`).join('')}</ul>
+      return `<section id="${section.id}">${sectionTitleHtml(section)}
+        <div class="resume-block">${renderAwardList(section.items)}</div>
       </section>`;
     case 'volunteering':
-      return `<section id="${section.id}"><p class="section-title">${section.sectionTitle}</p>
-        <div class="resume-block">${(section.items || []).map(renderResumeItem).join('')}</div>
+      return `<section id="${section.id}">${sectionTitleHtml(section)}
+        <div class="resume-block">${renderWithOlder(section.items, renderResumeItem)}</div>
       </section>`;
     case 'photography':
-      return `<section id="${section.id}"><p class="section-title">${section.sectionTitle}</p>
+      return `<section id="${section.id}">${sectionTitleHtml(section)}
         <div class="photo-section">
           <div><h3>${section.heading}</h3><p>${section.body}</p></div>
           <div>${(section.links || []).map(l => `<a href="${l.url}" target="_blank" rel="noopener" class="photo-link">${l.label}</a>`).join(' ')}</div>
@@ -202,8 +340,9 @@ async function renderResumePage() {
   const resume = await fetchJSON('assets/data/resume.json');
   if (!resume) return;
 
-  const jumpNavHtml = (resume.sections || []).map(s =>
-    `<a href="#${s.id}">${s.sectionTitle}</a>`
+  // Same entries as the header's Resume sub-menu, so the two navs always agree
+  const jumpNavHtml = resumeNavItems(resume).map(n =>
+    `<a href="#${n.id}">${n.label}</a>`
   ).join('');
 
   mount.innerHTML = `
@@ -387,8 +526,11 @@ async function renderWritingPage() {
 }
 
 async function renderPage() {
-  const site = await fetchJSON('assets/data/site.json');
-  renderChrome(site);
+  const [site, resume] = await Promise.all([
+    fetchJSON('assets/data/site.json'),
+    fetchJSON('assets/data/resume.json')
+  ]);
+  renderChrome(site, resume);
 
   const page = document.body.dataset.page;
   if (page === 'home') await renderHomePage();
@@ -400,3 +542,12 @@ async function renderPage() {
 }
 
 document.addEventListener('DOMContentLoaded', renderPage);
+
+// Header: show the bottom edge only once content scrolls beneath it
+(function () {
+  const header = document.querySelector('.site-header');
+  if (!header) return;
+  const update = () => header.classList.toggle('scrolled', window.scrollY > 4);
+  update();
+  window.addEventListener('scroll', update, { passive: true });
+})();
