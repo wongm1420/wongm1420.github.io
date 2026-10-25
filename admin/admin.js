@@ -26,6 +26,11 @@ async function ghRequest(path, method = 'GET', body) {
     body: body ? JSON.stringify(body) : undefined
   });
   if (res.status === 404) return null;
+  if (res.status === 401) {
+    const e = new Error('GitHub rejected the saved token (expired, revoked or mistyped).');
+    e.authFailed = true;
+    throw e;
+  }
   if (!res.ok) {
     const text = await res.text().catch(() => '');
     throw new Error(`GitHub API ${method} ${path} failed: ${res.status} ${text}`);
@@ -686,7 +691,15 @@ async function refreshDraftStatus() {
       statusEl.classList.add('dirty');
     }
   } catch (err) {
-    statusEl.textContent = 'Could not check draft status';
+    if (err.authFailed) {
+      clearToken();
+      alert(err.message + ' Please sign in again with a new token.');
+      location.reload();
+      return;
+    }
+    statusEl.textContent = 'Could not check draft status: ' + err.message.slice(0, 200);
+    statusEl.title = err.message;
+    console.error('Draft status check failed', err);
   }
 }
 
