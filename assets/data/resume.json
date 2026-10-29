@@ -141,6 +141,19 @@
           "icon": "users",
           "items": [
             {
+              "dateRange": "Oct 2026 – Present",
+              "title": "Global Shaper",
+              "titleLink": null,
+              "company": "Global Shapers Community Hong Kong (GSCHK)",
+              "companyLink": "https://www.globalshapers.org/hubs/hong-kong-hub",
+              "oneLiner": "Selected through a competitive group-interview process to join the Hong Kong Hub of the Global Shapers Community, the World Economic Forum's network of young leaders under 30 working on local and global challenges.",
+              "bullets": [
+                "Completing a six-month probation programme (Nov 2026 – Apr 2027) built around collective impact",
+                "Forming a project group with fellow probationers to design, pitch and present a community project to a panel of judges, with a mid-probation pitch in Jan 2027 and a final pitch in Apr 2027"
+              ],
+              "endDate": "present"
+            },
+            {
               "dateRange": "Sep 2026 – Present",
               "title": "Student Consultant",
               "titleLink": null,
