@@ -5,6 +5,12 @@
   "essays": [],
   "linkedin": [
     {
+      "id": "newpost202611",
+      "date": "NOV 2026",
+      "caption": "New LinkedIn Post",
+      "embedHtml": "<iframe src=\"https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7531267000493359104?collapsed=1\" height=\"594\" width=\"504\" frameborder=\"0\" allowfullscreen=\"\" title=\"Embedded post\"></iframe>"
+    },
+    {
       "id": "zesterhkuworkshop",
       "date": "SEP 2026",
       "caption": "Zester x HKU Common Core Workshop",
